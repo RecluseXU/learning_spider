@@ -2,13 +2,14 @@ import urllib.request
 import urllib.parse
 import string
 
+
 # 此处其实已经并不能得到正常的网页了，原因有很多
 # 1. urllib并不能这样直接搞 https 还需要ssl辅助
 # 2. 百度有反爬虫，没伪装成浏览器，就莫得。
 def load_data():
     url = "http://www.baidu.com/s?wd="
     para = "找工作"
- 
+
     final_url = url+para
     print(final_url)
 
@@ -23,6 +24,7 @@ def load_data():
     str_data = data.decode("utf-8")
     print(str_data)
     return str_data
+
 
 data = load_data()
 with open("python/urllib/spider_resoult/02.html", "w") as f:

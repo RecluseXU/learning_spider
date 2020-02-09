@@ -1,5 +1,6 @@
 import urllib.request
 
+
 def load_data():
     url = "http://www.baidu.com/"
     # get 请求
@@ -16,9 +17,10 @@ def load_data():
     # bytes->str  decode
     str_data = data.decode("utf-8")
     print(str_data)
-    
+
     return str_data
 
+
 data = load_data()
-with open("python/urllib/spider_resoult/01.html", "w") as f:
+with open("urllib/spider_resoult/01.html", "w") as f:
     f.write(data)

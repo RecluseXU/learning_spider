@@ -30,6 +30,7 @@ print("\n\n", result)
 #       第一个项序号并不是0, 而是1
 result = xpath_data.xpath('/html/body/div[1]/ul/li[3]/a/text()')
 print("\n\n", result)
+#   浏览器分析的时候可以直接选择元素来复制xpath路径，可以将同类型的东西抓几个下来分析。
 
 if(data is not None):
     location = "requests/spider_resoult/13.html"

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   main.py
-@Time    :   2020/07/23 12:25:37
+@File    :   spider.py
+@Time    :   2020年7月25日23:27:28
 @Author  :   Recluse Xu
-@Version :   1.0
+@Version :   1.1
 @Contact :   444640050@qq.com
 '''
 
@@ -68,16 +68,17 @@ def get_info(html: str):
         sorce=float(i[6]+i[7])) for i in z]
 
 
-def crawl_top_100():
+def crawl_maoyan_top_100():
     result = []
     for page_num in range(0, 10):
         html = get_a_page(page_num)
         result.extend(get_info(html))
         print(page_num)
-    with open('example/简单_猫眼电影排行榜/result.txt', 'w', encoding='utf-8')as f:
-        for film in result:
-            f.write(json.dumps(film.to_dict(), ensure_ascii=False) + '\n')
+    return result
 
 
 if __name__ == "__main__":
-    crawl_top_100()
+    result = crawl_maoyan_top_100()
+    with open('example/简单_猫眼电影排行榜/result.txt', 'w', encoding='utf-8')as f:
+        for film in result:
+            f.write(json.dumps(film.to_dict(), ensure_ascii=False) + '\n')

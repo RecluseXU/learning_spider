@@ -1,0 +1,2 @@
+环境下scrapy.exe路径
+F:\Environment\Python\envs\learn_spider\Scripts\scrapy

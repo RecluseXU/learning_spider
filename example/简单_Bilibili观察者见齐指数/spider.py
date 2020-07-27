@@ -14,6 +14,7 @@
 from datetime import datetime, timedelta
 import math
 import requests
+from requests.exceptions import RequestException
 import json
 
 
@@ -31,7 +32,7 @@ def _crawl_jannchie_index(keyword: str):
     try:
         response = requests.get(url=url, headers=headers, params=params)
         return response.json()['data']
-    except Exception as e:
+    except RequestException as e:
         print(e)
 
 

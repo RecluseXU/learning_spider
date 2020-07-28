@@ -11,9 +11,9 @@
 # here put the import lib
 import os
 from selenium import webdriver
-from auto_dl_chrome_webdriver import check_chrome_version, dl_chrome_webdriver
+from ..selenium.auto_dl_chrome_webdriver import check_chrome_version, dl_chrome_webdriver
 
-selenium_webdriver_location = 'util/selenium/selenium_webdriver'
+selenium_webdriver_location = 'my_util/selenium/selenium_webdriver'
 
 
 def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=False):

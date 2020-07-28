@@ -12,11 +12,15 @@
 # here put the import lib
 import winreg
 import requests
+from requests.exceptions import RequestException
 import xml.etree.cElementTree as ET
 import difflib
 import operator
 import zipfile
 import os
+
+
+requests.adapters.DEFAULT_RETRIES = 5
 
 
 def check_chrome_version() -> str:
@@ -53,12 +57,17 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
 
     # webdriver版本页
     sess = requests.session()
+    sess.keep_alive = False
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0',
         'Host': 'chromedriver.storage.googleapis.com',
         }
     url = 'http://chromedriver.storage.googleapis.com/?delimiter=/&prefix='
-    response = sess.get(url, headers=headers)
+    try:
+        response = sess.get(url, headers=headers)
+    except RequestException as e:
+        print(e)
+
     xml_info = response.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", '')
     print('解析chrome webdriver版本信息')
     aim_webdriver_version, wd_confidence_degree = _get_most_similar_element(xml_info, './CommonPrefixes/Prefix', my_chrome_version)
@@ -66,7 +75,11 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
 
     # os版本页
     url = 'http://chromedriver.storage.googleapis.com/?delimiter=/&prefix=' + aim_webdriver_version.text
-    response = sess.get(url, headers=headers)
+    try:
+        response = sess.get(url, headers=headers)
+    except RequestException as e:
+        print(e)
+
     xml_info = response.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", '')
     print('解析chrome webdriver os 信息')
     aim_os_version, os_confidence_degree = _get_most_similar_element(xml_info, './Contents/Key', 'win')
@@ -75,14 +88,20 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
     # 下载webdriver
     print('下载chrome webdriver')
     url = 'http://chromedriver.storage.googleapis.com/' + aim_os_version.text
-    response = sess.get(url, headers=headers)
+    try:
+        response = sess.get(url, headers=headers)
+    except RequestException as e:
+        print(e)
+
     with open('dl_chrome_webdiver.zip', 'wb')as f:
         f.write(response.content)
+
     # 解压
     print('解压下载的压缩包')
     zip_file = zipfile.ZipFile('dl_chrome_webdiver.zip')
     zip_file.extractall(lib_location)
     zip_file.close()
+
     # 删除压缩包
     print('清理下载')
     os.remove("dl_chrome_webdiver.zip")

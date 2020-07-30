@@ -21,15 +21,9 @@ app = Flask(__name__)
 tool_function = {}
 
 
-def set_tool_function(key, func):
-    '''设置一些工具函数'''
-    tool_function[key] = func
-
-
-
 @app.route('/LearningSpider', methods=['GET'])
-def hot_index():
-    return render_template('index.html')
+def index():
+    return render_template('/index/index.html')
 
 
 @app.route('/ui-elements.html', methods=['GET'])
@@ -44,6 +38,17 @@ def popularity_estimated():
 
 '''AJAX'''
 '''页面相关'''
+@app.route('/api', methods=['GET'])
+def api():
+    pass
+
+
+@app.route('/api/MainMenu', methods=['GET'])
+def get_MainMenu_api():
+    block = request.args.get("Block")
+    return render_template(block + '/main_menu.json')
+
+
 @app.route('/ajax-get-inner', methods=['GET'])
 def inner_popularity_estimated():
     keyword = request.args.get("keyword")
@@ -55,23 +60,6 @@ def inner_popularity_estimated():
 
 '''数据相关'''
 
-
-@app.route('/ajax-get-baiduindex', methods=['GET'])
-def get_baidu_index():
-    keyword = request.args.get("keyword")
-    return tool_function['get_baiduindex'](keyword)
-
-
-@app.route('/ajax-get-jannchieindex', methods=['GET'])
-def get_jannchie_index():
-    keyword = request.args.get("keyword")
-    return tool_function['get_jannchieindex'](keyword)
-
-
-@app.route('/ajax-get-steamindex', methods=['GET'])
-def get_steam_index():
-    keyword = request.args.get("keyword")
-    return tool_function['get_steamindex'](keyword)
 
 
 def run(debug=False):

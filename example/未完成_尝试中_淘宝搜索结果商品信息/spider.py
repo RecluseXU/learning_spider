@@ -77,22 +77,11 @@ def get_the_info(html: str):
     return result, page_num, have_next_page
 
 
-
-
 def operations(webdriver, keyword: str, page_num=0):
     result = []
     wait = WebDriverWait(webdriver, 20)
-    webdriver.get('https://www.taobao.com/')
-    keyword_input = wait.until(
-        EC.presence_of_element_located((By.ID, 'q')))
-    keyword_input.send_keys('keyword')
-    searching_button = wait.until(
-        EC.presence_of_element_located((By.XPATH, '//*[@id="J_TSearchForm"]/div[1]/button')))
-    searching_button.click()
 
-
-
-    # webdriver.get('https://s.taobao.com/search?q=' + quote(keyword))
+    webdriver.get('https://s.taobao.com/search?q=' + quote(keyword))
     page_max_num = wait.until(
         EC.element_located_to_be_selected((By.XPATH, '//div[@id="mainsrp-pager"]//ul/li[@class="item active"]/span')))
     page_max_num = re.findall('([0-9]+)', page_max_num.text)[0]
@@ -110,7 +99,7 @@ def operations(webdriver, keyword: str, page_num=0):
 
         html = webdriver.page_source()
         info, page_num, have_next_page = get_the_info(html)
-        print('正在爬取第', page_num,'页')
+        print('正在爬取第{page_num}页')
 
         result.extend(info)
 

@@ -1,0 +1,10 @@
+{
+    "Data":{
+        "0":{
+            "ID":"SiteInfo",
+            "IconClass":"fa fa-dashboard",
+            "Text":"基本信息",
+            "OnClick":"change_inner('SiteInfo')"
+            }
+        }
+}

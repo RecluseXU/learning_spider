@@ -11,8 +11,9 @@
 
 ## 已完成的内容 - 目前进度估计 1%
 
+## 爬虫案例  
 <table>
-    <tr><th colspan="5">爬虫案例</th></tr>
+    <tr><th colspan="5">案例列表</th></tr>
     <tr>
         <th>难度</th>
         <th>内容</th>
@@ -28,7 +29,7 @@
         <td></td>
     </tr>
     <tr>
-        <td rowspan="4">简单</td>
+        <td rowspan="5">简单</td>
         <td>猫眼电影排行榜top100</td>
         <td>静态网页</td>
         <td>模拟http</td>
@@ -52,8 +53,15 @@
         <td>模拟http</td>
         <td>被逻辑加密/压缩的 指数数据 的还原</td>
     </tr>
+    <tr>
+        <td>最简单的滑块验证码</td>
+        <td>动态网页</td>
+        <td>模拟浏览器</td>
+        <td>滑块移动</td>
+    </tr>
 </table>
 
+## 工具/脚本制造  
 <table>
     <tr><th colspan="4">工具/脚本制造</th></tr>
     <tr>
@@ -68,13 +76,34 @@
     </tr>
 </table>
 
+## 基础练习网站  
+<table>
+    <th colspan="4">案例</th>
+    <tr>
+        <th>类型</th>
+        <th>难度</th>
+        <th>名称</th>
+        <th>信息</th>
+    </tr>
+    <tr>
+        <td>滑块验证</d>
+        <td>简单</td>
+        <td>最简单的滑块验证</td>
+        <td>只要拖动滑块，滑到尽头就可以通过，不存在任何检测</td>
+    </tr>
+</table>
 
 <table>
-    <tr><th colspan="4">爬虫基础练习网站</th></tr>
+    <tr><th colspan="4">技术应用</th></tr>
     <tr>
         <th></th>
         <th>使用</th>
         <th>信息</th>
+    </tr>
+    <tr>
+        <td>规范</td>
+        <td>RESTful</td>
+        <td>规范的API，规范的响应</td>
     </tr>
     <tr>
         <td rowspan="4">前端</td>
@@ -99,7 +128,7 @@
         <td>免费的前端开源项目 CDN 加速服务</td>
     </tr>
     <tr>
-        <td>后端</td>
+        <td rowspan="4">后端</td>
         <td>Flask 1.1.2</td>
         <td>Python轻量级web框架</td>
     </tr>

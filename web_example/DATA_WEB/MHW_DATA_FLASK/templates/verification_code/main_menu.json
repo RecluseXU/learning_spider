@@ -1,0 +1,11 @@
+{
+    "items": {
+        "0": {
+            "ID": "SiteInfo",
+            "Type": "slider",
+            "IconClass": "fa fa-dashboard",
+            "Text": "基本信息",
+            "OnClick": "change_inner('index_info')"
+        }
+    }
+}

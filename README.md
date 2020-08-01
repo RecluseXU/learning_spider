@@ -64,8 +64,46 @@
     <tr>
         <td>Selenium</td>
         <td>Auto DL ChromeWebDriver</td>
-        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行</td>
+        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上找一个docker Image，然后部署上)</td>
     </tr>
+</table>
+
+
+<table>
+    <tr><th colspan="4">爬虫基础练习网站</th></tr>
+    <tr>
+        <th></th>
+        <th>使用</th>
+        <th>信息</th>
+    </tr>
+    <tr>
+        <td rowspan="4">前端</td>
+        <td>JQuery 2.2.4</td>
+        <td>一个快速、简洁的JavaScript框架</td>
+    </tr>
+    <tr>
+        <td>twitter-bootstrap 3.4.1</td>
+        <td>Twitter推出的一个用于前端开发的开源工具包</td>
+    </tr>
+    <tr>
+        <td>font-awesome 4.7.0</td>
+        <td>一套图标字体库和CSS框架</td>
+    </tr>
+    <tr>
+        <td>metisMenu 3.0.6</td>
+        <td>Vanilla-JS 折叠菜单插件</td>
+    </tr>
+    <tr>
+        <td>CDN</td>
+        <td>bootcdn.cn</td>
+        <td>免费的前端开源项目 CDN 加速服务</td>
+    </tr>
+    <tr>
+        <td>后端</td>
+        <td>Flask 1.1.2</td>
+        <td>Python轻量级web框架</td>
+    </tr>
+
 </table>
 
 

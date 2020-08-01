@@ -1,0 +1,111 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>木大木大 VS 欧拉欧拉</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'>
+
+    <!-- <link href="https://cdn.bootcdn.net/ajax/libs/materialize/0.97.8/css/materialize.min.css" rel="stylesheet"> -->
+    <link href="{{ url_for('static',filename='materialize/css/materialize.min.css') }}" media="screen,projection"
+        rel="stylesheet" type='text/css' />
+
+    <!-- Bootstrap Styles-->
+    <!-- <link href="{{ url_for('static',filename='css/bootstrap.css') }}" rel="stylesheet" /> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Styles-->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Morris Chart Styles-->
+    <!-- <link href="https://cdn.bootcdn.net/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet"> -->
+    <!-- Custom Styles-->
+    <link href="{{ url_for('static',filename='css/custom-styles.css') }}" rel="stylesheet">
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' />
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='js/Lightweight-Chart/cssCharts.css') }}"> -->
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
+                    data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-dark">
+                    <i class="large material-icons">polymer</i> <strong id="block" name="Index">首页</strong></a>
+
+                <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li><a class="waves-effect waves-dark" href="https://github.com/RecluseXU/learning_spider" target="_blank">
+                    <i class="fa fa-github fa-fw"></i></i> <b>Github</b></a></li>
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="info_circle_dropdown">
+                        <i class="fa fa-info-circle fa-fw"></i><b>Info</b>
+                        <i class="material-icons right">arrow_drop_down</i></a></li>
+            </ul>
+        </nav>
+        <!-- Dropdown Structure -->
+        <ul id="block_dropdown" class="dropdown-content">
+            <li><a><i class="fa fa-user fa-fw"></i> My Profile</a></li>
+        </ul>
+        <ul id="info_circle_dropdown" class="dropdown-content">
+            <li><a href="https://evilrecluse.top/about/"><i class="fa fa-user fa-fw"></i> My Profile</a></li>
+            <li><a href="#"><i class="fa fa-clipboard fa-fw"></i> 加油，欧力给</a></li>
+        </ul>
+
+
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                </ul>
+            </div>
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <!-- /. PAGE WRAPPER  -->
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header"><small></small></h1>
+            </div>
+            <div id="page-inner">
+                <!--页面内容动态刷新在这里-->
+                <!-- /. PAGE INNER  -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+    <!-- Metis Menu Js -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/metisMenu/3.0.6/metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/morris.js/0.5.1/morris.js"></script> -->
+    <!-- easy-pie-chart Js -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.js"></script> -->
+    <!-- raphael Js -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/raphael/2.3.0/raphael.min.js"></script> -->
+    <!-- chart Js -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/3.0.0-alpha.2/chart.js"></script> -->
+
+    <!-- Custom Js -->
+    <script src="{{ url_for('static',filename='js/custom-scripts.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/easypiechart-data.js') }}"></script> -->
+    </script>
+
+
+</body>
+
+</html>

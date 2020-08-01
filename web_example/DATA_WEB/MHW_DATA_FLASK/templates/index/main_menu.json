@@ -1,10 +1,17 @@
 {
-    "Data":{
-        "0":{
-            "ID":"SiteInfo",
-            "IconClass":"fa fa-dashboard",
-            "Text":"基本信息",
-            "OnClick":"change_inner('SiteInfo')"
-            }
+    "items": {
+        "0": {
+            "ID": "site_info",
+            "IconClass": "fa fa-dashboard",
+            "Text": "基本信息",
+            "OnClick": "change_inner('site_info')"
+        },
+        "1": {
+            "ID": "most_simple",
+            "Type": "slider",
+            "IconClass": "fa fa-dashboard",
+            "Text": "最简单的滑块",
+            "OnClick": "change_inner('most_simple')"
         }
+    }
 }

@@ -1,56 +1,61 @@
-$("a.waves-effect waves-dark").click(function(){
-    change_inner(this.attr("name"));
-});
 /* 
 用来页面内容事件
 */
-function api_ajax(operation, params, bef_callback_func, suc_callback_func, err_callback_func){
+function api_ajax(operation, params, before_func, suc_callback_func, err_callback_func){
     $.ajax({
         url: "/api/" + operation,
-        dataType: "json",
+        dataType: "text",
         async: true, //请求是否异步，默认为异步，这也是ajax重要特性
         data: params,
         type: "GET",
         timeout: 1200,
         cache: true,
-        beforeSend: bef_callback_func,
+        beforeSend: before_func,
         success: suc_callback_func,
         error: err_callback_func,
     });
 }
 
 function change_main_menu(){
-    menu = $("#main-menu");
+    var _menu = $("#main-menu");
     api_ajax(
         "MainMenu",
-        {"Block": $("#Block").attr("name")},
+        {"block": $("#block").attr("name")},
         function(){
-            menu.empty();
+            _menu.empty();
         },
         function(s){
-            var data = eval(s).Data;
+            var data = $.parseJSON(s).data.items;
             for (var i in data){
-                var a = "<li><a class=\"active-menu waves-effect waves-dark\" id=\"" + data[i].ID + "\"><i class=\"" + data[i].IconClass + "\"></i>\n" + data[i].Text + "</a></li>";
-                menu.append(a);
-                // $("#" + data[i].get("ID")).click(eval(data[i].get("OnClick")));
+                var a = "<li><a class=\"waves-effect waves-dark\" id=\"" + data[i].ID + "\"><i class=\"" + data[i].IconClass + "\"></i>\n" + data[i].Text + "</a></li>";
+                _menu.append(a);
+                $("#" + data[i].ID).click(new Function(data[i].OnClick));
             }
         },
-        function(){},
+        function(){}
     );
 }
 
-function change_inner(keyword) {
-    _api_ajax(
-        "getInner",
-        {"block": $("#Block").attr("name"), "keyword": keyword},
-        function(data){
-            document.getElementById("page-wrapper").innerHTML = data;
-            $("#main-menu").children().children("a").attr("class","waves-effect waves-dark");
-            $("#" + keyword).attr("class","active-menu waves-effect waves-dark");
-        });
+function change_inner(id) {
+    var _inner = $("#page-inner");
+    api_ajax(
+        "Inner",
+        {"block": $("#block").attr("name"), "keyword": id},
+        function(){
+            _inner.empty();
+        },
+       function(data){
+            _inner.append(data);
+            $("main-menu").attr("class", "waves-effect waves-dark");
+            $("#" + id).attr("class","active-menu waves-effect waves-dark");
+        },
+        function(){}
+    );
 }
 
-(function ($) {
+
+
+(function () {
     "use strict";
     var mainApp = {
 
@@ -70,8 +75,8 @@ function change_inner(keyword) {
             /* BASE INNEER
             默认首页
             ----------------------------------------*/
-            change_main_menu()
-            // change_inner()
+            change_main_menu();
+            change_inner("site_info");
         },
 
         initialization: function () {

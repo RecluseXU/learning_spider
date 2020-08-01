@@ -40,19 +40,18 @@ function change_main_menu(){
 
 function change_inner(id) {
     var _inner = $$("#page-inner");
-    if(_inner.name == id){return null;}
+    if(_inner.attr("name") == id){return null;}
     api_ajax(
         "Inner",
         {"block":  $$("#block").attr("name"), "keyword": id},
         function(){
             _inner.empty();
-            _inner.name = "";
-            for(var i in document.getElementsByClassName('active-menu waves-effect waves-dark')){
-                i.class = "waves-effect waves-dark";}
+            _inner.attr("name", "");
+            $$(".active-menu.waves-effect.waves-dark").attr("class", "waves-effect waves-dark");
         },
         function(data){
             _inner.append(data);
-            _inner.name = id;
+            _inner.attr("name", id);
             $$("#" + id).attr("class","active-menu waves-effect waves-dark");
         },
         function(){}

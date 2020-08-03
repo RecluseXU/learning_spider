@@ -51,7 +51,7 @@
         <td>Bilibili观察者 见齐指数</td>
         <td>动态网页</td>
         <td>模拟http</td>
-        <td>被逻辑加密/压缩的 指数数据 的还原</td>
+        <td>被压缩的 指数数据 的还原</td>
     </tr>
     <tr>
         <td>最简单的滑块验证码</td>
@@ -106,9 +106,13 @@
         <td>规范的API，规范的响应</td>
     </tr>
     <tr>
-        <td rowspan="4">前端</td>
+        <td rowspan="5">前端</td>
         <td>JQuery 2.2.4</td>
         <td>一个快速、简洁的JavaScript框架</td>
+    </tr>
+    <tr>
+        <td>Materialize</td>
+        <td>基于Material Design的主流前端响应式框架</td>
     </tr>
     <tr>
         <td>twitter-bootstrap 3.4.1</td>

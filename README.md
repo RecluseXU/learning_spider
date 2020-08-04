@@ -29,7 +29,7 @@
         <td></td>
     </tr>
     <tr>
-        <td rowspan="5">简单</td>
+        <td rowspan="5">入门</td>
         <td>猫眼电影排行榜top100</td>
         <td>静态网页</td>
         <td>模拟http</td>
@@ -59,6 +59,14 @@
         <td>模拟浏览器</td>
         <td>滑块移动</td>
     </tr>
+    <tr>
+        <!-- <td rowspan="5">简单</td>
+        <td>猫眼电影排行榜top100</td>
+        <td>动态网页</td>
+        <td>模拟http</td>
+        <td></td> -->
+    </tr>
+
 </table>
 
 ## 工具/脚本制造  
@@ -72,7 +80,7 @@
     <tr>
         <td>Selenium</td>
         <td>Auto DL ChromeWebDriver</td>
-        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上找一个docker Image，然后部署上)</td>
+        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
     </tr>
 </table>
 
@@ -135,6 +143,10 @@
         <td rowspan="4">后端</td>
         <td>Flask 1.1.2</td>
         <td>Python轻量级web框架</td>
+    </tr>
+    <tr>
+        <td>Flask-RESTful 0.3.8</td>
+        <td>Flask-RESTful 一个 支持快速创建REST APIs的 Flask插件</td>
     </tr>
 
 </table>

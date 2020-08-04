@@ -38,21 +38,22 @@ function change_main_menu(){
     );
 }
 
-function change_inner(id) {
+function change_inner(keyword) {
     var _inner = $$("#page-inner");
-    if(_inner.attr("name") == id){return null;}
+    if(_inner.attr("name") == keyword){return null;}
     api_ajax(
         "Inner",
-        {"block":  $$("#block").attr("name"), "keyword": id},
+        {"block":  $$("#block").attr("name"), "keyword": keyword},
         function(){
             _inner.empty();
             _inner.attr("name", "");
             $$(".active-menu.waves-effect.waves-dark").attr("class", "waves-effect waves-dark");
         },
         function(data){
+            var data = $$.parseJSON(data).data;
             _inner.append(data);
-            _inner.attr("name", id);
-            $$("#" + id).attr("class","active-menu waves-effect waves-dark");
+            _inner.attr("name", keyword);
+            $$("#" + keyword).attr("class","active-menu waves-effect waves-dark");
         },
         function(){}
     );

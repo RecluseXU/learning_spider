@@ -50,27 +50,28 @@ class MainMenu(Resource):
     def _get_params_parser(self):
         if not hasattr(self, "_parser"):
             self._parser = reqparse.RequestParser()
-            self._parser.add_argument('block', type=str)
+            self._parser.add_argument('block', required=True, help="Block Type Error", type=str)
         return self._parser
 
     def _load(self, block: str):
         if not hasattr(self, "_data"):
             self._data = {}
+
         if not self._data.get(block):
             self._data[block] = eval(render_template(block + '/main_menu.json'))
         return self._data[block]
 
     def get(self):
         args = self._get_params_parser().parse_args()
-        return get_RESTful_dict(200, True, self._load(args['block']), meassage=None)
+        return get_RESTful_dict(200, True, self._load(args['block']))
 
 
 class Inner(Resource):
     def _get_params_parser(self):
         if not hasattr(self, "_parser"):
             self._parser = reqparse.RequestParser()
-            self._parser.add_argument('block', type=str)
-            self._parser.add_argument('keyword', type=str)
+            self._parser.add_argument('block', required=True, type=str, help="Block Type Error")
+            self._parser.add_argument('keyword', required=True, type=str, help="Keyword Error")
         return self._parser
 
     def _load(self, block: str, keyword: str):
@@ -85,28 +86,11 @@ class Inner(Resource):
 
     def get(self):
         args = self._get_params_parser().parse_args()
-        return get_RESTful_dict(200, True, self._load(args['block'], args['keyword']), meassage=None)
-
+        return get_RESTful_dict(200, True, self._load(args['block'], args['keyword']))
 
 
 api.add_resource(MainMenu, '/api/MainMenu')
 api.add_resource(Inner, '/api/Inner')
-
-
-# @app.route('/api/MainMenu', methods=['GET'])
-# def get_MainMenu_api():
-#     block = request.args.get("block")
-#     if block:
-#         return render_template(block + '/main_menu.json')
-
-
-# @app.route('/api/Inner', methods=['GET'])
-# def get_Inner_api():
-#     keyword = request.args.get("keyword")
-#     block = request.args.get("block")
-#     if keyword and block:
-#         return render_template(block + '/inner/' + keyword + ".html",)
-    # return jsonify({404})
 
 
 '''数据相关'''

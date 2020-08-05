@@ -63,17 +63,7 @@ c.extend({
                     password: c
                 }
             };
-        //-------------------
-        $.accountStatus.logoutHandle = !1;
-        $.sendAjaxReq("", e, function (a) {
-            var e = a[ERR_CODE];
-            ENONE == e && ($.authRltObj.authStatus = !0,
-                //--------!----------
-                $.setLgPwd(c),
-                //-------------------
-                $.session = decodeURIComponent(a.stok));
-            b && b(e)
-        }, !0, "json")
+        //------------------
     },
     // 键名为修改密码
     changePwd: function (a, b, c) {

@@ -1,9 +1,10 @@
 /* 
-用来页面内容事件
+页面内容变更
 */
 
 var $$ = jQuery
-function api_ajax(operation, params, before_func, suc_callback_func, err_callback_func){
+
+function api_ajax(operation, params, before_func, suc_callback_func, err_callback_func) {
     $$.ajax({
         url: "/api/" + operation,
         dataType: "text",
@@ -18,43 +19,53 @@ function api_ajax(operation, params, before_func, suc_callback_func, err_callbac
     });
 }
 
-function change_main_menu(){
+function change_main_menu() {
     var _menu = $$("#main-menu");
     api_ajax(
-        "MainMenu",
-        {"block": jQuery("#block").attr("name")},
-        function(){
+        "MainMenu", {
+            "block": jQuery("#block").attr("name")
+        },
+        function () {
             _menu.empty();
         },
-        function(s){
+        function (s) {
             var data = $$.parseJSON(s).data.items;
-            for (var i in data){
+            for (var i in data) {
                 var a = "<li><a class=\"waves-effect waves-dark\" id=\"" + data[i].ID + "\"><i class=\"" + data[i].IconClass + "\"></i>\n" + data[i].Text + "</a></li>";
-                _menu.append(a);
+                _menu.replaceWith(a);
                 $$("#" + data[i].ID).click(new Function(data[i].OnClick));
             }
         },
-        function(){}
+        function () {}
     );
 }
 
 function change_inner(keyword) {
     var _inner = $$("#page-inner");
-    if(_inner.attr("name") == keyword){return null;}
+    if (_inner.attr("name") == keyword) {
+        return null;
+    }
     api_ajax(
-        "Inner",
-        {"block":  $$("#block").attr("name"), "keyword": keyword},
-        function(){
-            _inner.empty();
+        "Inner", {
+            "block": $$("#block").attr("name"),
+            "keyword": keyword
+        },
+        function () {
+            contain_loading_animation(_inner)
             _inner.attr("name", "");
             $$(".active-menu.waves-effect.waves-dark").attr("class", "waves-effect waves-dark");
         },
-        function(data){
+        function (data) {
             var data = $$.parseJSON(data).data;
-            _inner.append(data);
+            _inner.replaceWith(data);
             _inner.attr("name", keyword);
-            $$("#" + keyword).attr("class","active-menu waves-effect waves-dark");
+            $$("#" + keyword).attr("class", "active-menu waves-effect waves-dark");
         },
-        function(){}
+        function () {}
     );
+}
+
+// 将元素的内容更换为一个读取动画
+function contain_loading_animation(element) {
+    element.replaceWith("<div class=\"preloader-wrapper big active\"><div class=\"spinner-layer spinner-blue\"><div class=\"circle-clipper left\"><div class=\"circle\"></div></div><div class=\"gap-patch\"><div class=\"circle\"></div></div><div class=\"circle-clipper right\"><div class=\"circle\"></div></div></div>");
 }

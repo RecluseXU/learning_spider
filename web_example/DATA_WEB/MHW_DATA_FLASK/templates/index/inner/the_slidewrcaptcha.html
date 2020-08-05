@@ -1,0 +1,29 @@
+<link href="{{ url_for('static',filename='question/css/the_slidewrcaptcha.css') }}" rel="stylesheet" type='text/css' />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">slidewrcaptcha 滑块验证码</div>
+            <div class="card-content">
+                <div id="captcha"></div>
+                <button class="btn waves-effect waves-light right" id="reset_inner"><i class="fa fa-refresh fa-fw"></i>重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">简要信息</div>
+            <div class="card-content">
+                <p>这个滑块的源代码来自于: <a href="https://gitee.com/LongbowEnterprise/SliderCaptcha"
+                        target="_blank">https://gitee.com/LongbowEnterprise/SliderCaptcha</a></p>
+                <p></p>部署模式为全默认。即没有使用服务器，所有的处理过程都在js中，存在被绕过的可能<br>此滑块有编写基础的人机判定，如果你 匀速滑动 或者 直线滑动 都是无法通过检验的</p>
+                <div class="clearBoth"><br></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static',filename='question/js/the_slidewrcaptcha.js') }}"></script>

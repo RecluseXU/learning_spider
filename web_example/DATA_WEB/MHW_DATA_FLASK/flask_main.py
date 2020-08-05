@@ -7,12 +7,12 @@
 @Version :   1.0
 @Contact :   444640050@qq.com
 @License :   (C)Copyright 2017-2022, Recluse
-@Desc    :   None
+@Desc    :   这是Flask编写的后端程序，使用了Flask-RESTful插件，网页内容为基于REST风格 Ajax动态刷新
 '''
 
 # here put the import lib
 
-from flask import Flask, request, render_template
+from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
 
 
@@ -93,7 +93,7 @@ api.add_resource(MainMenu, '/api/MainMenu')
 api.add_resource(Inner, '/api/Inner')
 
 
-'''数据相关'''
+'''调试'''
 
 
 def run(debug=False):

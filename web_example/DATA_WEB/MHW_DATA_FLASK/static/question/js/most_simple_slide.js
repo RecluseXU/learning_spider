@@ -13,7 +13,6 @@ function most_simple_slide() {
         offsetX = 0, // X轴相对偏移
         distance = box.offsetWidth - btn.offsetWidth; //滑动成功的宽度（距离）
 
-
     //二、给滑块注册鼠标按下事件
     btn.onmousedown = function (e) {
         //1.鼠标按下之前必须清除掉后面设置的过渡属性
@@ -62,13 +61,12 @@ function most_simple_slide() {
             }
         }
 
-        //四、给文档注册鼠标松开事件
+        // 四、给文档注册鼠标松开事件
         document.onmouseup = function (e) {
             //如果鼠标松开时，滑到了终点，则验证通过
             if (success) {
                 document.onmousemove = null;
                 document.onmouseup = null;
-                most_simple_slide = null;
                 return;
             } else {
                 //反之，则将滑块复位（设置了1s的属性过渡效果）
@@ -82,4 +80,13 @@ function most_simple_slide() {
             document.onmouseup = null;
         }
     }
+    // 为重置按钮绑定事件
+    $("#reset_inner").click(function () {
+        most_simple_slide();
+        btn.innerHTML = "&gt;&gt;";
+        btn.style.left = 0;
+        bg.style.width = 0;
+        text.innerHTML = "请拖动滑块解锁";
+        btn.style.color = "#75CDF9";
+    })
 }

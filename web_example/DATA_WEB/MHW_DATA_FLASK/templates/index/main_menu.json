@@ -7,11 +7,18 @@
             "OnClick": "change_inner('site_info')"
         },
         "1": {
-            "ID": "most_simple",
+            "ID": "most_simple_slide",
             "Type": "slider",
             "IconClass": "fa fa-dashboard",
             "Text": "最简单的滑块",
-            "OnClick": "change_inner('most_simple')"
+            "OnClick": "change_inner('most_simple_slide')"
+        },
+        "2": {
+            "ID": "the_slidewrcaptcha",
+            "Type": "slider",
+            "IconClass": "fa fa-dashboard",
+            "Text": "slidewrcaptcha 滑块验证码",
+            "OnClick": "change_inner('the_slidewrcaptcha')"
         }
     }
 }

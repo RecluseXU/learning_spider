@@ -94,10 +94,15 @@
         <th>信息</th>
     </tr>
     <tr>
-        <td>滑块验证</d>
-        <td>简单</td>
+        <td rowspan="2">滑块验证</td>
+        <td>入门</td>
         <td>最简单的滑块验证</td>
         <td>只要拖动滑块，滑到尽头就可以通过，不存在任何检测</td>
+    </tr>
+    <tr>
+        <td>简单</td>
+        <td>SliderCaptcha</td>
+        <td>默认设置部署，存在基本的人机验证，匀速拉动/直线拉动不会通过验证</td>
     </tr>
 </table>
 
@@ -120,7 +125,7 @@
     </tr>
     <tr>
         <td>Materialize</td>
-        <td>基于Material Design的主流前端响应式框架</td>
+        <td>基于Material Design的前端响应式框架</td>
     </tr>
     <tr>
         <td>twitter-bootstrap 3.4.1</td>
@@ -151,5 +156,4 @@
 
 </table>
 
-
-2020年7月26日09:56:23
+2020年8月5日18:33:19

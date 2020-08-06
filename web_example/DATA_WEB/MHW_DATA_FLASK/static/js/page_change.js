@@ -32,7 +32,7 @@ function change_main_menu() {
             var data = $$.parseJSON(s).data.items;
             for (var i in data) {
                 var a = "<li><a class=\"waves-effect waves-dark\" id=\"" + data[i].ID + "\"><i class=\"" + data[i].IconClass + "\"></i>\n" + data[i].Text + "</a></li>";
-                _menu.replaceWith(a);
+                _menu.append(a);
                 $$("#" + data[i].ID).click(new Function(data[i].OnClick));
             }
         },
@@ -51,13 +51,14 @@ function change_inner(keyword) {
             "keyword": keyword
         },
         function () {
-            contain_loading_animation(_inner)
+            contain_loading_animation(_inner);
             _inner.attr("name", "");
             $$(".active-menu.waves-effect.waves-dark").attr("class", "waves-effect waves-dark");
         },
         function (data) {
             var data = $$.parseJSON(data).data;
-            _inner.replaceWith(data);
+            _inner.empty();
+            _inner.append(data);
             _inner.attr("name", keyword);
             $$("#" + keyword).attr("class", "active-menu waves-effect waves-dark");
         },
@@ -67,5 +68,6 @@ function change_inner(keyword) {
 
 // 将元素的内容更换为一个读取动画
 function contain_loading_animation(element) {
-    element.replaceWith("<div class=\"preloader-wrapper big active\"><div class=\"spinner-layer spinner-blue\"><div class=\"circle-clipper left\"><div class=\"circle\"></div></div><div class=\"gap-patch\"><div class=\"circle\"></div></div><div class=\"circle-clipper right\"><div class=\"circle\"></div></div></div>");
+    element.empty();
+    element.append("<div class=\"preloader-wrapper big active\"><div class=\"spinner-layer spinner-blue\"><div class=\"circle-clipper left\"><div class=\"circle\"></div></div><div class=\"gap-patch\"><div class=\"circle\"></div></div><div class=\"circle-clipper right\"><div class=\"circle\"></div></div></div>");
 }

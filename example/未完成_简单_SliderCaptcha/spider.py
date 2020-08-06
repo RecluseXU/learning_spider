@@ -6,7 +6,7 @@
 @Author  :   Recluse Xu
 @Version :   1.0
 @Contact :   444640050@qq.com
-@Desc    :   用Selenium处理最简单的滑块验证码
+@Desc    :   用Selenium处理SliderCaptcha
 '''
 
 # here put the import lib
@@ -59,16 +59,16 @@ def process():
     wait = WebDriverWait(chrome_driver, 10)
     try:
         simple_slide_code_button = wait.until(
-            EC.element_to_be_clickable((By.ID, "most_simple_slide")))
+            EC.element_to_be_clickable((By.ID, "most_simple")))
     except TimeoutException as e:
         print(e)
         exit(1)
     simple_slide_code_button.click()
 
     ver_button = wait.until(
-        EC.element_to_be_clickable((By.ID, "btn")))
+        EC.element_to_be_clickable((By.XPATH, "//*[@id=\"page-inner\"]/div[1]/div/div/div[2]/div[1]/div[3]")))
     slide_bar = wait.until(
-        EC.presence_of_element_located((By.ID, "text")))
+        EC.presence_of_element_located((By.XPATH, "//*[@id=\"page-inner\"]/div[1]/div/div/div[2]/div[1]/div[2]")))
     start_location, end_location = count_start_end_location(ver_button.size, ver_button.location, slide_bar.size, slide_bar.location)
     track = get_track(start_location, end_location)
     move_mouse(chrome_driver, ver_button, track)

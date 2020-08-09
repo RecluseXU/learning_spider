@@ -15,9 +15,26 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+import cv2
+from browsermobproxy import Server
 import sys
 sys.path.append(sys.path[0][:sys.path[0].find('example')-1])
 from my_util.selenium.selenium_chrome import get_selenium_chrome_web_driver
+
+
+
+class BrowsermobProxy(object):
+    def __init__(self, browsermob_proxy_bat_location: str):
+        self.server = Server(browsermob_proxy_bat_location, {'port': 9394})
+
+    def get_proxy(self):
+        return self.server.create_proxy()
+
+    def start_server(self):
+        self.server.start()
+
+    def stop_server(self):
+        self.server.stop()
 
 
 def count_start_end_location(button_size, button_location, bar_size, bar_location):
@@ -53,25 +70,59 @@ def move_mouse(chrome_driver, ver_button, track):
         ActionChains(chrome_driver).release().perform()
 
 
+def get_distance():
+    img = cv2.imread('img.png')
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # ret, thresh = cv2.threshold(img, 230, 255, cv2.THRESH_BINARY_INV)
+    
+    img = cv2.cornerHarris(img, 2, 3, 0.04)
+
+    cv2.imshow('img', img)
+    cv2.waitKey(100000)
+
+
 def process():
-    chrome_driver = get_selenium_chrome_web_driver()
+    bp = BrowsermobProxy(browsermob_proxy_bat_location)
+    _proxy = bp.get_proxy()
+    _proxy.new_har(".picsum.photos", options={'captureHeaders': True, 'captureContent': True})
+
+    chrome_driver = get_selenium_chrome_web_driver(proxy_server=str(_proxy.proxy))
     chrome_driver.get('http://127.0.0.1:5000/LearningSpider#!')
-    wait = WebDriverWait(chrome_driver, 10)
+    wait = WebDriverWait(chrome_driver, 15)
     try:
-        simple_slide_code_button = wait.until(
-            EC.element_to_be_clickable((By.ID, "most_simple")))
+        item_button = wait.until(
+            EC.element_to_be_clickable((By.ID, "the_slidewrcaptcha")))
+        item_button.click()
     except TimeoutException as e:
         print(e)
         exit(1)
-    simple_slide_code_button.click()
+    #  等待Ajax加载完毕
 
+    wait.until(
+        lambda x: EC.text_to_be_present_in_element((By.XPATH, "//*[@id=\"captcha\"]/div/span"), "滑动填充")(chrome_driver)
+    )
     ver_button = wait.until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id=\"page-inner\"]/div[1]/div/div/div[2]/div[1]/div[3]")))
-    slide_bar = wait.until(
-        EC.presence_of_element_located((By.XPATH, "//*[@id=\"page-inner\"]/div[1]/div/div/div[2]/div[1]/div[2]")))
-    start_location, end_location = count_start_end_location(ver_button.size, ver_button.location, slide_bar.size, slide_bar.location)
-    track = get_track(start_location, end_location)
-    move_mouse(chrome_driver, ver_button, track)
+        EC.element_to_be_clickable((By.XPATH, "//*[@id=\"captcha\"]/div/div[2]/div")))
+    the_img = wait.until(
+        EC.presence_of_element_located((By.XPATH, "//*[@id=\"captcha\"]/canvas[1]")))
+
+    result = _proxy.har
+    for entry in result['log']['entries']:
+        _url = entry['request']['url']
+        # 根据URL找到数据接口
+        if "/api/v2/aweme/post" in _url:
+            _response = entry['response']
+            _content = _response['content']['text']
+            # 获取接口返回内容
+            print(_content)
+
+    bp.stop_server()
+    # the_img.screenshot("img.png")
+    # get_distance()
+
+    # start_location, end_location = count_start_end_location(ver_button.size, ver_button.location, slide_bar.size, slide_bar.location)
+    # track = get_track(start_location, end_location)
+    # move_mouse(chrome_driver, ver_button, track)
 
 
 if __name__ == "__main__":

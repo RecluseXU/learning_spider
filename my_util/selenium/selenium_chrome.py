@@ -16,7 +16,7 @@ from ..selenium.auto_dl_chrome_webdriver import check_chrome_version, dl_chrome_
 selenium_webdriver_location = 'my_util/selenium/selenium_webdriver'
 
 
-def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=False):
+def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=False, proxy_server=None):
     '''
     @summary: 配置selenium.webdriver   chrome
     @return: selenium.webdriver chrome
@@ -32,6 +32,9 @@ def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=
         options.add_argument('--blink-settings=imagesEnabled=false')
     # 非沙盒模式
     options.add_argument('no-sandbox')
+    # 代理
+    if proxy_server:
+        options.add_argument('--proxy-server='+proxy_server)
     # 无头模式
     if headless:
         options.add_argument('--headless')
@@ -42,7 +45,7 @@ def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=
     return driver
 
 
-def get_selenium_chrome_web_driver(load_picture=True, headless=False):
+def get_selenium_chrome_web_driver(load_picture=True, headless=False, proxy_server=None):
     '''
     获取selenium chrome webdriver
     '''
@@ -52,7 +55,7 @@ def get_selenium_chrome_web_driver(load_picture=True, headless=False):
         print('chrome_version:', chrome_version)
         webdriver_version, webdriver_os_version = dl_chrome_webdriver(chrome_version, lib_location)
         print('chrome_webdriver:', webdriver_version, webdriver_os_version)
-    return _init_selenium_chrome_driver('selenium_webdriver', load_picture, headless)
+    return _init_selenium_chrome_driver('selenium_webdriver', load_picture, headless, proxy_server)
 
 
 if __name__ == "__main__":

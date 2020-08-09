@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action"><p>AAEncode混淆</p> <p>请获取到下方输入框的正确密码，并输入</p></div>
+            <div class="card-content">
+                <div>
+                    <label for="first_name">输入密码</label>
+                    <input placeholder="输入你喜欢的内容" id="the_words" type="text" class="validate">
+                    <label for="disabled">密码结果</label>
+                    <input disabled value="尚未成功" id="disabled" type="text" class="validate">
+                </div>
+                <button class="btn waves-effect waves-light right" id="reset_inner"><i class="fa fa-refresh fa-fw"></i>重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static',filename='question/js/simple_aaencode.js') }}"></script>

@@ -23,6 +23,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "AAEncode混淆",
             "OnClick": "change_inner('simple_aaencode')"
+        },
+        "4": {
+            "ID": "unlimited_debugger",
+            "IconClass": "fa fa-dashboard",
+            "Text": "无限debugger",
+            "OnClick": "change_inner('unlimited_debugger')"
         }
     }
 }

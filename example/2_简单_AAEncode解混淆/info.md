@@ -161,7 +161,7 @@ function _aaencode(text) {
     for (var i = 0; i < text.length; i++) {
         n = text.charCodeAt(i);
         // charCodeAt() 方法可返回指定位置的字符的 Unicode 编码数
-        // 每一个字符的标记记录 默认在前面就有一个表情
+        // 由于实际上是标记的转码字符，这里献给内容加上一个转义字符'\\'
         t = "(ﾟДﾟ)[ﾟεﾟ]+";
         if (n <= 127) {
             // unicode 只处理 C0控制与基本的Latin（拉丁字母），这其实已经包含了绝大部分的js源码符号

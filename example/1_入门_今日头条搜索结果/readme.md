@@ -1,7 +1,7 @@
 ## 基本信息  
 目标URL：https://www.toutiao.com/search/?keyword=Python  
 <!-- ![](./info_res/browser_preview.png)   -->
-![image](https://i.loli.net/2020/08/18/AS1FxdOrha4utL5.png)  
+![](https://i.loli.net/2020/08/18/AS1FxdOrha4utL5.png)  
 
 ## 描述  
 分析完毕以后发现是动态网页，js没有混淆没有逻辑加密  

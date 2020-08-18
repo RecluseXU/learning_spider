@@ -1,7 +1,6 @@
 (function ($) {
     "use strict";
     var mainApp = {
-
         initFunction: function () {
             /*MENU 
             ------------------------------------*/
@@ -21,15 +20,11 @@
             change_main_menu();
             change_inner("site_info");
         },
-
         initialization: function () {
             mainApp.initFunction();
-
         }
-
     }
     // Initializing ///
-
     $(document).ready(function () {
         $(".dropdown-button").dropdown();
         $("#sideNav").click(function () {

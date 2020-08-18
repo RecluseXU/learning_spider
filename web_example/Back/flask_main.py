@@ -14,10 +14,12 @@
 
 from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 
 def get_RESTful_dict(code: int, success: bool, data, meassage=None) -> dict:
@@ -88,6 +90,9 @@ class Inner(Resource):
         args = self._get_params_parser().parse_args()
         return get_RESTful_dict(200, True, self._load(args['block'], args['keyword']))
 
+
+class Check(Resource):
+    
 
 api.add_resource(MainMenu, '/api/MainMenu')
 api.add_resource(Inner, '/api/Inner')

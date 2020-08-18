@@ -1,8 +1,10 @@
 ## 基本信息
 目标URL：https://maoyan.com/board/4  
-![](info_res/browser_preview.png)  
+<!-- ![](info_res/browser_preview.png)   -->
+![browser_preview.png](https://i.loli.net/2020/08/18/qgzru6SL5x7ewh1.png)  
 
 前100的电影的信息爬下来，保存起来
+
 
 ## 描述  
 静态网页，非常简单  
@@ -23,8 +25,10 @@
 ## 分析  
 
 ### 翻页参数  
-![](info_res/p1.png)  
-![](info_res/p2.png)  
+<!-- ![](info_res/p1.png)   -->
+![p1.png](https://i.loli.net/2020/08/18/985aSe2RlbmXqnf.png)  
+<!-- ![](info_res/p2.png)   -->
+![p2.png](https://i.loli.net/2020/08/18/w3SYTfrNk76h9Ea.png)  
 翻页的参数每一次加10而不是1  
 
 

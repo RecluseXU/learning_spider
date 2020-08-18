@@ -1,8 +1,8 @@
 
 ## 基本信息
 来自于这个项目web部分的一个爬虫练习  
-![](info_res/page_preview.png)
-
+<!-- ![](info_res/page_preview.png)   -->
+![page_preview.png](https://i.loli.net/2020/08/18/54aYrVUq3yCD2iB.png)  
 
 ## 使用的包/工具/技术
 |步骤|包/工具/技术|
@@ -119,13 +119,16 @@ function _$hR() {
 ### 过程
 1. 响应url  
 在`Devtool`的网络面板中找到js文件目标  
-![](info_res/wherejs.png)  
+<!-- ![](info_res/wherejs.png)   -->
+![wherejs.png](https://i.loli.net/2020/08/18/q4OFs2X1eEd95So.png)
 将其响应的url记录下来（后续称之为js_url）  
-![](info_res/js_url.png)
+<!-- ![](info_res/js_url.png)   -->
+![js_url.png](https://i.loli.net/2020/08/18/OcfT8x9QSBE5dXW.png)
 
 2. 改写js并保存  
 将js文件保存下来，并且改写内容  
-![](info_res/edit_js.png)  
+<!-- ![](info_res/edit_js.png)   -->
+![edit_js.png](https://i.loli.net/2020/08/18/YcpbyLmTZzv23kf.png)  
 由于整个无限debugger的入口函数是一个定时器，这里我直接将整个定时器给注释标记，取消其作用  
 在实际项目中，请不要那么暴力直接去掉最外层函数，建议结合 调用堆栈 和代码，一点一点删去  
 过于粗略的删去可能会导致业务逻辑也出问题  
@@ -133,7 +136,8 @@ function _$hR() {
 
 3. reres规则写入  
 打开插件，添加规则，填入项目，保存，勾选启动  
-![](info_res/reres_add.png)  
+<!-- ![](info_res/reres_add.png)   -->
+![reres_add.png](https://i.loli.net/2020/08/18/pM7bm2eAIU8Owjg.png)  
 
 >* If URL match： 一个正则表达式，当请求的URL与之匹配时，规则生效。注意:不要填开头的/和结束的/gi，如/.*/gi请写成.*  
 >* Response： 映射的响应地址，这个地址会替换掉url中与上面正则匹配的部分。  

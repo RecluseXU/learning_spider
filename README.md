@@ -29,12 +29,17 @@
         <td></td>
     </tr>
     <tr>
-        <td rowspan="5">入门</td>
+        <td rowspan="6">入门</td>
         <td>
         <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1%E6%8E%92%E8%A1%8C%E6%A6%9Ctop100" target="_blank">猫眼电影排行榜top100</a></td>
         <td>静态网页</td>
         <td>模拟http</td>
         <td></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E4%BA%9A%E9%A9%AC%E9%80%8A%E5%95%86%E5%9F%8E%E6%90%9C%E7%B4%A2%E9%A1%B5" target="_blank">亚马逊中国商城搜索页</a></td>
+        <td>静态网页</td>
+        <td>模拟http</td>
     </tr>
     <tr>
         <td>

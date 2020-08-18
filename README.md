@@ -23,46 +23,67 @@
     </tr>
     <tr>
         <td>基础</td>
-        <td>各类库的简单用法</td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/0_Basic_usage_of_the_library" target="_blank">各类库的简单用法</a></td>
         <td>基本使用方法</td>
-        <td></td>
+        <td>查看文档</br>编写demo</td>
         <td></td>
     </tr>
     <tr>
         <td rowspan="5">入门</td>
-        <td>猫眼电影排行榜top100</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1%E6%8E%92%E8%A1%8C%E6%A6%9Ctop100" target="_blank">猫眼电影排行榜top100</a></td>
         <td>静态网页</td>
         <td>模拟http</td>
         <td></td>
     </tr>
     <tr>
-        <td>今日头条搜索结果</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C" target="_blank">今日头条搜索结果</a></td>
         <td>动态网页</td>
         <td>模拟http</td>
         <td></td>
     </tr>
     <tr>
-        <td>微博移动端用户动态信息</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E5%BE%AE%E5%8D%9A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%94%A8%E6%88%B7%E5%8A%A8%E6%80%81%E4%BF%A1%E6%81%AF" target="_blank">
+        微博移动端用户动态信息</a></td>
         <td>动态网页</td>
         <td>模拟http</td>
         <td>since_id参数的所在地</td>
     </tr>
     <tr>
-        <td>Bilibili观察者 见齐指数</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_Bilibili%E8%A7%82%E5%AF%9F%E8%80%85%E8%A7%81%E9%BD%90%E6%8C%87%E6%95%B0" target="_blank">
+        Bilibili观察者 见齐指数</a></td>
         <td>动态网页</td>
         <td>模拟http</td>
         <td>被压缩的 指数数据 的还原</td>
     </tr>
     <tr>
-        <td>最简单的滑块验证码</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/1_%E5%85%A5%E9%97%A8_%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%BB%91%E5%9D%97%E9%AA%8C%E8%AF%81%E7%A0%81" target="_blank">最简单的滑块验证码</a></td>
         <td>动态网页</td>
         <td>模拟浏览器</td>
         <td>滑块移动</td>
     </tr>
     <tr>
         <td rowspan="5">简单</td>
-        <td>某路由器密码加密方法</td>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%9F%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95" target="_blank">某路由器密码加密方法</a></td>
         <td>单个js文件</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+        <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%97%A0%E9%99%90debugger" target="_blank">无限debugger处理</a></td>
+        <td>reres</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">AAEncode解混淆</a></td>
+        <td>reres</td>
         <td></td>
         <td></td>
     </tr>

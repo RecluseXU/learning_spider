@@ -72,20 +72,20 @@
         <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%9F%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95" target="_blank">某路由器密码加密方法</a></td>
         <td>单个js文件</td>
         <td></td>
-        <td></td>
+        <td>寻找加密函数</td>
     </tr>
     <tr>
         <td>
         <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%97%A0%E9%99%90debugger" target="_blank">无限debugger处理</a></td>
+        <td>动态网页</td>
         <td>reres</td>
-        <td></td>
-        <td></td>
+        <td>反调试</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">AAEncode解混淆</a></td>
-        <td>reres</td>
-        <td></td>
-        <td></td>
+        <td>动态网页</td>
+        <td>devtool</td>
+        <td>编码混淆</td>
     </tr>
 
 </table>

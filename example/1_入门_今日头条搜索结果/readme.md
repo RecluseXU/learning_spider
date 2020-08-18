@@ -1,7 +1,7 @@
 ## 基本信息  
 目标URL：https://www.toutiao.com/search/?keyword=Python  
 <!-- ![](./info_res/browser_preview.png)   -->
-![browser_preview.png](https://i.loli.net/2020/08/18/AS1FxdOrha4utL5.png)  
+![image](https://i.loli.net/2020/08/18/AS1FxdOrha4utL5.png)  
 
 ## 描述  
 分析完毕以后发现是动态网页，js没有混淆没有逻辑加密  
@@ -25,19 +25,19 @@
 
 ### 查看网页源码  
 <!-- ![](./info_res/html_source.png)   -->
-![html_source.png](https://i.loli.net/2020/08/18/Jx79VObqZNuFBLi.png)  
+![image](https://i.loli.net/2020/08/18/Jx79VObqZNuFBLi.png)  
 网页本身并没有任何的有用信息，是一个动态页面  
 不知道用户的搜索目标是啥，给个干净的页面很正常  
 
 ### 寻找Ajax目标数据包  
 <!-- ![](./info_res/Ajax_pack.png)   -->
-![Ajax_pack.png](https://i.loli.net/2020/08/18/4ozvgs2XYITK6AM.png)  
+![image](https://i.loli.net/2020/08/18/4ozvgs2XYITK6AM.png)  
 发现有三个数据包  
 其中，只有第一个有正常数据，其它的都只有非常简单的数据  
 
 ### 观察目标数据包  
 <!-- ![](./info_res/Ajax_headers.png )   -->
-![Ajax_headers.png](https://i.loli.net/2020/08/18/9zfB8Ed4t5RsUHo.png)  
+![image](https://i.loli.net/2020/08/18/9zfB8Ed4t5RsUHo.png)  
 url: https://www.toutiao.com/api/search/content/
 
 |请求参数|值|信息|
@@ -58,7 +58,7 @@ url: https://www.toutiao.com/api/search/content/
 
 一开始以为`_signature`参数会很难缠
 <!-- ![](./info_res/Postman_try.png) -->
-![Postman_try.png](https://i.loli.net/2020/08/18/l5HLfPZWzb2opsT.png)  
+![image](https://i.loli.net/2020/08/18/l5HLfPZWzb2opsT.png)  
 结果发现不填入该参数依然能够正确返回数据  
 那么事情就好办了  
 

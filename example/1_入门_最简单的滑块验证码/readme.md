@@ -1,6 +1,6 @@
 ## 基本信息
 <!-- ![](info_res/preview.png) -->
-![preview.png](https://i.loli.net/2020/08/18/hglmYeCExwAOaP1.png)  
+![image](https://i.loli.net/2020/08/18/hglmYeCExwAOaP1.png)  
 
 ## 描述  
 这是在自行编写的练习项目的一页  
@@ -29,10 +29,10 @@ chrome_driver.get('http://127.0.0.1:5000/LearningSpider#!')
 
 ### 开始在首页  
 <!-- ![](info_res/index.png)   -->
-![index.png](https://i.loli.net/2020/08/18/anzF9EKNBShwrWk.png)  
+![image](https://i.loli.net/2020/08/18/anzF9EKNBShwrWk.png)  
 由于一开始是在首页，要进入滑块页面需要点击一下按钮  
 <!-- ![](info_res/menu_xpath.png)   -->
-![menu_xpath.png](https://i.loli.net/2020/08/18/XjPxsotl9dEW5Kh.png)  
+![image](https://i.loli.net/2020/08/18/XjPxsotl9dEW5Kh.png)  
 
 ```python
 wait = WebDriverWait(chrome_driver, 10)  # 设置让浏览器等待10s
@@ -47,7 +47,7 @@ simple_slide_code_button.click()  # 点击
 
 ### 验证码页  
 <!-- ![](info_res/ver_code_preview.png)   -->
-![ver_code_preview.png](https://i.loli.net/2020/08/18/EISz4Ylj15JqrDd.png)  
+![image](https://i.loli.net/2020/08/18/EISz4Ylj15JqrDd.png)  
 #### 捕获元素，计算坐标
 捕获到 滑块元素 和 滑动条元素，计算需要起始坐标和终点坐标  
 
@@ -101,7 +101,7 @@ move_mouse(chrome_driver, ver_button, track)
 
 ### 最终效果
 <!-- ![](info_res/final.gif)   -->
-![final.gif](https://i.loli.net/2020/08/18/ZJAEtgDGcB1Y9RN.gif)  
+![image](https://i.loli.net/2020/08/18/ZJAEtgDGcB1Y9RN.gif)  
 
 
 >对于这种没有检测的拖动行为的验证码，匀速移动是可以通过的  

@@ -19,7 +19,7 @@
 * 一共4677行，所有url或者ip信息都被删掉了  
 * 所给的已知的请求函数  
 <!-- ![](info_res/js_preview.png)   -->
-![js_preview.png](https://i.loli.net/2020/08/18/yczwTY9dHL6CARV.png)  
+![image](https://i.loli.net/2020/08/18/yczwTY9dHL6CARV.png)  
 其实这里有一个很奇怪的点，他说他不会js，但这个函数并不是Ajax发送请求的函数，但他却找到了这个函数  
 
 ### 思路  
@@ -29,23 +29,23 @@
 
 ### 追寻Ajax发送函数  
 <!-- ![](info_res/0.png)   -->
-![0.png](https://i.loli.net/2020/08/18/NVA7lxfR1EtuemI.png)
+![image](https://i.loli.net/2020/08/18/NVA7lxfR1EtuemI.png)
 尽管已经被告知这个函数就是入口，函数第一个参数a就是已经被加密的密码  
 但是担心会出什么问题，还是去寻找了发送Ajax的函数  
 
 <!-- ![](info_res/1.png)   -->
-![1.png](https://i.loli.net/2020/08/18/U6dV7CWLZRGsnvQ.png)  
+![image](https://i.loli.net/2020/08/18/U6dV7CWLZRGsnvQ.png)  
 观察到，第二个参数b（即被加密的密码dict），并没有被做出什么特别处理就发送以后，安定了下来  
 
 ### 追寻加密函数  
 知道auth函数第一个参数就是被加密的密码，于是开始根据函数名进行搜索  
 <!-- ![](info_res/2.png)   -->
-![2.png](https://i.loli.net/2020/08/18/FnzvPCNUKx26BMY.png)  
+![image](https://i.loli.net/2020/08/18/FnzvPCNUKx26BMY.png)  
 找到一处调用auth函数的结果，其中第一个参数传入的是pwd这个变量  
 
 于是搜索pwd这个变量的赋值语句  
 <!-- ![](info_res/3.png)   -->
-![3.png](https://i.loli.net/2020/08/18/Sacz9lNHM4OfwKQ.png)  
+![image](https://i.loli.net/2020/08/18/Sacz9lNHM4OfwKQ.png)  
 只找到setLgPwd函数对pwd进行了赋值  
 唯一一个参数会作为密码给pwd
 
@@ -53,25 +53,25 @@
 寻找到了三个结果
 * 结果1  
 <!-- ![](info_res/4.png)   -->
-![4.png](https://i.loli.net/2020/08/18/LExojWA9zNaqCb8.png)  
+![image](https://i.loli.net/2020/08/18/LExojWA9zNaqCb8.png)  
 传入的参数为""，显然不是目标
 * 结果2  
 <!-- ![](info_res/5.png)   -->
-![5.png](https://i.loli.net/2020/08/18/e7ksdLMShojVzK1.png)  
+![image](https://i.loli.net/2020/08/18/e7ksdLMShojVzK1.png)  
 传入参数依然为""，显然不是目标
 * 结果3  
 <!-- ![](info_res/6.png)   -->
-![6.png](https://i.loli.net/2020/08/18/NmMPdhOfvRFUIr7.png)  
+![image](https://i.loli.net/2020/08/18/NmMPdhOfvRFUIr7.png)  
 可以观察到，传入的参数都是进行通过orgAuthPwd函数以后的内容  
 
 寻找orgAuthPwd函数  
 <!-- ![](info_res/7.png)   -->
-![7.png](https://i.loli.net/2020/08/18/4WqNLZu96RFaGDi.png)
+![image](https://i.loli.net/2020/08/18/4WqNLZu96RFaGDi.png)
 感觉似乎非常接近目标了  
 
 寻找securityEncode函数  
 <!-- ![](info_res/8.png)   -->
-![8.png](https://i.loli.net/2020/08/18/RaoW3wOclpxejq7.png)
+![image](https://i.loli.net/2020/08/18/RaoW3wOclpxejq7.png)
 三个参数，两个为orgAuthPwd函数里写好的字符串，一个为密码  
 
 至此问题解决  

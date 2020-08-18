@@ -1,7 +1,7 @@
 ## 基本信息
 目标URL：https://www.amazon.cn/  
 <!-- ![](info/../info_res/browser_preview.png) -->
-![browser_preview.png](https://i.loli.net/2020/08/18/QOcnhbiEPRGvXu3.png)  
+![image](https://i.loli.net/2020/08/18/QOcnhbiEPRGvXu3.png)  
 
 ## 描述  
 静态网页  

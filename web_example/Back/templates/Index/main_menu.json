@@ -24,7 +24,13 @@
             "Text": "AAEncode混淆",
             "OnClick": "change_inner('simple_aaencode')"
         },
-        "4": {
+        "4":{
+            "ID": "simple_jsfuck_encode",
+            "IconClass": "fa fa-dashboard",
+            "Text": "JSFuck混淆",
+            "OnClick": "change_inner('simple_jsfuck_encode')"
+        },
+        "5": {
             "ID": "unlimited_debugger",
             "IconClass": "fa fa-dashboard",
             "Text": "无限debugger",

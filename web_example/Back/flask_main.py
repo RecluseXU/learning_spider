@@ -91,8 +91,6 @@ class Inner(Resource):
         return get_RESTful_dict(200, True, self._load(args['block'], args['keyword']))
 
 
-
-
 api.add_resource(MainMenu, '/api/MainMenu')
 api.add_resource(Inner, '/api/Inner')
 

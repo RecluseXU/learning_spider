@@ -21,13 +21,13 @@
         "3": {
             "ID": "simple_aaencode",
             "IconClass": "fa fa-dashboard",
-            "Text": "AAEncode混淆",
+            "Text": "AAEncode加密",
             "OnClick": "change_inner('simple_aaencode')"
         },
         "4":{
             "ID": "simple_jsfuck_encode",
             "IconClass": "fa fa-dashboard",
-            "Text": "JSFuck混淆",
+            "Text": "JSFuck加密",
             "OnClick": "change_inner('simple_jsfuck_encode')"
         },
         "5": {
@@ -35,6 +35,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "无限debugger",
             "OnClick": "change_inner('unlimited_debugger')"
+        },
+        "6":{
+            "ID": "encryption_1",
+            "IconClass": "fa fa-dashboard",
+            "Text": "对称加密加密",
+            "OnClick": "change_inner('encryption_1')"
         }
     }
 }

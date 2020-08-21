@@ -69,6 +69,9 @@ class MainMenu(Resource):
 
 
 class Inner(Resource):
+    '''
+    用于页面正文内容
+    '''
     def _get_params_parser(self):
         if not hasattr(self, "_parser"):
             self._parser = reqparse.RequestParser()

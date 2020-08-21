@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">
+                <p>加密一</p>
+                <p>请获取到下方输入框的正确密码，并输入</p>
+            </div>
+            <div class="card-content">
+                <div>
+                    <label for="first_name">输入密码</label>
+                    <input placeholder="输入你喜欢的内容" id="the_words" type="text" class="validate">
+                    <label for="first_name">输入当其它加密参数不变，而秘钥变为"8005b080b950245d"时的结果(utf-8)</label>
+                    <input placeholder="输入结果" id="eny_words" type="text" class="validate">
+                    <label for="disabled">密码结果</label>
+                    <input disabled value="尚未成功" id="disabled" type="text" class="validate">
+                </div>
+                <button class="btn waves-effect waves-light right" id="reset_inner"><i
+                        class="fa fa-refresh fa-fw"></i>重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">简要信息</div>
+            <div class="card-content">
+                <p>这个加密的代码来自于 夜幕平台，我稍微改写了一下 </p>
+                <p>由于这个网站是部署在一个1核1G内存最菜的服务器上的，为了让我的服务器不会卡死，我将检查也放在了本地</p>
+                <p>代码中也明确说明了检查代码的位置</p>
+                <div class="clearBoth"><br></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"
+    integrity="sha512-nOQuvD9nKirvxDdvQ9OMqe2dgapbPB7vYAMrzJihw5m+aNcf0dX53m6YxM4LgA9u8e9eg9QX+/+mPu8kCNpV2A=="
+    crossorigin="anonymous"></script>
+
+<script src="{{ url_for('static',filename='question/js/encryption_1.js') }}"></script>
+
+</html>

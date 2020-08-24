@@ -41,6 +41,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "对称加密加密",
             "OnClick": "change_inner('encryption_1')"
+        },
+        "7":{
+            "ID": "css_element_coordinates",
+            "IconClass": "fa fa-dashboard",
+            "Text": "绝对定位反爬",
+            "OnClick": "change_inner('css_element_coordinates')"
         }
     }
 }

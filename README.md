@@ -92,6 +92,13 @@
         <td>devtool</td>
         <td>编码混淆</td>
     </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">CSS元素绝对定位反爬</a></td>
+        <td>静态网页</td>
+        <td>devtool</td>
+        <td>还原顺序</td>
+    </tr>
+
 
 </table>
 

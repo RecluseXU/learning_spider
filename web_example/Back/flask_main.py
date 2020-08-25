@@ -14,24 +14,12 @@
 
 from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
-from flask_cors import CORS
+# from flask_cors import CORS
 
 
 app = Flask(__name__)
 api = Api(app)
-CORS(app)
-
-
-def get_RESTful_dict(code: int, success: bool, data, meassage=None) -> dict:
-    sta = 'success' if success else 'fail'
-    format_d = {
-        'code': code,
-        'status': sta,
-        'data': data,
-    }
-    if not success:
-        format_d['meassage'] = meassage
-    return format_d
+# CORS(app)
 
 
 @app.route('/LearningSpider', methods=['GET'])
@@ -46,6 +34,18 @@ def empty():
 
 '''RESTful API'''
 '''页面相关'''
+
+
+def get_RESTful_dict(code: int, success: bool, data, meassage=None) -> dict:
+    sta = 'success' if success else 'fail'
+    format_d = {
+        'code': code,
+        'status': sta,
+        'data': data,
+    }
+    if not success:
+        format_d['meassage'] = meassage
+    return format_d
 
 
 class MainMenu(Resource):

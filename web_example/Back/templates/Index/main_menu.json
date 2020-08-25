@@ -31,10 +31,10 @@
             "OnClick": "change_inner('simple_jsfuck_encode')"
         },
         "5": {
-            "ID": "unlimited_debugger",
+            "ID": "unlimited_debug",
             "IconClass": "fa fa-dashboard",
             "Text": "无限debugger",
-            "OnClick": "change_inner('unlimited_debugger')"
+            "OnClick": "change_inner('unlimited_debug')"
         },
         "6":{
             "ID": "encryption_1",

@@ -2,7 +2,7 @@
 ## 基本信息
 来自于这个项目web部分的一个爬虫练习  
 <!-- ![](info_res/page_preview.png)   -->
-![page_preview.png](https://i.loli.net/2020/08/25/qgnaEftRdoJ8zDT.png)
+![page_preview.png](https://i.loli.net/2020/08/25/qgnaEftRdoJ8zDT.png)  
 
 
 ## 使用的包/工具/技术
@@ -18,7 +18,7 @@
 ## 分析  
 网页看上去非常的正常的，先打开元素面板查看情况  
 <!-- ![](info_res/compare.png) -->
-![compare.png](https://i.loli.net/2020/08/25/Uv8kjqWb4oSZs6c.png)
+![compare.png](https://i.loli.net/2020/08/25/Uv8kjqWb4oSZs6c.png)  
 发现，实际上数字顺序并不一样  
 
 这是由于元素是通过绝对定位的方式重新定位了位置所导致的  
@@ -30,7 +30,7 @@
 在这里，任何一个价格的偏移量数字都是相对于左边而言的  
 那么根据偏移量从小到大重新排序，就能得到和感官上一致的结果  
 <!-- ![](info_res/sorted.png) -->
-![sorted.png](https://i.loli.net/2020/08/25/W27SaJeCGgl6XER.png)
+![sorted.png](https://i.loli.net/2020/08/25/W27SaJeCGgl6XER.png)  
 
 
 ## 解决  

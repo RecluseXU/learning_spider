@@ -47,6 +47,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "绝对定位反爬",
             "OnClick": "change_inner('css_element_coordinates')"
+        },
+        "8":{
+            "ID": "css_pseudo_classes",
+            "IconClass": "fa fa-dashboard",
+            "Text": "伪类反爬",
+            "OnClick": "change_inner('css_pseudo_classes')"
         }
     }
 }

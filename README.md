@@ -98,22 +98,11 @@
         <td>devtool</td>
         <td>还原顺序</td>
     </tr>
-
-
-</table>
-
-## 工具/脚本制造  
-<table>
-    <tr><th colspan="4">工具/脚本制造</th></tr>
     <tr>
-        <th>附属于</th>
-        <th>内容</th>
-        <th>信息</th>
-    </tr>
-    <tr>
-        <td>Selenium</td>
-        <td>Auto DL ChromeWebDriver</td>
-        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_CSS%E4%BC%AA%E7%B1%BB%E5%8F%8D%E7%88%AC" target="_blank">CSS伪类反爬</a></td>
+        <td>静态网页</td>
+        <td>requests</td>
+        <td>还原内容</td>
     </tr>
 </table>
 
@@ -187,5 +176,21 @@
         <td>Flask-RESTful 一个 支持快速创建REST APIs的 Flask插件</td>
     </tr>
 </table>
+
+## 无用脚本制造  
+<table>
+    <tr><th colspan="4">工具/脚本制造</th></tr>
+    <tr>
+        <th>附属于</th>
+        <th>内容</th>
+        <th>信息</th>
+    </tr>
+    <tr>
+        <td>Selenium</td>
+        <td>Auto DL ChromeWebDriver</td>
+        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
+    </tr>
+</table>
+
 
 2020年8月5日18:33:19

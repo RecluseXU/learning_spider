@@ -45,14 +45,20 @@
         "7":{
             "ID": "css_element_coordinates",
             "IconClass": "fa fa-dashboard",
-            "Text": "绝对定位反爬",
+            "Text": "绝对定位",
             "OnClick": "change_inner('css_element_coordinates')"
         },
         "8":{
             "ID": "css_pseudo_classes",
             "IconClass": "fa fa-dashboard",
-            "Text": "伪类反爬",
+            "Text": "伪类",
             "OnClick": "change_inner('css_pseudo_classes')"
+        },
+        "9":{
+            "ID": "encryption_46esab",
+            "IconClass": "fa fa-dashboard",
+            "Text": "Base64定制码表加密",
+            "OnClick": "change_inner('encryption_46esab')"
         }
     }
 }

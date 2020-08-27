@@ -126,6 +126,38 @@
         <td>SliderCaptcha</td>
         <td>默认设置部署，存在基本的人机验证，匀速拉动/直线拉动不会通过验证</td>
     </tr>
+    <tr>
+        <td rowspan="2">CSS反爬</td>
+        <td>入门</td>
+        <td>绝对定位反爬</td>
+        <td>利用绝对定位的特性，将数据分散打乱写入html后，通过坐标还原观感</td>
+    </tr>
+    <tr>
+        <td>简单</td>
+        <td>伪类反爬</td>
+        <td>利用伪类content能显示数据的特点，将部分数据用content展示</td>
+    </tr>
+    <tr>
+        <td rowspan="4">js反爬</td>
+        <td>入门</td>
+        <td>反调试</td>
+        <td>利用 定时启动的/嵌套的debugger来让浏览器一直处于无法退出的调试状态</td>
+    </tr>
+    <tr>
+        <td>简单</td>
+        <td>AAEncode</td>
+        <td>用表情字符取代常见字符，让人难以阅读</td>
+    </tr>
+    <tr>
+        <td>简单</td>
+        <td>JSFuck</td>
+        <td>用几种基本字符取代大部分常见字符，让人难以阅读</td>
+    </tr>
+    <tr>
+        <td>一般</td>
+        <td>AES对称加密</td>
+        <td>将传输的数据进行加密</td>
+    </tr>
 </table>
 
 <table>
@@ -139,6 +171,11 @@
         <td>规范</td>
         <td>RESTful</td>
         <td>规范的API，规范的响应</td>
+    </tr>
+    <tr>
+        <td>CDN</td>
+        <td>bootcdn.cn</td>
+        <td>免费的前端开源项目 CDN 加速服务</td>
     </tr>
     <tr>
         <td rowspan="5">前端</td>
@@ -162,9 +199,9 @@
         <td>Vanilla-JS 折叠菜单插件</td>
     </tr>
     <tr>
-        <td>CDN</td>
-        <td>bootcdn.cn</td>
-        <td>免费的前端开源项目 CDN 加速服务</td>
+        <td>Web服务器</td>
+        <td>uWSGI</td>
+        <td>一个Web服务器</td>
     </tr>
     <tr>
         <td rowspan="4">后端</td>
@@ -173,7 +210,7 @@
     </tr>
     <tr>
         <td>Flask-RESTful 0.3.8</td>
-        <td>Flask-RESTful 一个 支持快速创建REST APIs的 Flask插件</td>
+        <td>一个支持快速创建REST APIs的 Flask插件</td>
     </tr>
 </table>
 
@@ -188,7 +225,7 @@
     <tr>
         <td>Selenium</td>
         <td>Auto DL ChromeWebDriver</td>
-        <td>获知已安装的Chrome版本信息，去<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Selenium Chrome Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
+        <td>从注册表获知Chrome版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
     </tr>
 </table>
 

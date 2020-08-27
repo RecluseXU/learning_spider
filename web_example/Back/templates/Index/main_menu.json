@@ -39,7 +39,7 @@
         "6":{
             "ID": "encryption_1",
             "IconClass": "fa fa-dashboard",
-            "Text": "对称加密加密",
+            "Text": "AES对称加密",
             "OnClick": "change_inner('encryption_1')"
         },
         "7":{

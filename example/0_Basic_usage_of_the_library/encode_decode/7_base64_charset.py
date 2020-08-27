@@ -116,6 +116,6 @@ def base64_2_ascii(base64_str: str) -> str:
 
 
 if __name__ == '__main__':
-    base64_str = ascii_2_base64('Hello')
+    base64_str = ascii_2_base64('216as1d6asd')
     print()
     base64_2_ascii(base64_str)

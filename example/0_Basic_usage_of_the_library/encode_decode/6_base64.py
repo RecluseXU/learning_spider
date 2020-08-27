@@ -6,7 +6,7 @@
 @Author  :   Recluse Xu
 @Version :   1.0
 @Contact :   444640050@qq.com
-@Desc    :   None
+@Desc    :   基础的base64编码与解码
 '''
 import base64
 

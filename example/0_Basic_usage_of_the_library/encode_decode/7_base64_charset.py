@@ -18,14 +18,12 @@ import random
 '''
 
 # 从标准库里将大写字母，小写字母，数字（一共62个字符）
-# char64 = string.ascii_uppercase + string.ascii_lowercase + string.digits
-char64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+char64 = string.ascii_uppercase + string.ascii_lowercase + string.digits
 # 额外添加两个字符(一共64个字符)
 char64 += '+'+'/'
 char64 = list(char64)
 # 打乱码表
 random.shuffle(char64)
-print(''.join(char64))
 
 
 def cut(obj, sec):
@@ -118,6 +116,6 @@ def base64_2_ascii(base64_str: str) -> str:
 
 
 if __name__ == '__main__':
-    base64_str = ascii_2_base64('今晚去吃 ')
+    base64_str = ascii_2_base64('Hello')
     print()
     base64_2_ascii(base64_str)

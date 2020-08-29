@@ -16,6 +16,9 @@ import base64
 from fontTools.ttLib import TTFont
 from io import BytesIO
 import re
+import json
+
+file_folder = 'example/未完成_58同城品牌公寓/'
 
 
 class House(object):
@@ -43,7 +46,7 @@ def get_html():
     '''
     print('获取html')
     try:
-        with open('example/未完成_CSS字体反爬/page.html', 'r', encoding="utf-8")as f:
+        with open(file_folder + 'page.html', 'r', encoding="utf-8")as f:
             html = f.read()
             print('\t从文件记录中获取')
             return html
@@ -73,7 +76,7 @@ def get_html():
     html = response.content.decode('utf-8')
     print('\t爬虫获取.....', end="")
 
-    with open('example/未完成_CSS字体反爬/page.html', 'w', encoding="utf-8")as f:
+    with open(file_folder + 'page.html', 'w', encoding="utf-8")as f:
         print('html已保存.....')
         f.write(html)
     return html
@@ -89,7 +92,7 @@ def get_font_ttf(html: str):
     print(font_info_b64[0])
 
     font_info = base64.b64decode(font_info_b64[0][1])
-    with open('example/未完成_CSS字体反爬/58_font.ttf', 'wb')as f:
+    with open(file_folder + '58_font.ttf', 'wb')as f:
         f.write(font_info)
         print('字体内容解码完毕，已保存ttf文件')
     return font_info
@@ -105,7 +108,7 @@ def font_data(font_info):
     print(font)
 
     print('生成字体xml记录方便查看')
-    font.saveXML("example/未完成_CSS字体反爬/58_font.xml")
+    font.saveXML(file_folder + "58_font.xml")
 
     convert_u2mid_dict = font['cmap'].tables[0].ttFont.tables['cmap'].tables[0].cmap
     print('将编码记录与字符记录整合为一个字典{unicode值：记录值}', convert_u2mid_dict)
@@ -141,6 +144,8 @@ def get_house_info(html: str):
         return _str.strip().replace(' ', '').replace('\n', '')
 
     page = etree.HTML(html)
+    i = 0
+    info_dict = {}
     for el_li in page.xpath('/html/body/div[5]/ul/li/a'):
 
         room = el_li.xpath('./div/p[@class="room"]/text()')[0]
@@ -159,6 +164,8 @@ def get_house_info(html: str):
             tag=el_li.xpath('./div/p[@class="spec"]/span/text()')[0]
         )
         print(house.attributes_to_dict())
+        info_dict[i], i = house, i+1
+    return info_dict
 
 
 def process():
@@ -166,9 +173,13 @@ def process():
     font_info = get_font_ttf(html_str)
     convert_u2val_dict = font_data(font_info)
     html_str = conver_html(html_str, convert_u2val_dict)
-
-    get_house_info(html_str)
+    info_dict = get_house_info(html_str)
+    return info_dict
 
 
 if __name__ == "__main__":
-    process()
+    info_dict = process()
+    info_list = [house.attributes_to_dict() for house in info_dict.values()]
+    with open(file_folder + 'house_info.json', 'w', encoding='utf-8')as f:
+        f.write(json.dumps(info_list, indent=4, ensure_ascii=False))
+

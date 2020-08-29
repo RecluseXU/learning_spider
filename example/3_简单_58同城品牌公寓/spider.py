@@ -17,8 +17,10 @@ from fontTools.ttLib import TTFont
 from io import BytesIO
 import re
 import json
+import time
 
-file_folder = 'example/3_简单_58同城品牌公寓/'
+file_folder = 'example/3_简单_58同城品牌公寓/res/'
+info_num = 0
 
 
 class House(object):
@@ -40,20 +42,20 @@ class House(object):
         return dict(zip(attributes_name, attributes_value))
 
 
-def get_html():
+def get_html(page_num: int):
     '''
     获取html
     '''
     print('获取html')
     try:
-        with open(file_folder + 'page.html', 'r', encoding="utf-8")as f:
+        with open(file_folder + 'html/page' + str(page_num) + '.html', 'r', encoding="utf-8")as f:
             html = f.read()
             print('\t从文件记录中获取')
             return html
     except Exception as e:
         print(e)
 
-    url = "https://zz.58.com/pinpaigongyu/?PGTID=0d100000-0015-67c3-83d7-b399b3d22b73&ClickID=4"
+    url = "https://zz.58.com/pinpaigongyu/pn/" + str(page_num) + "/?PGTID=0d100000-0015-67c3-83d7-b399b3d22b73&ClickID=4"
 
     payload = {}
     headers = {
@@ -72,11 +74,12 @@ def get_html():
         'cookie': r'f=n; commontopbar_new_city_info=342%7C%E9%83%91%E5%B7%9E%7Czz; id58=c5/nfF9H4ApGWoKXCNYzAg==; 58tj_uuid=74d907c7-19e8-4a07-bbc7-15f92e43aaa3; wmda_new_uuid=1; wmda_uuid=b9d3b4764e284d371e883a06257fdcf6; wmda_visited_projects=%3B11187958619315; new_uv=2; wmda_session_id_11187958619315=1598586819401-7b6d0cf9-c815-c1e1; xxzl_deviceid=fVPNop5ZEzNJFgycdRXuHD%2BSUMTkdblUpMcfyT6li2Rk6UvSZBBZqZeSKpsE2Gom; new_session=0; utm_source=sem-baidu-pc; init_refer=; spm=105916146708.26420796287; Hm_lvt_dcee4f66df28844222ef0479976aabf1=1598586941; f=n; als=0; commontopbar_new_city_info=342%7C%E9%83%91%E5%B7%9E%7Czz; 58home=zz; city=zz; commontopbar_ipcity=gz%7C%E5%B9%BF%E5%B7%9E%7C0; sessionid=4af2312e-c30d-4241-9842-176977c5c61d; xxzl_cid=62d1d504fa5f4b99988904d5045ac42e; xzuid=93bc3f8f-6f5b-47cf-8c95-1408bbff2699; ppStore_fingerprint=8FF8C9C64E735DCC9495EC610D9B1C3423199F89D1F3AC45%EF%BC%BF1598588629639; Hm_lpvt_dcee4f66df28844222ef0479976aabf1=1598588630; xzfzqtoken=6YBH78sMNv2CUQW62%2BaPZ3g9CBkdPq2xMTKMXtjSjaQqiqp4Xc9S%2BsN09j%2FPTv1Fin35brBb%2F%2FeSODvMgkQULA%3D%3D'
     }
 
+    print('访问', url)
     response = requests.request("GET", url, headers=headers, data=payload)
     html = response.content.decode('utf-8')
     print('\t爬虫获取.....', end="")
 
-    with open(file_folder + 'page.html', 'w', encoding="utf-8")as f:
+    with open(file_folder + 'html/page' + str(page_num) + '.html', 'w', encoding="utf-8")as f:
         print('html已保存.....')
         f.write(html)
     return html
@@ -113,16 +116,23 @@ def font_data(font_info):
     convert_u2mid_dict = font['cmap'].tables[0].ttFont.tables['cmap'].tables[0].cmap
     print('将编码记录与字符记录整合为一个字典{unicode值：记录值}', convert_u2mid_dict)
 
-    font_value_meaning = {'glyph00001': 0, 'glyph00002': 1,  'glyph00003': 2, 'glyph00004': 3, 'glyph00005': 4, 'glyph00006': 5, 'glyph00007': 6, 'glyph00008': 7, 'glyph00009': 8, 'glyph00010': 9}
-    print('软件中查看图像后编写记录值与实际值对应表', font_value_meaning)
-
-    convert_u2val_dict = {}
+    print('字典key转16进unicode html转义')
+    convert_uh2val_dict = {}
     for _key, _val in convert_u2mid_dict.items():
-        _key = '&#x' + str(chr(_key).encode('unicode_escape'))[5:-1] + ';'
-        convert_u2val_dict[_key] = font_value_meaning[_val]
-    print('将上面两个表合并，将键从unicode值改为html转义后的unicode字符，将记录值改为真实值', convert_u2val_dict)
+        _key = hex(_key)
+        convert_uh2val_dict['&#x' + _key[2:] + ';'] = _val
+    print(convert_uh2val_dict)
 
-    return convert_u2val_dict
+    print('软件中查看图像后编写记录值与实际值对应表')
+    font_value_meaning = {'glyph00001': 0, 'glyph00002': 1,  'glyph00003': 2, 'glyph00004': 3, 'glyph00005': 4, 'glyph00006': 5, 'glyph00007': 6, 'glyph00008': 7, 'glyph00009': 8, 'glyph00010': 9}
+    print(font_value_meaning)
+
+    print('字典value转真实值')
+    for _key, _val in convert_uh2val_dict.items():
+        convert_uh2val_dict[_key] = font_value_meaning[_val]
+    print(convert_uh2val_dict)
+
+    return convert_uh2val_dict
 
 
 def conver_html(html_str, convert_u2val_dict):
@@ -139,12 +149,13 @@ def get_house_info(html: str):
     '''
     从网页中获取房子数据
     '''
+    global info_num
 
     def _c(_str):
         return _str.strip().replace(' ', '').replace('\n', '')
 
+    print('解析html数据')
     page = etree.HTML(html)
-    i = 0
     info_dict = {}
     for el_li in page.xpath('/html/body/div[5]/ul/li/a'):
 
@@ -163,13 +174,14 @@ def get_house_info(html: str):
             location=_c(''.join(el_li.xpath('./div/p[@class="dist"]/text()'))),
             tag=el_li.xpath('./div/p[@class="spec"]/span/text()')[0]
         )
-        print(house.attributes_to_dict())
-        info_dict[i], i = house, i+1
+        print(house.attributes_to_dict()['title'])
+        info_dict[info_num], info_num = house, info_num+1
+    print('解析完毕一共 ', len(info_dict), '条记录')
     return info_dict
 
 
-def process():
-    html_str = get_html()
+def process(page_num: int):
+    html_str = get_html(page_num)
     font_info = get_font_ttf(html_str)
     convert_u2val_dict = font_data(font_info)
     html_str = conver_html(html_str, convert_u2val_dict)
@@ -178,8 +190,10 @@ def process():
 
 
 if __name__ == "__main__":
-    info_dict = process()
-    info_list = [house.attributes_to_dict() for house in info_dict.values()]
+    house_info_dict = dict()
+    for i in range(1, 5):
+        info_dict = house_info_dict.update(process(i))
+        time.sleep(1)
+    info_list = [house.attributes_to_dict() for house in house_info_dict.values()]
     with open(file_folder + 'house_info.json', 'w', encoding='utf-8')as f:
         f.write(json.dumps(info_list, indent=4, ensure_ascii=False))
-

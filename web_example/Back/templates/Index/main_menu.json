@@ -59,6 +59,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "Base64定制码表加密",
             "OnClick": "change_inner('encryption_46esab')"
+        },
+        "10":{
+            "ID": "css_font_encryption",
+            "IconClass": "fa fa-dashboard",
+            "Text": "CSS字体加密",
+            "OnClick": "change_inner('css_font_encryption')"
         }
     }
 }

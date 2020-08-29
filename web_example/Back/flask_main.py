@@ -22,7 +22,7 @@ api = Api(app)
 # CORS(app)
 
 
-@app.route('/LearningSpider', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 

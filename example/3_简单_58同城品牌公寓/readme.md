@@ -134,8 +134,27 @@ for _key, _val in convert_u2mid_dict.items():
 
 利用`转换字典`，将html中的`unicode字符`转为`实际值`  
 ~~~python
-for word, value in convert_u2val_dict.items():
-    html_str = html_str.replace(word, str(value))
+print('字典key转16进unicode html转义')
+convert_uh2val_dict = {}
+for _key, _val in convert_u2mid_dict.items():
+    _key = hex(_key)
+    convert_uh2val_dict['&#x' + _key[2:] + ';'] = _val
+print(convert_uh2val_dict)
+{'&#x9476;': 'glyph00005', '&#x958f;': 'glyph00003', '&#x993c;': 'glyph00006', '&#x9a4b;': 'glyph00009', '&#x9e3a;': 'glyph00010', '&#x9ea3;': 'glyph00004', '&#x9f64;': 'glyph00008', '&#x9f92;': 'glyph00001', '&#x9fa4;': 'glyph00002', '&#x9fa5;': 'glyph00007'}
+~~~
+
+~~~python
+print('软件中查看图像后编写记录值与实际值对应表')
+font_value_meaning = {'glyph00001': 0, 'glyph00002': 1,  'glyph00003': 2, 'glyph00004': 3, 'glyph00005': 4, 'glyph00006': 5, 'glyph00007': 6, 'glyph00008': 7, 'glyph00009': 8, 'glyph00010': 9}
+print(font_value_meaning)
+~~~
+
+~~~python
+print('字典value转真实值')
+for _key, _val in convert_uh2val_dict.items():
+    convert_uh2val_dict[_key] = font_value_meaning[_val]
+print(convert_uh2val_dict)
+{'&#x9476;': 4, '&#x958f;': 2, '&#x993c;': 5, '&#x9a4b;': 8, '&#x9e3a;': 9, '&#x9ea3;': 3, '&#x9f64;': 7, '&#x9f92;': 0, '&#x9fa4;': 1, '&#x9fa5;': 6}
 ~~~
 如此一来就解决了字体加密的问题了  
 余下的就是简单的解析数据  

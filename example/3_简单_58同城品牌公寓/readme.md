@@ -126,7 +126,11 @@ convert_u2val_dict = {}
 for _key, _val in convert_u2mid_dict.items():
     _key = '&#x' + str(chr(_key).encode('unicode_escape'))[5:-1] + ';'
     convert_u2val_dict[_key] = font_value_meaning[_val]
+
+{'&#x9476;': 5, '&#x958f;': 7, '&#x993c;': 3, '&#x9a4b;': 4, '&#x9e3a;': 9, '&#x9ea3;': 2, '&#x9f64;': 8, '&#x9f92;': 0, '&#x9fa4;': 
+1, '&#x9fa5;': 6}
 ~~~
+
 
 利用`转换字典`，将html中的`unicode字符`转为`实际值`  
 ~~~python

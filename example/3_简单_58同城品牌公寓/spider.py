@@ -18,7 +18,7 @@ from io import BytesIO
 import re
 import json
 
-file_folder = 'example/未完成_58同城品牌公寓/'
+file_folder = 'example/3_简单_58同城品牌公寓/'
 
 
 class House(object):

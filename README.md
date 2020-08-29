@@ -70,7 +70,7 @@
         <td>滑块移动</td>
     </tr>
     <tr>
-        <td rowspan="5">简单</td>
+        <td rowspan="6">简单</td>
         <td>
         <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%9F%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95" target="_blank">某路由器密码加密方法</a></td>
         <td>单个js文件</td>
@@ -85,22 +85,28 @@
         <td>反调试</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">AAEncode解混淆</a></td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">AAEncode解加密</a></td>
         <td>动态网页</td>
         <td>devtool</td>
-        <td>编码混淆</td>
+        <td>编码加密</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_CSS%E5%85%83%E7%B4%A0%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E5%8F%8D%E7%88%AC" target="_blank">CSS元素绝对定位反爬</a></td>
         <td>静态网页</td>
         <td>pyppeteer</td>
-        <td>还原顺序</td>
+        <td>还原元素顺序</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_CSS%E4%BC%AA%E7%B1%BB%E5%8F%8D%E7%88%AC" target="_blank">CSS伪类反爬</a></td>
         <td>静态网页</td>
         <td>requests</td>
-        <td>还原内容</td>
+        <td>还原伪类内容</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/3_%E7%AE%80%E5%8D%95_58%E5%90%8C%E5%9F%8E%E5%93%81%E7%89%8C%E5%85%AC%E5%AF%93" target="_blank">58同城品牌公寓</a></td>
+        <td>静态网页</td>
+        <td>requests</td>
+        <td>处理静态字体</td>
     </tr>
 </table>
 

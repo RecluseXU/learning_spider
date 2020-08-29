@@ -1,10 +1,10 @@
 ## 基本信息
-目标URL：https://www.amazon.cn/  
+目标URL：https://zz.58.com/pinpaigongyu/?PGTID=0d100000-0015-67c3-83d7-b399b3d22b73&ClickID=4  
 <!-- ![](info_res/browser_preview.png) -->
 ![browser_preview.png](https://i.loli.net/2020/08/29/lC6i5rGyQ2oNJjM.png)  
 
 ## 描述  
-静态网页  
+静态网页（如果你不刷更多内容，它会是静态）  
 58同城的品牌公寓信息
 对CSS字体加密问题的一次尝试，并非大规模抓取  
 

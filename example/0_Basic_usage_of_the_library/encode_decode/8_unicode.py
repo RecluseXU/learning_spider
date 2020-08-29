@@ -39,10 +39,18 @@ def unicode_ret_2_char(a_ret: int) -> int:
     return c
 
 
+def unicode_ret_2_unicode_char(a_ret: int):
+    # 根据unicode 数值，得到一个unicode字符
+    c = chr(a_ret).encode('unicode_escape')
+    print(a_ret, '对应字符', c)
+    return c
+
+
 if __name__ == "__main__":
     c = '齤'
     char_2_unicode_char(c)
     unicode_char_2_char('\\u4f60\\u597d')
 
     char_2_unicode_ret(c[0])
-    unicode_ret_2_char(20320)
+    unicode_ret_2_char(38006)
+    unicode_ret_2_unicode_char(38006)

@@ -20,12 +20,12 @@
     <!-- Most of this table will be recalculated by the compiler -->
     <tableVersion value="1.0"/>
     <fontRevision value="1.0"/>
-    <checkSumAdjustment value="0xe0136ad4"/>
+    <checkSumAdjustment value="0xe0119666"/>
     <magicNumber value="0x5f0f3cf5"/>
     <flags value="00000000 00001011"/>
     <unitsPerEm value="2048"/>
-    <created value="Sat Aug 29 11:00:58 2020"/>
-    <modified value="Sat Aug 29 11:00:58 2020"/>
+    <created value="Sun Aug 30 04:26:45 2020"/>
+    <modified value="Sun Aug 30 04:26:45 2020"/>
     <xMin value="0"/>
     <yMin value="-26"/>
     <xMax value="1128"/>
@@ -141,54 +141,54 @@
   <cmap>
     <tableVersion version="0"/>
     <cmap_format_4 platformID="0" platEncID="3" language="0">
-      <map code="0x9476" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
-      <map code="0x958f" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
-      <map code="0x993c" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
-      <map code="0x9a4b" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
-      <map code="0x9e3a" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
-      <map code="0x9ea3" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
-      <map code="0x9f64" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
-      <map code="0x9f92" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
-      <map code="0x9fa4" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
-      <map code="0x9fa5" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
+      <map code="0x9476" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
+      <map code="0x958f" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
+      <map code="0x993c" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
+      <map code="0x9a4b" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
+      <map code="0x9e3a" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
+      <map code="0x9ea3" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
+      <map code="0x9f64" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
+      <map code="0x9f92" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
+      <map code="0x9fa4" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
+      <map code="0x9fa5" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
     </cmap_format_4>
     <cmap_format_12 platformID="0" platEncID="4" format="12" reserved="0" length="136" language="0" nGroups="10">
-      <map code="0x9476" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
-      <map code="0x958f" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
-      <map code="0x993c" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
-      <map code="0x9a4b" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
-      <map code="0x9e3a" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
-      <map code="0x9ea3" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
-      <map code="0x9f64" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
-      <map code="0x9f92" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
-      <map code="0x9fa4" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
-      <map code="0x9fa5" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
+      <map code="0x9476" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
+      <map code="0x958f" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
+      <map code="0x993c" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
+      <map code="0x9a4b" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
+      <map code="0x9e3a" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
+      <map code="0x9ea3" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
+      <map code="0x9f64" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
+      <map code="0x9f92" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
+      <map code="0x9fa4" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
+      <map code="0x9fa5" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
     </cmap_format_12>
     <cmap_format_0 platformID="1" platEncID="0" language="0">
     </cmap_format_0>
     <cmap_format_4 platformID="3" platEncID="1" language="0">
-      <map code="0x9476" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
-      <map code="0x958f" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
-      <map code="0x993c" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
-      <map code="0x9a4b" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
-      <map code="0x9e3a" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
-      <map code="0x9ea3" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
-      <map code="0x9f64" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
-      <map code="0x9f92" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
-      <map code="0x9fa4" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
-      <map code="0x9fa5" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
+      <map code="0x9476" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
+      <map code="0x958f" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
+      <map code="0x993c" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
+      <map code="0x9a4b" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
+      <map code="0x9e3a" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
+      <map code="0x9ea3" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
+      <map code="0x9f64" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
+      <map code="0x9f92" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
+      <map code="0x9fa4" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
+      <map code="0x9fa5" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
     </cmap_format_4>
     <cmap_format_12 platformID="3" platEncID="10" format="12" reserved="0" length="136" language="0" nGroups="10">
-      <map code="0x9476" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
-      <map code="0x958f" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
-      <map code="0x993c" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
-      <map code="0x9a4b" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
-      <map code="0x9e3a" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
-      <map code="0x9ea3" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
-      <map code="0x9f64" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
-      <map code="0x9f92" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
-      <map code="0x9fa4" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
-      <map code="0x9fa5" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
+      <map code="0x9476" name="glyph00007"/><!-- CJK UNIFIED IDEOGRAPH-9476 -->
+      <map code="0x958f" name="glyph00006"/><!-- CJK UNIFIED IDEOGRAPH-958F -->
+      <map code="0x993c" name="glyph00004"/><!-- CJK UNIFIED IDEOGRAPH-993C -->
+      <map code="0x9a4b" name="glyph00005"/><!-- CJK UNIFIED IDEOGRAPH-9A4B -->
+      <map code="0x9e3a" name="glyph00008"/><!-- CJK UNIFIED IDEOGRAPH-9E3A -->
+      <map code="0x9ea3" name="glyph00002"/><!-- CJK UNIFIED IDEOGRAPH-9EA3 -->
+      <map code="0x9f64" name="glyph00010"/><!-- CJK UNIFIED IDEOGRAPH-9F64 -->
+      <map code="0x9f92" name="glyph00003"/><!-- CJK UNIFIED IDEOGRAPH-9F92 -->
+      <map code="0x9fa4" name="glyph00001"/><!-- CJK UNIFIED IDEOGRAPH-9FA4 -->
+      <map code="0x9fa5" name="glyph00009"/><!-- CJK UNIFIED IDEOGRAPH-9FA5 -->
     </cmap_format_12>
   </cmap>
 

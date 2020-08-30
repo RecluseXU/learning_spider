@@ -36,7 +36,7 @@
 #### 反反爬思路
 需要做的是: 找出正确的`Unicode码`与`Unicode字符`关系，用正确的字符取代网页上的`Unicode码`  
 
-### 过程  
+### 字体处理过程  
 网页整体爬取并没有什么大问题，设置一个比较合理的头部即可获取  
 唯一需要解决的就是字体的问题  
 <!-- ![](info_res/compare_html.png) -->
@@ -99,65 +99,44 @@ def get_font_ttf(html: str):
     return font_info
 ~~~
 
-在保存好`ttf文件`以后，打开`ttf文件`  
-查看`记录值`与`实际值`的对应关系  
+
+在保存好`ttf文件`以后，利用 [百度字体编辑器](http://fontstore.baidu.com/static/editor/index.html) 取字体与`Unicode值`与`实际值`关系  
+
 <!-- ![](info_res/ttf_preview.png)   -->
-![ttf_preview.png](https://i.loli.net/2020/08/29/VIiHXo3EmBTq78b.png)  
+![ttf_preview.png](https://i.loli.net/2020/08/30/B19kRog8wOAuxds.png)
 
-肉眼观察得到对应项目  
->对于可能会变动的类型，可以通过导出xml，再从xml中导出“笔画”让orc来识别来获取对应项目  
-
-~~~python
-{'glyph1': 0, 'glyph2': 1,  'glyph3': 2, 'glyph4': 3, 'glyph5': 4, 'glyph6': 5, 'glyph7': 6, 'glyph8': 7, 'glyph9': 8, 'glyph10': 9}
-~~~
-
-在python中获取字体与`Unicode值`与`记录值`关系  
-~~~python
-font['cmap'].tables[0].ttFont.tables['cmap'].tables[0].cmap
-
-{38006: 'glyph00006', 38287: 'glyph00008', 39228: 'glyph00004', 39499: 'glyph00005', 40506: 'glyph00010', 40611: 'glyph00003', 40804: 'glyph00009', 40850: 'glyph00001', 40868: 'glyph00002', 40869: 'glyph00007'}
-~~~
-
-将上面两个字典合并起来,顺便将`Unicode值`进行html转义  
-形成 `转换字典`{`Unicode值（html转义）`:`实际值`}  
+>此处有多种选择方式  
+>* 可以从xml里拿到坐标，然后matlap画图做ocr  
+>* 可以记录坐标特征，下次碰到识别坐标特征就反推关系  
+>* 可以用百度字体编辑器手工处理  
+>
+>由于我并不打算重复抓取，所以这个字体是相对固定不变的  
+这里选择用百度字体编辑器手工的方式得到结果  
 
 ~~~python
-convert_u2val_dict = {}
-for _key, _val in convert_u2mid_dict.items():
-    _key = '&#x' + str(chr(_key).encode('unicode_escape'))[5:-1] + ';'
-    convert_u2val_dict[_key] = font_value_meaning[_val]
-
-{'&#x9476;': 5, '&#x958f;': 7, '&#x993c;': 3, '&#x9a4b;': 4, '&#x9e3a;': 9, '&#x9ea3;': 2, '&#x9f64;': 8, '&#x9f92;': 0, '&#x9fa4;': 
-1, '&#x9fa5;': 6}
+{'9fa4': 0, '9ea3': 1, '9f92': 2, '993c': 3, '9a4b': 4, '958f': 5, '9476': 6, '9e3a': 7, '9fa5': 8, '9f64': 9}
 ~~~
-
-
-利用`转换字典`，将html中的`unicode字符`转为`实际值`  
+整理数据，得到{`html转义unicode字符`:`实际值`}这种形式  
 ~~~python
 print('字典key转16进unicode html转义')
-convert_uh2val_dict = {}
-for _key, _val in convert_u2mid_dict.items():
-    _key = hex(_key)
-    convert_uh2val_dict['&#x' + _key[2:] + ';'] = _val
-print(convert_uh2val_dict)
-{'&#x9476;': 'glyph00005', '&#x958f;': 'glyph00003', '&#x993c;': 'glyph00006', '&#x9a4b;': 'glyph00009', '&#x9e3a;': 'glyph00010', '&#x9ea3;': 'glyph00004', '&#x9f64;': 'glyph00008', '&#x9f92;': 'glyph00001', '&#x9fa4;': 'glyph00002', '&#x9fa5;': 'glyph00007'}
+    convert_uh2val_dict = {}
+    for _key, _val in convert_u2mid_dict.items():
+        _key = hex(_key)
+        convert_uh2val_dict['&#x' + _key[2:] + ';'] = baidu_font_dict[_key[2:]]
+    print(convert_uh2val_dict)
 ~~~
 
+最后就是利用转化字典，将html里的那些unicode转为实际值  
 ~~~python
-print('软件中查看图像后编写记录值与实际值对应表')
-font_value_meaning = {'glyph00001': 0, 'glyph00002': 1,  'glyph00003': 2, 'glyph00004': 3, 'glyph00005': 4, 'glyph00006': 5, 'glyph00007': 6, 'glyph00008': 7, 'glyph00009': 8, 'glyph00010': 9}
-print(font_value_meaning)
-~~~
-
-~~~python
-print('字典value转真实值')
-for _key, _val in convert_uh2val_dict.items():
-    convert_uh2val_dict[_key] = font_value_meaning[_val]
-print(convert_uh2val_dict)
-{'&#x9476;': 4, '&#x958f;': 2, '&#x993c;': 5, '&#x9a4b;': 8, '&#x9e3a;': 9, '&#x9ea3;': 3, '&#x9f64;': 7, '&#x9f92;': 0, '&#x9fa4;': 1, '&#x9fa5;': 6}
+print('将html中自定义字体值转为真实值')
+    for word, value in convert_u2val_dict.items():
+        html_str = html_str.replace(word, str(value))
 ~~~
 如此一来就解决了字体加密的问题了  
 余下的就是简单的解析数据  
+
+这个网页的话，是一个动态网页，但数据是静态的  
+抓取到第一页，解析出字体，解析好内容以后，再模拟ajax得到剩余的动态网页来解析即可  
 
 全部代码见：`spider.py`
 

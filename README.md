@@ -106,7 +106,7 @@
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/3_%E7%AE%80%E5%8D%95_58%E5%90%8C%E5%9F%8E%E5%93%81%E7%89%8C%E5%85%AC%E5%AF%93" target="_blank">58同城品牌公寓</a></td>
         <td>静态网页</td>
         <td>requests</td>
-        <td>处理静态字体</td>
+        <td>静态字体加密</td>
     </tr>
 </table>
 
@@ -131,7 +131,7 @@
         <td>默认设置部署，存在基本的人机验证，匀速拉动/直线拉动不会通过验证</td>
     </tr>
     <tr>
-        <td rowspan="2">CSS反爬</td>
+        <td rowspan="3">CSS反爬</td>
         <td>入门</td>
         <td>绝对定位反爬</td>
         <td>利用绝对定位的特性，将数据分散打乱写入html后，通过坐标还原观感</td>
@@ -142,7 +142,12 @@
         <td>利用伪类content能显示数据的特点，将部分数据用content展示</td>
     </tr>
     <tr>
-        <td rowspan="4">js反爬</td>
+        <td>一般</td>
+        <td>静态字体加密反爬</td>
+        <td>让一些Unicode文字使用自定义字体解析，让使用标准Unicode解析的人爬不到数据<br>单个访问过程中字体并不会变化</td>
+    </tr>
+    <tr>
+        <td rowspan="5">js反爬</td>
         <td>入门</td>
         <td>反调试</td>
         <td>利用 定时启动的/嵌套的debugger来让浏览器一直处于无法退出的调试状态</td>
@@ -160,6 +165,11 @@
     <tr>
         <td>一般</td>
         <td>AES对称加密</td>
+        <td>将传输的数据进行加密</td>
+    </tr>
+    <tr>
+        <td>一般</td>
+        <td>自定义Base64码表加密</td>
         <td>将传输的数据进行加密</td>
     </tr>
 </table>

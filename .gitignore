@@ -1,2 +1,4 @@
 .vscode/
 **/__pycache__
+web_example/Back/--ini
+web_example/Back/uwsgi.ini

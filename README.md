@@ -2,7 +2,7 @@
 此项目主要分为三个部分  
 * 爬虫案例  
 对一些网站的数据进行爬取，标记出 难度和要点  
-* web网站  
+* web网站 [http://learnspider.evilrecluse.top/](http://learnspider.evilrecluse.top/)  
 根据反反爬经验，尝试去接入、编写各类爬虫障碍，顺便研究前端/后端/服务器知识  
 * 辅助工具/脚本制造  
 尝试制作各种爬虫工具/脚本  
@@ -172,6 +172,12 @@
         <td>自定义Base64码表加密</td>
         <td>将传输的数据进行加密</td>
     </tr>
+    <tr>
+        <td>指纹反爬</td>
+        <td>简单</td>
+        <td>Selenium识别</td>
+        <td>通过一些自动创建的变量识别Selenium</td>
+    </tr>
 </table>
 
 <table>
@@ -249,4 +255,4 @@
 </table>
 
 
-2020年8月5日18:33:19
+2020年10月12日

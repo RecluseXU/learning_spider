@@ -65,6 +65,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "CSS字体加密",
             "OnClick": "change_inner('css_font_encryption')"
+        },
+        "11":{
+            "ID": "selenium_check",
+            "IconClass": "fa fa-dashboard",
+            "Text": "Selenium特征检测",
+            "OnClick": "change_inner('selenium_check')"
         }
     }
 }

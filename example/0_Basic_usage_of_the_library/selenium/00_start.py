@@ -11,12 +11,11 @@
 '''
 
 # here put the import lib
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 # 创建一个Firefox WebDriver的实例
-driver = webdriver.Firefox()
+driver = webdriver.Chrome(executable_path='D:/Code/learning_spider/example/0_Basic_usage_of_the_library/selenium/BrowserDriver/chromedriver.exe')
 # driver.get 方法将打开URL中填写的地址
 # WebDriver 将等待，直到页面完全加载完毕（其实是等到”onload” 方法执行完毕）
 # 然后返回继续执行你的脚本。
@@ -24,7 +23,7 @@ driver = webdriver.Firefox()
 driver.get("http://www.python.org")
 # 下一行是用assert的方式确认标题是否包含“Python”一词。
 #  (译注：assert 语句将会在之后的语句返回false后抛出异常，详细内容可以自行百度)
-assert "Python" in driver.title
+print("Python" in driver.title)
 # WebDriver 提供了大量的方法让你去查询页面中的元素，这些方法形如： find_element_by_*。 
 # 例如：包含 name 属性的input输入框可以通过 find_element_by_name 方法查找到
 # 详细的查找方法可以在第四节元素查找中查看:
@@ -35,7 +34,7 @@ elem.clear()
 elem.send_keys("pycon")
 elem.send_keys(Keys.RETURN)
 # 提交页面后,你会得到所有的结果。为了确保某些特定的结果被找到，使用`assert`如下:
-assert "No results found." not in driver.page_source
+print("No results found." not in driver.page_source
 # 最后，关闭浏览器窗口
 # 你还可以使用quit方法代替close方法
 # quit将关闭整个浏览器，而_close——只会关闭一个标签页

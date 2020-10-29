@@ -71,13 +71,13 @@ def custom_threshold(image):# 自行二值化
     ret,binary = cv.threshold(gray,mean,255,cv.THRESH_BINARY)
     cv.imshow('custom binary', binary)
 
-src = cv.imread('picture/angle2.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle2.jpg')
 cv.imshow('src',src)
 
 
-# threshold_demo(src)
-# local_threshold(src)
-# custom_threshold(src)
+threshold_demo(src)
+local_threshold(src)
+custom_threshold(src)
 
 cv.waitKey(0)
 cv.destroyAllWindows()

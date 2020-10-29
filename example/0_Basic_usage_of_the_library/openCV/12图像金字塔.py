@@ -31,7 +31,7 @@ def lapalian_demo(image):
             lpls = cv.subtract(pyramid_images[i-1],expand)
         cv.imshow('lapalian_down_' + str(i),lpls)
 
-src = cv.imread('picture/angle2.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle2.jpg')
 cv.imshow('src',src)
 
 # pyramid_demo(src)

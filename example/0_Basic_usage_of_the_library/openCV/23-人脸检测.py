@@ -11,7 +11,7 @@ import numpy as np
 
 def face_detect_demo(src):
     gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
-    face_detector = cv.CascadeClassifier('opencv-master/data/haarcascades/haarcascade_frontalface_alt_tree.xml')
+    face_detector = cv.CascadeClassifier('example/0_Basic_usage_of_the_library/openCV/23-haarcascade_frontalface_alt_tree.xml')
     face = face_detector.detectMultiScale(gray, 1.1, 2)
     # 第二个参数决定金字塔层数，越高越是快
     # 注意第三个参数，多特征识别，当有 这个数以上认为是目标才确定是目标。
@@ -30,7 +30,7 @@ def camara_detect_demo():
 
 
 cv.namedWindow('camera',cv.WINDOW_AUTOSIZE)
-src = cv.imread('picture/zxc.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/zxc.jpg')
 cv.imshow('src',src)
 
 face_detect_demo(src)

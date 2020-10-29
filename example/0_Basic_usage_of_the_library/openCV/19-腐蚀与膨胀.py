@@ -31,7 +31,7 @@ def dilate_demo(image):
     dst = cv.dilate(binary,kernel) # 膨胀
     cv.imshow('dilate',dst)
 
-src = cv.imread('picture/goodmancard.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
 cv.imshow('src',src)
 
 erode_demo(src)

@@ -31,7 +31,7 @@ def sobel_demo(image):# sobel算子
     gradxy = cv.addWeighted(gradx,0.5,grady,0.5,0)
     cv.imshow('gradient',gradxy)
 
-src = cv.imread('picture/angle2.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle2.jpg')
 cv.imshow('src',src)
 
 lapalian_demo(src)

@@ -9,7 +9,7 @@ import cv2 as cv
 import numpy as np
 
 
-def equalHist_demo(image):#全局直方图均衡化
+def equalHist_demo(image):  # 全局直方图均衡化
     # 图像增强对比的一个手段
     # 只能处理灰度图
     gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY)
@@ -17,8 +17,8 @@ def equalHist_demo(image):#全局直方图均衡化
     cv.imshow('equal-demo', dst)
     cv.imwrite('result/9-2equal.png',dst)
 
-def clahe_demo(image):#局部直方图均衡化
-    #相对于上面的，这个能控制强度
+def clahe_demo(image):  # 局部直方图均衡化
+    # 相对于上面的，这个能控制强度
     gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY)
     clahe = cv.createCLAHE(clipLimit=5.0,tileGridSize=(8,8))
     dst = clahe.apply(gray)
@@ -57,9 +57,9 @@ def hist_compare(image1,image2):
     print('卡方:',match3)
     
     
-src = cv.imread('picture/girl3.jpg')
-src1 = cv.imread('picture/angle1.jpg')
-src2 = cv.imread('picture/angle2.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/girl3.jpg')
+src1 = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle1.jpg')
+src2 = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle2.jpg')
 cv.imshow('src',src)
 cv.imshow('src1',src1)
 cv.imshow('src2',src2)

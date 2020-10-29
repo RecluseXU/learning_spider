@@ -31,7 +31,7 @@ def video_demo():#读入视频
             break
 
 
-src = cv.imread('picture/buleeyeswhite.png')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/buleeyeswhite.png')
 cv.namedWindow('inputImage',cv.WINDOW_AUTOSIZE)
 cv.imshow('inputImage',src)
 

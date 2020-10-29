@@ -43,7 +43,7 @@ def watershed_demo(image):
     
     cv.imshow('result',image)
     
-src = cv.imread('picture/coins.png')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/coins.png')
 cv.imshow('src',src)
 
 watershed_demo(src)

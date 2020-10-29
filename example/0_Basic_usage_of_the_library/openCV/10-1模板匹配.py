@@ -25,8 +25,8 @@ def template_demo(target,tpl):
         cv.imshow('methodResult-'+np.str(method),result)
         cv.imwrite('result/10-1methodResult-'+np.str(method)+'.png',target)
 
-src = cv.imread('picture/angle1.jpg')
-src1 = cv.imread('picture/handOfAngle1.png')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle1.jpg')
+src1 = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/handOfAngle1.png')
 cv.imshow('src',src)
 cv.imshow('src1',src1)
 

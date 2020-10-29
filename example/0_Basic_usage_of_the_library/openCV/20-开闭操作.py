@@ -41,7 +41,7 @@ def close_demo(image):
 
 
 
-src = cv.imread('picture/goodmancard.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
 cv.imshow('src',src)
 
 open_demo(src)

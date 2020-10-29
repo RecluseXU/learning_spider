@@ -53,10 +53,10 @@ def cornerHarris_demo(img):
     for i in result_plot:
         cv.circle(img,(i[0],i[1]),1,(0,0,255),2)
     
-    cv.imwrite('result/24-cornerpoint.jpg',img)
+    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/24-cornerpoint.jpg',img)
     cv.imshow('dst',img)
 
-img = cv.imread('picture/angle2.jpg')
+img = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/angle2.jpg')
 cv.imshow('img',img)
 
 cornerHarris_demo(img)

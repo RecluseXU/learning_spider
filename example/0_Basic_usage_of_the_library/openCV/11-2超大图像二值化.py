@@ -23,7 +23,7 @@ def big_image_binary_threshold_demo(image):#全局
             else:
                 ret, dst = cv.threshold(roi,0,255,cv.THRESH_BINARY | cv.THRESH_OTSU)# 自动搜寻二值化
                 gray[row:row+ch, col:cw+col] = dst
-    cv.imwrite('result/11-2bigimage_threshold_binary.png',gray)
+    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/11-2bigimage_threshold_binary.png',gray)
 
 def big_image_binary_local_demo(image):#局部
     h,w = image.shape[:2]
@@ -38,11 +38,11 @@ def big_image_binary_local_demo(image):#局部
             # 赋值回原来的图那里
             gray[row:row+ch, col:cw+col] = dst
             print('标准差:',np.std(dst),'均值:',np.mean(dst))
-    cv.imwrite('result/11-2bigimage_local_binary.png',gray)
+    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/11-2bigimage_local_binary.png',gray)
     
     
     
-src = cv.imread('picture/mercy5760x3240.png')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/mercy5760x3240.png')
 cv.imshow('src',src)
 
 

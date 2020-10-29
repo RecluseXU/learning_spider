@@ -31,12 +31,12 @@ def gradient_demo(image):
     kernel = cv.getStructuringElement(cv.MORPH_RECT,(2,2))
     dm = cv.dilate(image, kernel)
     em = cv.dilate(image, kernel)
-    dst1 = cv.subtract(image,em)#内梯度
-    dst2 = cv.subtract(dm,image)#外梯度
+    dst1 = cv.subtract(image,em) # 内梯度
+    dst2 = cv.subtract(dm,image) # 外梯度
     cv.imshow('internal',dst1)
     cv.imshow('external',dst2)
 
-src = cv.imread('picture/goodmancard.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
 cv.imshow('src',src)
 
 top_hat_demo(src.copy())

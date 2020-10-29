@@ -25,7 +25,7 @@ def edge_demo(image):
     cv.imshow('Color edge',dst)
     
 
-src = cv.imread('picture/buleeyeswhite.png')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/buleeyeswhite.png')
 cv.imshow('src',src)
 
 edge_demo(src)

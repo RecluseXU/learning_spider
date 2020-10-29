@@ -19,15 +19,15 @@ import cv2 as cv
 import numpy as np
 
 def measure_object(image):
-    gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY)# 灰度
-    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU)# 二分化
+    gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY) # 灰度
+    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV | cv.THRESH_OTSU) # 二分化
     # 需要注意的是这里用的是 cv.THRESH_BINARY_INV
     # 因为白的东西才能被识别，你看看灰度图就懂了。
     print('threshold value %s'%ret)
     cv.imshow('binary image', binary)
     
 
-    outImage, contours, hireachy = cv.findContours(binary, cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE)# 轮廓发现
+    contours, hireachy = cv.findContours(binary, cv.RETR_EXTERNAL,cv.CHAIN_APPROX_SIMPLE) # 轮廓发现
     print(str(contours).replace(' ','').replace('\n',' '))
     for i, contour in enumerate(contours):# 遍历识别结果
         area = cv.contourArea(contour)
@@ -50,7 +50,7 @@ def measure_object(image):
             cv.drawContours(image,contours,i,(255,255,0),2)
     cv.imshow('measure-contours',image)
 
-src = cv.imread('picture/goodmancard.jpg')
+src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
 cv.imshow('src',src)
 
 measure_object(src)

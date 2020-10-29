@@ -11,18 +11,27 @@
 import base64
 
 
+def base64_to_bytes(b64_text: str):
+    str_bytes = base64.b64decode(b64_text)
+    return str_bytes
+
 def str_to_Base64(text: str):
     bytes_text = text.encode("utf-8")
     b64_text = base64.b64encode(bytes_text)  # 被编码的参数必须是二进制数据
     print(b64_text)
     return b64_text
 
-
-def Base64_to_str(b64_text: str):
+def base64_to_str(b64_text: str):
     str_text = base64.b64decode(b64_text).decode("utf-8")
     print(str_text)
 
+def base64_to_img(b64_text: str):
+    _bytes = base64_to_bytes(b64_text)
+    with open('f.png', 'wb') as f:
+        f.write(_bytes)
+
 
 if __name__ == '__main__':
-    str_to_Base64('e44834e4328438e2')
-    # Base64_to_str('')
+    # str_to_Base64('e44834e4328438e2')
+    # base64_to_str('')
+    base64_to_img('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC')

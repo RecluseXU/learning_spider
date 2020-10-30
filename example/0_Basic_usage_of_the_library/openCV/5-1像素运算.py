@@ -18,25 +18,25 @@ def add_demo(m1,m2):  # 相加，两个大小通道一样的图片叠加在一�
     # 于是白色还是白色，黑色什么都没发生的情况。
 
 def subtract_demo(m1,m2):  # 减
-    dst = cv.subtract(m1,m2)  # 叠加
-    cv.imshow('subtract_demo',dst)  # 展示
+    dst = cv.subtract(m1,m2)
+    cv.imshow('subtract_demo', dst)  # 展示
     cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/5-1subtract.png',dst)
     # 类似于上面的相加。你可以想象到结果是怎么样子的。
     # 黑色的部分，无论-0，没意义。白色部分-255,结果<=0，转换为0.
 
-def divide_demo(m1,m2):  # 除法
-    dst = cv.divide(m1,m2)
-    cv.imshow('divide_demo',dst)  # 展示
-    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/5-1divide.png',dst)
+def divide_demo(m1, m2):  # 除法
+    dst = cv.divide(m1, m2)
+    cv.imshow('divide_demo', dst)  # 展示
+    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/5-1divide.png', dst)
     # 类似的，除法....
 
-def multiply_demo(m1,m2):  # 乘法
-    dst = cv.multiply(m1,m2)
-    cv.imshow('multiply_demo',dst)  # 展示
-    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/5-1multiply.png',dst)
+def multiply_demo(m1, m2):  # 乘法
+    dst = cv.multiply(m1, m2)
+    cv.imshow('multiply_demo', dst)  # 展示
+    cv.imwrite('example/0_Basic_usage_of_the_library/openCV/result/5-1multiply.png', dst)
     # 类似的，乘法....
 
-def others(m1,m2):#其他项
+def others(m1, m2):# 其他项
     m1, dev1 = cv.meanStdDev(m1)  # 函数求平均值与方差
     m2, dev2 = cv.meanStdDev(m2)
     print('平均值：')
@@ -47,9 +47,9 @@ def others(m1,m2):#其他项
     print(dev2)
     
     # 造一张图片
-    h,w = m1.shape[:2]  # 获取图片的宽高，并以此创建一个宽高一致的东西。
-    img = np.zeros([h,w],np.uint8)
-    m,dev = cv.meanStdDev(img)
+    h, w = m1.shape[:2]  # 获取图片的宽高，并以此创建一个宽高一致的东西。
+    img = np.zeros([h,w], np.uint8)
+    m, dev = cv.meanStdDev(img)
     print('new thing:')
     print('均值：',m)
     print('方差:',dev)

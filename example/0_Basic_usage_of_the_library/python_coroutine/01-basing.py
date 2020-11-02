@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   0.py
-@Time    :   2020/08/08 23:14:45
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
-@Desc    :   None
+@File    :   01-basing.py
+@Time    :   2020/11/02 10:22:50
+@Author  :   EvilRecluse
+@Contact :   evilrecluse@sxkid.com
+@Desc    :   生成器本身就是类似于协程的一种形式，函数生成完一个结果后就停在原地，再次调用才再次执行
 '''
 
 # here put the import lib
-
-
 def consume():
     while True:
         number = yield

@@ -5,15 +5,15 @@
 @Time    :   2020/11/02 14:14:26
 @Author  :   EvilRecluse
 @Contact :   evilrecluse@sxkid.com
-@Desc    :   None
+@Desc    :   对比时间消耗
 '''
 
 # here put the import lib
 from urllib import request
-import gevent,time
+import gevent, time
 from gevent import monkey
 
-monkey.patch_all()   #将程序中所有IO操作做上标记使程序非阻塞状态
+monkey.patch_all()  # 将程序中所有IO操作做上标记使程序非阻塞状态
 def url_request(url):
     print('get:%s'%url)
     resp = request.urlopen(url)

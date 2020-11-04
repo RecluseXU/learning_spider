@@ -110,7 +110,7 @@
     </tr>
     <tr>
         <td rowspan="1">一般</td>
-        <td><a href="https%3A%2F%2Fgithub.com%2FRecluseXU%2Flearning_spider%2Ftree%2Fmaster%2Fexample%2F4_%E4%B8%80%E8%88%AC_%E7%9F%A5%E4%B9%8E%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF" target="_blank">知乎文章信息</a></td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%9F%A5%E4%B9%8E%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF" target="_blank">知乎文章信息</a></td>
         <td>动态网页</td>
         <td>requests</td>
         <td>头部`x-zse-86`参数加密<br>基于时间的反调试</td>
@@ -263,4 +263,4 @@
 </table>
 
 
-2020年10月12日
+2020年11月4日

@@ -5,7 +5,7 @@
 @Time    :   2020-11-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   协程是可以进行等待的
+@Desc    :   协程是可以进行等待的，可以串行执行的
 '''
 
 # here put the import lib

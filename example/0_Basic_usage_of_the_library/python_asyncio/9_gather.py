@@ -41,14 +41,18 @@ async def factorial(name, number):
         await asyncio.sleep(1)
         f *= i
     print(f"Task {name}: {number}的阶乘 = {f}")
+    return '{}! = {}'.format(number, f)
 
 
 async def main():
     # Schedule three calls *concurrently*:
-    await asyncio.gather(
+    # asyncio.gather 将一些 Future 和 coroutine 封装成一个 Future。
+    futures = asyncio.gather(
         factorial("A", 2),
         factorial("B", 3),
         factorial("C", 4),
     )
-
+    a = await asyncio.ensure_future(futures)
+    for _result in a:
+        print(_result)
 asyncio.run(main())

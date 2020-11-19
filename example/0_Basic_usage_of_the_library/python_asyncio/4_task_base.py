@@ -17,13 +17,12 @@ async def nested():
     return randint(1,101)
 
 async def main():
-    # Schedule nested() to run soon concurrently
-    # with "main()".
-    task = asyncio.create_task(nested(), name="This_is_my_task")
+    # 利用 协程函数 nested() 创建了一个 Task
+    # 这个 Task 会被 协程 main() 立即执行
+    task = asyncio.create_task(nested())
 
-    # "task" can now be used to cancel "nested()", or
-    # can simply be awaited to wait until it is complete:
+    # Task 执行后，可以被中途取消，也可以等待到它执行完毕
     await task
-    print(task.result(), task.get_name())
+    print(task.result())
 
 asyncio.run(main())

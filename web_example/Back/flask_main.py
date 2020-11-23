@@ -11,7 +11,6 @@
 '''
 
 # here put the import lib
-
 from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
 # from flask_cors import CORS

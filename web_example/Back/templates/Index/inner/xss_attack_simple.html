@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">
+                <p>XSS 攻击</p>
+                <p>尝试写一段 XSS 攻击脚本，使得其它用户在访问以后，发现所有人都在复读（重复发同一段品论）</p>
+            </div>
+            <div class="card-content">
+                <ul id="_all_the_message">
+                </ul>
+                <div >
+                    <label for="first_name">输入你的评论以振兴复读神教</label>
+                    <div>
+                        <input placeholder="输入包含 XSS 攻击的评论" id="the_words" type="text" class="validate">
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light left" id="_send_a_common"><i class="fa fa-send-o fa-fw"></i>发送评论</button>
+                <button class="btn waves-effect waves-light right" id="reset_inner"><i class="fa fa-refresh fa-fw"></i>重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">简要信息</div>
+
+            <div class="card-content">
+                <p>XSS (Cross-Site Scripting) 攻击  </p>
+                <p>攻击者将代码注入到网页上，使得其他用户在观看网页时就会受到影响</p>
+            </div>
+            
+            <div class="clearBoth"><br></div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static',filename='question/js/xss_attack_simple.js') }}"></script>

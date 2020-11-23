@@ -71,6 +71,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "Selenium特征检测",
             "OnClick": "change_inner('selenium_check')"
+        },
+        "12":{
+            "ID":"xss_attack_simple",
+            "IconClass": "fa fa-dashboard",
+            "Text": "XSS攻击",
+            "OnClick": "change_inner('xss_attack_simple')"
         }
     }
 }

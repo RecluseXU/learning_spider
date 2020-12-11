@@ -10,28 +10,38 @@
 
 # here put the import lib
 import asyncio
-from asyncio.tasks import ensure_future
 import requests
+from time import time
 
 
-async def get_baidu(sleep_time):
-    url = 'https://www.baidu.com/'
-    headers = {'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36'}
+async def print_time(num):
+    print('开始爬 {} ，时间{}'.format(num, float(time())))
+    a = await get_bing()
+    print('结束爬 {} ，时间{}'.format(num, float(time())))
+    return a
+
+async def get_bing():
+    url = 'https://cn.bing.com/'
+    headers = {
+        'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36'
+    }
     with requests.get(url, headers=headers) as resp:
-        # await asyncio.sleep(sleep_time)
-        print('Task-sleep-{} {}'.format(sleep_time, resp.status_code))
-        return sleep_time, resp.status_code
+        await asyncio.sleep(2)
+        return resp.status_code
 
 
-async def get_all_baidu():
-    tasks = [get_baidu(t) for t in range(4, 0, -1)]
-    results = [await task for task in asyncio.as_completed(tasks)]
-    return results
+async def get_all_bing():
+    # create_task一创建就会执行
+    # 无法返回数据，这种形式的
+    tasks = [asyncio.create_task(print_time(t)) for t in range(4)]
+    for i in tasks:
+        await i
+        print(i.result())
 
 
 def main():
     loop = asyncio.new_event_loop()
-    task = loop.create_task(get_all_baidu())
+    task = loop.create_task(get_all_bing())
     loop.run_until_complete(task)
     print(task.result())
 

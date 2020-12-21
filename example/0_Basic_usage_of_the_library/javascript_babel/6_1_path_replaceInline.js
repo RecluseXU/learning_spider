@@ -1,4 +1,4 @@
-// 替换节点内容
+// replaceInline方法用于替换对应path的节点
 var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
 const t = require(js_env + "@babel/types");
 const parser = require(js_env + "@babel/parser");
@@ -11,13 +11,12 @@ const jscode = `function square(n) {
 
 const ast = parser.parse(jscode);
 const visitor = {
-  enter(path) {
-    if (path.node.type === "BinaryExpression" && path.node.operator === '+') {
-      // path.replaceWith({type:"NumericLiteral",value:3});  // 自己生成节点 来替换
-      path.replaceWith(t.NumericLiteral(2));  // 使用types来生成 来替换
-      console.log(generator(ast)['code'])  // 使用generator得到修改节点后的代码
-    }
+  BinaryExpression(path) {
+    var result = eval(path.toString())  // 计算表达式结果
+    var node = t.NumericLiteral(result)  // 使用 types 来生成一个数字节点
+    path.replaceInline(node);   // 用新的节点来替换表达式内容
   }
 }
 
 traverse(ast, visitor);
+console.log(generator(ast)['code'])

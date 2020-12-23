@@ -10,7 +10,8 @@ const jscode = `
 var z = 2
 function i(x, y)
 {
-    x = x * x
+    var x = 222;
+    ++x;
     return x + y
 }
 i(z, 4);
@@ -22,7 +23,8 @@ const visitor = {
         if (!t.isLiteral(init)) return;  // 只处理字面量
 
         const binding = path.scope.getBinding(id.name);
-        if (!binding || binding.constantViolations.length != 0)return;  // 如果该变量的值被修改则不处理
+        if (!binding)return;
+        if(binding.constantViolations.length != 0)return;  // 如果该变量的值被修改则不处理
             
         for (const refer_path of binding.referencePaths) {  // 遍历所有引用变量的路径
             refer_path.replaceWith(init);  // 用变量的初始值来取代引用位置的变量名
@@ -33,4 +35,5 @@ const visitor = {
 
 
 traverse(ast, visitor);
+console.log('----------------------------------')
 console.log(generator(ast)['code']);

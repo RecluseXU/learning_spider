@@ -26,6 +26,5 @@ def str_2_htmlparser(_str: str):
 
 
 if __name__ == "__main__":
-    html_str = '&nbsp;&lt;&gt;'
-    a = htmlparser_2_str(html_str)
+    a = htmlparser_2_str('&nbsp;&lt;&gt;')
     str_2_htmlparser(a)

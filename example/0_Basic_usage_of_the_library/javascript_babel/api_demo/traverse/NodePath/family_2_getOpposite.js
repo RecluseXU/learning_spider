@@ -1,5 +1,6 @@
 // 获取相对的节点
-// 这个是根据 left 与 right 属性来的
+// @return Node
+// 此函数通过调用 NodePath.getSibling(key) , 传入 当前节点为 left 或 right 实现
 
 var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
 const parser = require(js_env + "@babel/parser");

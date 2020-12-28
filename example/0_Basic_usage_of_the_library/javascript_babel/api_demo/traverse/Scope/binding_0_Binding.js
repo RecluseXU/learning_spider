@@ -31,7 +31,7 @@ const visitor = {
             binding_ = bindings[binding_];
             console.log('类型：', binding_.kind)
             console.log('定义：', binding_.identifier)
-            console.log('是否会被修改：', binding_.constant)
+            console.log('是否为常量：', binding_.constant)
             console.log('被修改信息信息记录', binding_.constantViolations)
             console.log('是否会被引用：', binding_.referenced)
             console.log('被引用次数', binding_.references)

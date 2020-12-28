@@ -8,6 +8,7 @@ const generator = require(js_env +"@babel/generator").default;
 
 
 const jscode = `
+var zzz = !![];
 var _2$SS = function (_SSz, _1111) {
   var _l1L1 = [46222, 'taCaptchaBlob', 't', 'a', 's', 'l', 'd', 'i', .3834417654519915, 'encryptJ', 'so', 'n', 49344];
 
@@ -23,10 +24,11 @@ var _2$SS = function (_SSz, _1111) {
 
 const ast = parser.parse(jscode);
 const visitor = {
-  "Identifier|BinaryExpression"(path)
-  {
+  "BinaryExpression|UnaryExpression"(path){ 
+    try{
       const {confident, value} = path.evaluate();
       confident && path.replaceInline(t.valueToNode(value));
+    }catch (error) {}
   },
 }
 

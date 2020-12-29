@@ -5,13 +5,14 @@
 * web网站 [http://learnspider.evilrecluse.top/](http://learnspider.evilrecluse.top/)  
 根据反反爬经验，尝试去接入、编写各类爬虫障碍，顺便研究前端/后端/服务器知识  
 * 辅助工具/脚本制造  
-尝试制作各种爬虫工具/脚本  
+尝试制作各种工具/脚本  
+
+
 
 ## 已完成的内容 - 目前进度估计 2%
 
-## 爬虫案例  
+## 案例  
 <table>
-    <tr><th colspan="5">案例列表</th></tr>
     <tr>
         <th>难度</th>
         <th>内容</th>
@@ -70,7 +71,7 @@
         <td>滑块移动</td>
     </tr>
     <tr>
-        <td rowspan="6">简单</td>
+        <td rowspan="7">简单</td>
         <td>
         <a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E6%9F%90%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95" target="_blank">某路由器密码加密方法</a></td>
         <td>单个js文件</td>
@@ -87,7 +88,7 @@
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_AAEncode%E8%A7%A3%E6%B7%B7%E6%B7%86" target="_blank">AAEncode解加密</a></td>
         <td>动态网页</td>
-        <td>devtool</td>
+        <td>Devtool</td>
         <td>编码加密</td>
     </tr>
     <tr>
@@ -109,7 +110,13 @@
         <td>静态字体加密</td>
     </tr>
     <tr>
-        <td rowspan="1">一般</td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/2_%E7%AE%80%E5%8D%95_%E5%AE%89%E5%B1%85%E5%AE%A2%E6%8C%87%E7%BA%B9%E7%A0%94%E7%A9%B6">安居客指纹研究</a></td>
+        <td>单个js文件</td>
+        <td>Devtool</td>
+        <td>研究明白收集的信息的意义</td>
+    </tr>
+    <tr>
+        <td rowspan="2">一般</td>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%9F%A5%E4%B9%8E%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF" target="_blank">知乎文章信息</a></td>
         <td>动态网页</td>
         <td>requests</td>
@@ -118,9 +125,15 @@
 
 </table>
 
+
+
 ## 基础练习网站  
+
+网站网址（已备案）: http://learnspider.evilrecluse.top/  
+
+### 案例  
+
 <table>
-    <th colspan="4">案例</th>
     <tr>
         <th>类型</th>
         <th>难度</th>
@@ -181,15 +194,17 @@
         <td>将传输的数据进行加密</td>
     </tr>
     <tr>
-        <td>指纹反爬</td>
+        <td rowspan="2">指纹反爬</td>
         <td>简单</td>
-        <td>Selenium识别</td>
-        <td>通过一些自动创建的变量识别Selenium</td>
+        <td>最简易Selenium识别</td>
+        <td>检查自动创建两个的变量</td>
     </tr>
 </table>
 
+
+### 技术应用  
+
 <table>
-    <tr><th colspan="4">技术应用</th></tr>
     <tr>
         <th></th>
         <th>使用</th>
@@ -197,7 +212,7 @@
     </tr>
     <tr>
         <td>规范</td>
-        <td>RESTful</td>
+        <td>REST</td>
         <td>规范的API，规范的响应</td>
     </tr>
     <tr>
@@ -247,7 +262,10 @@
     </tr>
 </table>
 
-## 无用脚本制造  
+
+
+## 脚本制造  
+
 <table>
     <tr><th colspan="4">工具/脚本制造</th></tr>
     <tr>
@@ -258,9 +276,9 @@
     <tr>
         <td>Selenium</td>
         <td>Auto DL ChromeWebDriver</td>
-        <td>从注册表获知Chrome版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的Web Driver，使得Selenium能正常运行<br>(虽然实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
+        <td>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
     </tr>
 </table>
 
 
-2020年11月4日
+2020年12月20日

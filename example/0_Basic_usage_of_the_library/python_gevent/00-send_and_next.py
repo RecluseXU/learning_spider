@@ -6,7 +6,12 @@
 @Author  :   Recluse Xu
 @Version :   1.0
 @Contact :   444640050@qq.com
-@Desc    :   首先需要知道send函数与next函数的区别
+@Desc    :   gevent 协程
+    asycio 需要自己在代码中让出CPU，控制权在自己手上
+    gevent 用会替换标准库，你以为调用的是标准库的方法实际已经被替换成gevent自己的实现，
+        遇到阻塞调用，gevent会自动让出CPU
+
+    首先需要知道send函数与next函数的区别
 '''
 
 def process():

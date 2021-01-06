@@ -5,7 +5,8 @@
 @Time    :   2020/11/02 10:22:50
 @Author  :   EvilRecluse
 @Contact :   evilrecluse@sxkid.com
-@Desc    :   生成器本身就是类似于协程的一种形式，函数生成完一个结果后就停在原地，再次调用才再次执行
+@Desc    :   
+    生成器本身就是类似于协程的一种形式，函数生成完一个结果后就停在原地，再次调用才再次执行
 '''
 
 # here put the import lib

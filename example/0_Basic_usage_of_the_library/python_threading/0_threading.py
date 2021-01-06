@@ -24,7 +24,8 @@ def helloworld():
         time.sleep(1)
 
 # Thread 的构造方法中，最重要的参数是 target，所以我们需要将一个 callable 对象赋值给它，线程才能正常运行。
-thread = threading.Thread(target=helloworld)
+thread_ = threading.Thread(target=helloworld)
 # 如果要让一个 Thread 对象启动，调用它的 start() 方法就好了。
-thread.start()
+thread_.start()
+
 

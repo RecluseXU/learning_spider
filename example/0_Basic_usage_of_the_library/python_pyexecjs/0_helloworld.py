@@ -6,7 +6,8 @@
 @Author  :   Recluse Xu
 @Version :   1.0
 @Contact :   444640050@qq.com
-@Desc    :   安装完Node.js和pyexecjs后，测试是否正常
+@Desc    :   execjs是一个运行javascript代码的python库
+    安装完Node.js和pyexecjs后，测试是否正常
 '''
 
 # here put the import lib

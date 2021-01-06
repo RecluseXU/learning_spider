@@ -5,8 +5,8 @@
 @Time    :   2020-11-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
-    threading 模块中最核心的内容是 Thread 这个类。
+@Desc    :   threading是python使用线程的库
+    threading 模块中最核心的内容是 Thread 这个类
     创建 Thread 对象,然后让它们运行，每个 Thread 对象代表一个线程，
     在每个线程中我们可以让程序处理不同的任务，这就是多线程编程。值得注意的是，程序运行时默认就是在主线程上
 

@@ -32,7 +32,7 @@ const visitor = {
             binding_ = bindings[binding_];
             console.log('类型：', binding_.kind)
             console.log('定义：', binding_.identifier)
-            console.log('是否会被使用：', binding_.constant)
+            console.log('是否会被修改：', binding_.constant)
             console.log('被修改信息信息记录:')
             binding_.constantViolations.forEach(x=>console.log(x.parentPath.toString()))
             console.log('是否会被引用：', binding_.referenced)

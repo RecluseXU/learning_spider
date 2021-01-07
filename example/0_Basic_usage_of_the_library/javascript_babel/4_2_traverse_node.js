@@ -6,7 +6,7 @@ const traverse = require(js_env + "@babel/traverse").default;
 var jscode = "var a = 123;";
 
 const visitor = {
-    // 这里的VariableDeclaration就是截图里面所标的，表示只要是这个路径，都会进来并进行如下操作。
+    // 这里的 VariableDeclaration 就是截图里面所标的，表示只要是这个路径，都会进来并进行如下操作。
     VariableDeclaration(path)
     {
         console.log('当前路径 源码:\n', path.toString());

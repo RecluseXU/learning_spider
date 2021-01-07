@@ -1,4 +1,7 @@
-// 通过代码遍历，使用path来进行各种路径操作
+// 操作AST的基本思路：
+// 通过 traverse 进行代码遍历
+// 使用 NodePath对象 来进行各种路径操作
+
 var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
 const parser = require(js_env + "@babel/parser");
 const traverse = require(js_env + "@babel/traverse").default;

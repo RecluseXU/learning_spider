@@ -17,7 +17,7 @@ const ast = parser.parse(jscode);
 const visitor = {
   ExpressionStatement(path) {
     console.log('当前节点源码:\n', path.toString())
-    console.log('同级前一个节点源码:\n', path.getNextSibling().toString())
+    console.log('同级后一个节点源码:\n', path.getNextSibling().toString())
     console.log('----------------')
   }
 }

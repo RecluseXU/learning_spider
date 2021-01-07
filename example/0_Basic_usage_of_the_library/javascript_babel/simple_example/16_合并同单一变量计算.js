@@ -24,13 +24,15 @@ const visitor = {
         if (!t.isStringLiteral(init)) return;
         let name = id.name;
         let value = init.value;
+        // 获取父级的下一个语句的NodePath 也就是 a += "A", a+="S", a+="T!", b = "This is a test!";
 		let next_sibling = path.parentPath.getNextSibling();
-		console.log()
 
         if (!next_sibling.isExpressionStatement()) return;
         let expression = next_sibling.get('expression');
+
         if (expression.isSequenceExpression()){
             expressions = expression.get("expressions");
+            // 遍历计算声明，计算结果直接改变初始值
             for (let each_express of expressions){
                 let {operator,left,right} = each_express.node;
                 if (operator === "+=" && t.isIdentifier(left,{name:name})&& t.isStringLiteral(right)){

@@ -77,6 +77,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "XSS攻击",
             "OnClick": "change_inner('xss_attack_simple')"
+        },
+        "13":{
+            "ID":"tls_fingerprint_ja3",
+            "IconClass": "fa fa-dashboard",
+            "Text": "JA3 TLS指纹",
+            "OnClick": "change_inner('tls_fingerprint_ja3')"
         }
     }
 }

@@ -14,6 +14,7 @@ const generator = require(js_env + "@babel/generator").default;
 const jscode = `
 a = "string".length;
 b = "string"["length"];
+c = "string"[0];
 `;
 let ast = parser.parse(jscode);
 
@@ -21,7 +22,7 @@ let ast = parser.parse(jscode);
 const visitor = {
     "MemberExpression"(path){
 		const property = path.node.property;
-		if(!t.isLiteral(property)) return;
+		if(!t.isStringLiteral(property)) return;
 		path.node.property = t.identifier(property.value)
 		path.node.computed = false
   },

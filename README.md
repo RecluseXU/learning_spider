@@ -9,7 +9,7 @@
 
 
 
-## 已完成的内容 - 目前进度估计 2%
+## 已完成的内容 - 目前进度估计 3%
 
 ## 案例  
 <table>
@@ -121,6 +121,12 @@
         <td>动态网页</td>
         <td>requests</td>
         <td>头部`x-zse-86`参数加密<br>基于时间的反调试</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%99%BE%E5%BA%A6%E6%B7%B7%E6%B7%86%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86">百度混淆代码处理</a></td>
+        <td>单个js文件</td>
+        <td>@bebel</td>
+        <td>各类还原插件编写</td>
     </tr>
 
 </table>

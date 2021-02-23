@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="4.14">
+<ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="4.20">
 
   <GlyphOrder>
     <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
@@ -25,7 +25,7 @@
     <flags value="00000000 00001001"/>
     <unitsPerEm value="2048"/>
     <created value="Sat Aug 29 11:00:58 2020"/>
-    <modified value="Sun Aug 30 02:17:14 2020"/>
+    <modified value="Mon Feb 22 09:57:49 2021"/>
     <xMin value="18"/>
     <yMin value="-26"/>
     <xMax value="1128"/>

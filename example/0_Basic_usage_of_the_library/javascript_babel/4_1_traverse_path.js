@@ -7,8 +7,7 @@ const parser = require(js_env + "@babel/parser");
 const traverse = require(js_env + "@babel/traverse").default;
 
 var jscode = `
-    var b = 123;
-    a = b + 1;
+    var a = 1+2+3;
 `;
 
 const visitor = {

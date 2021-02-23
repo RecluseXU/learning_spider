@@ -17,7 +17,8 @@ const visitor = {
   BinaryExpression(path) {
     var result = eval(path.toString())  // 计算表达式结果
     var node = t.NumericLiteral(result)  // 使用 types 来生成一个数字节点
-    path.replaceInline(node);   // 用新的节点来替换表达式内容
+    var a = path.replaceInline(node);   // 用新的节点来替换表达式内容
+    console.log(a['0']['type'],'---------');
   }
 }
 

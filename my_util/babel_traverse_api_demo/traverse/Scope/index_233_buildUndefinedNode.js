@@ -1,8 +1,7 @@
 // Scope.buildUndefinedNode()
 // @return Node
 // 相当于创建一个 void 0 节点  
-
-// 讲道理，在scope的文件里声明这样的函数真的好吗，你不是应该在types里出现吗
+// 讲道理，在scope的文件里声明这样的方法真的好吗，你不是应该在types里出现吗
 var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
 const parser = require(js_env + "@babel/parser");
 const traverse = require(js_env + "@babel/traverse").default;

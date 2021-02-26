@@ -21,6 +21,9 @@ import zipfile
 import os
 
 
+# 最终webdriver保存的路径，如果路径不存在，会报错
+selenium_webdriver_location = 'my_util/auto_dl_chrome_webdriver/selenium_webdriver'
+
 
 '''
 下載相關
@@ -105,17 +108,14 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
     zip_file.close()
 
     # 删除压缩包
-    print('清理下载')
+    print('清理压缩包')
     os.remove("dl_chrome_webdiver.zip")
     return aim_webdriver_version.text, aim_os_version.text
-
-
 
 
 '''
 配置相關
 '''
-selenium_webdriver_location = 'my_util/selenium/selenium_webdriver'
 
 
 def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=False, proxy_server=None):
@@ -130,16 +130,18 @@ def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=
     if not load_picture:
         prefs = {"profile.managed_default_content_settings.images": 2}
         options.add_experimental_option("prefs", prefs)
-        # 不显示图片
-        options.add_argument('--blink-settings=imagesEnabled=false')
-    # 非沙盒模式
-    options.add_argument('no-sandbox')
+        options.add_argument('--blink-settings=imagesEnabled=false')  # 不显示图片
+    
+    options.add_argument('no-sandbox')  # 非沙盒模式
+
     # 代理
     if proxy_server:
-        options.add_argument('--proxy-server='+proxy_server)
+        options.add_argument('--proxy-server=' + proxy_server)
+    
     # 无头模式
     if headless:
         options.add_argument('--headless')
+
     # header
     options.add_argument('user-agent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"')
     driver = webdriver.Chrome(executable_path=drivePath,

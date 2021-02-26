@@ -270,21 +270,30 @@
 
 
 
-## 脚本制造  
+## 工具/脚本制造   
 
 <table>
     <tr><th colspan="4">工具/脚本制造</th></tr>
     <tr>
-        <th>附属于</th>
         <th>内容</th>
         <th>信息</th>
     </tr>
     <tr>
-        <td>Selenium</td>
-        <td>Auto DL ChromeWebDriver</td>
-        <td>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上最好的解决方法不是这样做，而是在服务器上下一个docker，拉取Image，然后部署上)</td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/auto_dl_chrome_webdriverm">Auto DL ChromeWebDriver</a></td>
+        <td>Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/babel_traverse_api_demo">Babel/traverse API demo</a></td>
+        <td>自行编写的 Babel/traverse API 用例，是<a href="https://evilrecluse.top/post/77d57432/">API记录文章</a>的配套代码<br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>注意：内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
     </tr>
 </table>
 
 
-2020年12月20日
+## TODO  
+
+* 自动处理字体脚本  
+* Babel/traverse 函数API记录  
+* httpx 基础内容  
+* javascript 反混淆脚本  
+
+2020年2月26日

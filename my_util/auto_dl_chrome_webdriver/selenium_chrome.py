@@ -9,20 +9,21 @@
 '''
 
 # here put the import lib
-import os
+from os.path import join as path_join, dirname, exists
 from selenium import webdriver
 import winreg
 import requests
-from requests.exceptions import RequestException
 import xml.etree.cElementTree as ET
 import difflib
 import operator
 import zipfile
-import os
+from tqdm import tqdm
+from io import BytesIO
+from types import FunctionType
 
 
 # 最终webdriver保存的路径，如果路径不存在，会报错
-selenium_webdriver_location = 'my_util/auto_dl_chrome_webdriver/selenium_webdriver'
+WEBDRIVER_FOLDER = dirname(__file__)
 
 
 '''
@@ -44,6 +45,41 @@ def check_chrome_version() -> str:
         print('访问注册表失败，也许是因为没有安装chrome 或 没有权限访问')
 
 
+class Crawler:
+    def __init__(self) -> None:
+        self.session = requests.session()
+        self.session.keep_alive = False
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0',
+            'Host': 'chromedriver.storage.googleapis.com',
+        }
+
+    def spider(self, url:str, callback:FunctionType):
+        try:
+            with self.session.get(url, headers=self.headers, timeout=15) as response:
+                return callback(response)
+        except Exception as e:
+            print(e)
+            exit(1)
+    
+    def spider_stream(self, url:str, callback:FunctionType):
+        try:
+            with BytesIO() as file:
+                with self.session.get(url, headers=self.headers, stream=True, timeout=20)as resp:
+                    download_process_bar = tqdm(
+                        total=float(resp.headers['content-length']),
+                        initial=len(file.getvalue()), 
+                        unit_scale=True,
+                    )
+                    for chuck in resp.iter_content(chunk_size=1024):
+                        file.write(chuck)
+                        download_process_bar.update(1024)
+                return callback(file)
+        except Exception as e:
+            print(e)
+            exit(1)
+        
+
 def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
     '''
     @summary: 根据已经安装在电脑上的Chrome版本，在 http://chromedriver.storage.googleapis.com/index.html 把对应的webdriver下载下来
@@ -60,56 +96,41 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
         max_index, max_number = max(enumerate(ratio), key=operator.itemgetter(1))
         return element_list[max_index], max_number
 
-    # webdriver版本页
-    sess = requests.session()
-    sess.keep_alive = False
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0',
-        'Host': 'chromedriver.storage.googleapis.com',
-        }
-    url = 'http://chromedriver.storage.googleapis.com/?delimiter=/&prefix='
-    try:
-        response = sess.get(url, headers=headers)
-    except RequestException as e:
-        print(e)
+    crawler = Crawler()
 
-    xml_info = response.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", '')
+    # webdriver版本页
+    xml_info = crawler.spider(
+        url='http://chromedriver.storage.googleapis.com/?delimiter=/&prefix=',
+        callback=lambda resp: resp.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", ''),
+    )
     print('解析chrome webdriver版本信息')
-    aim_webdriver_version, wd_confidence_degree = _get_most_similar_element(xml_info, './CommonPrefixes/Prefix', my_chrome_version)
-    print('最接近webdriver版本为:', aim_webdriver_version.text[:-1], '相似度:', wd_confidence_degree)
+    aim_webdriver_version, confidence_degree = _get_most_similar_element(xml_info, './CommonPrefixes/Prefix', my_chrome_version)
+    print('\t最接近 webdriver 版本为:{}\t相似度:{}'.format(aim_webdriver_version.text[:-1], confidence_degree))
+    
 
     # os版本页
-    url = 'http://chromedriver.storage.googleapis.com/?delimiter=/&prefix=' + aim_webdriver_version.text
-    try:
-        response = sess.get(url, headers=headers)
-    except RequestException as e:
-        print(e)
-
-    xml_info = response.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", '')
+    xml_info = crawler.spider(
+        url = 'http://chromedriver.storage.googleapis.com/?delimiter=/&prefix=' + aim_webdriver_version.text,
+        callback=lambda resp: resp.content.decode('utf-8').replace(r"xmlns='http://doc.s3.amazonaws.com/2006-03-01'", ''),
+    )
     print('解析chrome webdriver os 信息')
-    aim_os_version, os_confidence_degree = _get_most_similar_element(xml_info, './Contents/Key', 'win')
-    print('最接近os版本为:', aim_os_version.text, '相似度:', os_confidence_degree)
+    aim_os_version, confidence_degree = _get_most_similar_element(xml_info, './Contents/Key', 'win')
+    print('\t最接近os版本为:{}\t相似度:{}'.format(aim_os_version.text, confidence_degree))
 
-    # 下载webdriver
+
+    # 下载chrome webdriver
     print('下载chrome webdriver')
-    url = 'http://chromedriver.storage.googleapis.com/' + aim_os_version.text
-    try:
-        response = sess.get(url, headers=headers)
-    except RequestException as e:
-        print(e)
+    def unzip_file(file):
+        print('解压下载的压缩包')
+        zip_file = zipfile.ZipFile(file)
+        zip_file.extractall(lib_location)
+        zip_file.close()
 
-    with open('dl_chrome_webdiver.zip', 'wb')as f:
-        f.write(response.content)
+    crawler.spider_stream(
+        url='http://chromedriver.storage.googleapis.com/{}'.format(aim_os_version.text),
+        callback=unzip_file,
+    )
 
-    # 解压
-    print('解压下载的压缩包')
-    zip_file = zipfile.ZipFile('dl_chrome_webdiver.zip')
-    zip_file.extractall(lib_location)
-    zip_file.close()
-
-    # 删除压缩包
-    print('清理压缩包')
-    os.remove("dl_chrome_webdiver.zip")
     return aim_webdriver_version.text, aim_os_version.text
 
 
@@ -118,13 +139,12 @@ def dl_chrome_webdriver(my_chrome_version: str, lib_location: str):
 '''
 
 
-def _init_selenium_chrome_driver(lib_location: str, load_picture=True, headless=False, proxy_server=None):
+def _init_selenium_chrome_driver(load_picture=True, headless=False, proxy_server=None):
     '''
     @summary: 配置selenium.webdriver   chrome
     @return: selenium.webdriver chrome
     '''
-    chromedriver = lib_location + '/chromedriver.exe'
-    drivePath = os.path.join(os.path.dirname(__file__), chromedriver)
+    drivePath = path_join('{}/chromedriver.exe'.format(WEBDRIVER_FOLDER))
     options = webdriver.ChromeOptions()
     # 禁止图片加载
     if not load_picture:
@@ -153,16 +173,15 @@ def get_selenium_chrome_web_driver(load_picture=True, headless=False, proxy_serv
     '''
     获取selenium chrome webdriver
     '''
-    lib_location = selenium_webdriver_location
-    if not os.path.exists(lib_location + '/chromedriver.exe'):
+    if not exists(WEBDRIVER_FOLDER + '/chromedriver.exe'):
         chrome_version = check_chrome_version()
         print('chrome_version:', chrome_version)
-        webdriver_version, webdriver_os_version = dl_chrome_webdriver(chrome_version, lib_location)
+        webdriver_version, webdriver_os_version = dl_chrome_webdriver(chrome_version, WEBDRIVER_FOLDER)
         print('chrome_webdriver:', webdriver_version, webdriver_os_version)
-    return _init_selenium_chrome_driver('selenium_webdriver', load_picture, headless, proxy_server)
-
+    return _init_selenium_chrome_driver(load_picture, headless, proxy_server)
 
 
 if __name__ == "__main__":
     web_driver = get_selenium_chrome_web_driver()
     web_driver.get('http://www.baidu.com/')
+

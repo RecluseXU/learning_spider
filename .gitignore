@@ -2,3 +2,7 @@
 **/__pycache__
 web_example/Back/--ini
 web_example/Back/uwsgi.ini
+example/0_Basic_usage_of_the_library/javascript_babel/ob_example/decode_obfuscator.js
+example/0_Basic_usage_of_the_library/javascript_babel/ob_example/obhigh.js
+example/0_Basic_usage_of_the_library/javascript_babel/ob_example/oblow.js
+example/0_Basic_usage_of_the_library/javascript_babel/ob_example/obmid.js

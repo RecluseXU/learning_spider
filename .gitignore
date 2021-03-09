@@ -6,3 +6,7 @@ example/0_Basic_usage_of_the_library/javascript_babel/ob_example/decode_obfuscat
 example/0_Basic_usage_of_the_library/javascript_babel/ob_example/obhigh.js
 example/0_Basic_usage_of_the_library/javascript_babel/ob_example/oblow.js
 example/0_Basic_usage_of_the_library/javascript_babel/ob_example/obmid.js
+my_util/auto_dl_chrome_webdriver/selenium_webdriver/chromedriver.exe
+**/temp
+my_util/auto_dl_chrome_webdriver/chromedriver.exe
+**/AutomationProfile

@@ -83,6 +83,12 @@
             "IconClass": "fa fa-dashboard",
             "Text": "JA3 TLS指纹",
             "OnClick": "change_inner('tls_fingerprint_ja3')"
+        },
+        "14":{
+            "ID":"console_ban",
+            "IconClass": "fa fa-dashboard",
+            "Text": "禁用控制台",
+            "OnClick": "change_inner('console_ban')"
         }
     }
 }

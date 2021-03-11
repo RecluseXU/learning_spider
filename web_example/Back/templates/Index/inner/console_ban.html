@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">
+                <p>请打开浏览器控制台</p>
+            </div>
+            <div class="card-content">
+                <div>
+                    <label for="first_name">打开浏览器控制台即可</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-action">简要信息</div>
+            <div class="card-content">
+                <p>这个禁止启用浏览器控制台的内容来自：https://github.com/fz6m/console-ban </p>
+                <p>也有一些现实中还在使用的样例: https://www.aqistudy.cn/</p>
+                <p>只能挡住一些小白，对于了解原理的人基本没有效果</p>
+                <div class="clearBoth"><br></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<head>
+  <!-- ... -->
+  <script src="https://cdn.jsdelivr.net/gh/fz6m/console-ban@1.5/dist/console-ban.min.js"></script>
+  <script>
+    // default options
+    ConsoleBan.init()
+    // custom options
+    ConsoleBan.init({
+      redirect: '/404'
+    })
+  </script>
+</head>

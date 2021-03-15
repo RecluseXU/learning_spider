@@ -181,6 +181,11 @@
     </tr>
     <tr>
         <td>简单</td>
+        <td>禁调试</td>
+        <td>编写代码禁止打开浏览器控制台</td>
+    </tr>
+    <tr>
+        <td>简单</td>
         <td>AAEncode</td>
         <td>用表情字符取代常见字符，让人难以阅读</td>
     </tr>
@@ -293,7 +298,6 @@
 
 * 自动处理字体脚本  
 * Babel/traverse 函数API记录  
-* httpx 基础内容  
-* javascript 反混淆脚本  
+* feapder 基础内容
 
-2020年2月26日
+2020年3月15日

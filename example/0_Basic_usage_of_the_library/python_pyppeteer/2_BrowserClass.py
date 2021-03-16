@@ -46,6 +46,10 @@ async def main():
     c = browser.userAgent
     print(c)
 
+    # 从浏览器中获取页面对象
+    pages = await browser.pages()
+    page = pages[0]
+
     # 断开连接
     browser.disconnect()
 

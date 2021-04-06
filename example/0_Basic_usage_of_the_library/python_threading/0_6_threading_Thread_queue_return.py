@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   5_Thread_args_queue_return.py
 @Time    :   2020-12-29
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -12,6 +11,7 @@
 import threading
 import time
 import queue
+
 
 class MyThread(threading.Thread):
     def __init__(self, func, **func_args):
@@ -49,3 +49,4 @@ if __name__ == '__main__':
     # 输出结果
     for thread in threads:
         print(thread.result())
+    

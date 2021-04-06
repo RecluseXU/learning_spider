@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   2_thread_with_queue.py
 @Time    :   2020-12-28
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU

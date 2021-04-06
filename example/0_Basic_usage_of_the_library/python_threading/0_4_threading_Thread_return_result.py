@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   1_Thread.py
 @Time    :   2020-11-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -11,6 +10,7 @@
 # here put the import lib
 import threading
 import time
+
 
 class MyThread(threading.Thread):
     def __init__(self, func, **func_args):

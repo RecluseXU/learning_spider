@@ -8,6 +8,7 @@ Created on 2021-03-11 18:28:57
 """
 
 import feapder
+from feapder.network.response import Response
 
 
 class FirstSpider(feapder.AirSpider):
@@ -17,11 +18,12 @@ class FirstSpider(feapder.AirSpider):
         '''
         yield feapder.Request("https://www.baidu.com")
 
-    def parse(self, request, response):
+    def parse(self, request, response:Response):
         '''
         解析数据
         '''
         print(response)
+        print(response.text)
 
 
 if __name__ == "__main__":

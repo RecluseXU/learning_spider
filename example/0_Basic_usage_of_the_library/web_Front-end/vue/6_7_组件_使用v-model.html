@@ -1,0 +1,48 @@
+<!-- 
+<input v-model="searchText">
+等价于：
+<input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event.target.value"
+>
+当用在组件上时，v-model 则等价于这样：
+<custom-input
+  v-bind:value="searchText"
+  v-on:input="searchText = $event"
+></custom-input>
+
+这个组件内的 <input> 必须：
+将其 value attribute 绑定到一个名叫 value 的 prop 上
+在其 input 事件被触发时，将新的值通过自定义的 input 事件抛出
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="components-demo">
+            <custom-input v-model="searchText"></custom-input>
+            {{ searchText }}
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('custom-input', {
+                props: ['value'],
+                template: `
+                    <input
+                        v-bind:value="value"
+                        v-on:input="$emit('input', $event.target.value)"
+                    >
+                `
+            })
+            var vm = new Vue({
+                el: '#components-demo',
+                data: {
+                    searchText:"1",
+                }
+            })
+        </script>
+    </body>
+</html>

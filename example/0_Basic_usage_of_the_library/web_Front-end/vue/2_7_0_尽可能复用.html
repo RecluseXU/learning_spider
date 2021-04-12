@@ -1,0 +1,38 @@
+<!-- 
+Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染
+这么做除了使 Vue 变得非常快之外，还有其它一些现象
+
+切换 loginType 将不会清除用户已经输入的内容
+两个模板都使用了相同的元素<input>
+因为vue总是希望尽可能复用，这个元素不会被替换掉(此处仅替换了它的 placeholder属性)
+这会造成一些问题，一般切换输入类型都需要将已输入内容清空，而这里没清
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                    el: '#example',
+                    data: {
+                    loginType: 'username'
+                    }
+                })
+        </script>
+    </body>
+</html>

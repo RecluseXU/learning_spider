@@ -1,0 +1,47 @@
+<!-- 
+$emit 的第二个参数来传递一个值
+父级组件监听这个事件的时候，可以通过 $event 访问到被抛出的这个值
+
+如果 v-on传入的是一个函数，那么这个值会被当作参数传入函数中
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="components-demo">
+            <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:enlarge-text="postFontSize += $event"
+            ></blog-post>
+            {{ postFontSize }}
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('blog-post', {
+                props: ['post'],
+                template: `
+                    <div class="blog-post">
+                        <h3>{{ post.title }}</h3>
+                        <button v-on:click="$emit('enlarge-text', 0.5)">父级组件postFontSize += 0.5</button>
+                    </div>
+                `
+            })
+            var vm = new Vue({
+                el: '#components-demo',
+                data: {
+                    posts: [
+                        { id: 1, title:'My journey with Vue'},
+                        { id: 2, title:'Blogging with Vue'},
+                        { id: 3, title:'Why Vue is so fun'},
+                    ],
+                    postFontSize: 1,
+                }
+            })
+        </script>
+    </body>
+</html>

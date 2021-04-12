@@ -1,0 +1,34 @@
+<!-- 
+select 字段将 value 作为 prop 并将 change 作为事件
+
+注意：如果 v-model 表达式的初始值未能匹配任何选项，<select> 元素将被渲染为“未选中”状态。
+    在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 change 事件。
+    因此，更推荐提供一个值为空的禁用选项
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    selected:'',
+                }
+            })
+        </script>
+    </body>
+</html>

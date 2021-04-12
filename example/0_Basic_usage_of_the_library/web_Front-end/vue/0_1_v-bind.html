@@ -1,0 +1,25 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%85%B6%E5%AE%83%E7%9A%84%E7%BB%91%E5%AE%9A -->
+<!-- v-bind用于创建响应式绑定 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app-2">
+            <span v-bind:title="message">
+                鼠标悬停几秒钟查看此处动态绑定的提示信息！
+            </span>
+        </div>
+
+        <script type="text/javascript">
+            var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: '页面加载于 ' + new Date().toLocaleString()
+            }
+            })
+        </script>
+    </body>
+</html>

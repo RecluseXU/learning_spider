@@ -1,0 +1,29 @@
+<!-- 
+在每个 new Vue 实例的子组件中，其根实例可以通过 $root property 进行访问
+
+对于 demo 或非常小型的有少量组件的应用来说这是很方便的。
+不过这个模式扩展到中大型应用来说就不然了。
+因此在绝大多数情况下，我们强烈推荐使用 Vuex 来管理应用的状态
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('c1',{
+                template:'<div>{{ this.$root.info }}</div>'
+            })
+            var vm = new Vue({
+                el: '#demo',
+                data: { info:'I am root'},
+                template:'<c1></c1>'
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0 -->
+<!-- JavaScript 表达式性 可以插入大多数内容 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            {{ number + 1 }}
+            {{ ok ? 'YES' : 'NO' }}
+            {{ message.split('').reverse().join('') }}
+            <div v-bind:id="'list-' + id"></div>
+        </div>
+
+        <script type="text/javascript">
+            new Vue({
+                el:"#app",
+                data: { 
+                    id:"THE-ID",
+                    number:999,
+                    ok:false,
+                    message:"卢本伟牛逼",
+                },
+            })
+        </script>
+    </body>
+</html>

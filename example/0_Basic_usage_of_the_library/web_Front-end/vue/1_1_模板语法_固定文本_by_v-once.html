@@ -1,0 +1,24 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E6%8F%92%E5%80%BC%E5%9B%BA%E5%AE%9A -->
+<!-- 
+    v-once 指令用于影响插值，在此指令范围内的文本插值后不会因其原本变量值改变而改变 
+    对于静态html处理非常快
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <span v-once>这个将不会改变: {{ msg }}</span>
+        </div>
+
+        <script type="text/javascript">
+            new Vue({
+                el:"#app",
+                data: { msg: "我是普通文本" },
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!-- 
+  混入也可以进行全局注册。使用时格外小心！一旦使用全局混入，它将影响每一个之后创建的 Vue 实例。
+  使用恰当时，这可以用来为自定义选项注入处理逻辑。
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+
+  <script type="text/javascript">
+    Vue.mixin({
+      created: function () {
+        console.log(this.message); // 都将被调用
+      }
+    })
+
+    new Vue({
+      el: "#app",
+      data: {
+        message: 'Good',
+      }
+    })
+  </script>
+</body>
+
+</html>

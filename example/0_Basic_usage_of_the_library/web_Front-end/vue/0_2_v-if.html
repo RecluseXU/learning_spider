@@ -1,0 +1,21 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E6%9D%A1%E4%BB%B6 -->
+<!-- v-if 可以根据条件决定内容是否显示 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app-3">
+            <p v-if="seen">现在你看到我了</p>
+        </div>
+
+        <script type="text/javascript">
+            var app3 = new Vue({
+            el: '#app-3',
+            data: { seen: true }
+            })
+        </script>
+    </body>
+</html>

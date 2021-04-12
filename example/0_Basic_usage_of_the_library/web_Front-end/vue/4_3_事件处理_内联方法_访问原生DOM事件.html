@@ -1,0 +1,32 @@
+<!-- 
+有时也需要在内联语句处理器中访问原始的 DOM 事件
+可以用特殊变量 $event 把它传入方法 
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+            Submit
+            </button>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                methods: {
+                    warn: function (message, event) {
+                        // 现在我们可以访问原生事件对象
+                        if (event)
+                            event.preventDefault()
+                        alert(message)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

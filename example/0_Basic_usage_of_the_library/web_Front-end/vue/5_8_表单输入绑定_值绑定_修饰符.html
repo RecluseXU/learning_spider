@@ -1,0 +1,30 @@
+<!-- 
+
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <!-- 在“change”时而非“input”时更新 -->
+            <input v-model.lazy="msg">
+            <!-- 自动将用户的输入值转为数值类型 -->
+            <input v-model.number="age" type="number">
+            <!-- 自动过滤用户输入的首尾空白字符 -->
+            <input v-model.trim="msg">
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    age:0,
+                    msg:'',
+                }
+            })
+        </script>
+    </body>
+</html>

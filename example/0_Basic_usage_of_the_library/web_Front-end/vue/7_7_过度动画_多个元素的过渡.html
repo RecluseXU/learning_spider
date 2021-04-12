@@ -1,0 +1,35 @@
+<!-- 
+我们之后讨论多个组件的过渡，对于原生标签可以使用 v-if/v-else
+最常见的多标签过渡是一个列表和描述这个列表为空消息的元素
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    
+    <body>
+        <div id="demo">
+            <transition
+                enter-active-class="animated tada"
+                leave-active-class="animated bounceOutRight"
+            >
+                <button v-if="isEditing" key="save" v-on:click="isEditing = !isEditing"> Save </button>
+                <button v-else key="edit" v-on:click="isEditing = !isEditing" > Edit </button>
+            </transition>
+
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#demo',
+                data:{
+                    info:'我是根',
+                    isEditing:true,
+                },
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!-- 
+在文本区域插值 (<textarea>{{text}}</textarea>) 并不会生效，应用 v-model 来代替
+
+textarea 元素使用 value property 和 input 事件
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <p style="white-space: pre-line;">{{ message }}</p>
+            <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    'message':"",
+                }
+            })
+        </script>
+    </body>
+</html>

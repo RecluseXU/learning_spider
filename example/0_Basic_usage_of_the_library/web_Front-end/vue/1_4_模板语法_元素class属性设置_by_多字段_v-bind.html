@@ -1,0 +1,28 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%A4%9A%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE -->
+<!-- v-bind 指令 多字段设置，可以与固定内容混用，通过属性设置其是否启用 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div
+            id="example"
+            class="static"
+            v-bind:class="{ active: isActive, 'text-danger': hasError, 'hi':hi}"
+        ></div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    isActive: true,
+                    hasError: true,
+                    hi:false,
+                }
+            })
+        </script>
+    </body>
+    
+</html>

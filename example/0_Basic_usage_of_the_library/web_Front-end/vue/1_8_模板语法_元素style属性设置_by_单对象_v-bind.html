@@ -1,0 +1,27 @@
+<!-- v-bind 指令 多字段设置，可以传入单个对象 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div 
+            id="example"
+            v-bind:style="styleObject">Hello
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    styleObject: {
+                        color: 'red',
+                        fontSize: '30px'
+                    }
+                }
+            })
+        </script>
+    </body>
+    
+</html>

@@ -1,0 +1,33 @@
+<!-- 
+你可以通过 ref 这个 attribute 为子组件赋予一个 ID 引用
+
+$refs 只会在组件渲染完成之后生效，并且它们不是响应式的
+这仅作为一个用于直接操作子组件的“逃生舱”——你应该避免在模板或计算属性中访问 $refs
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#demo',
+                data:{info:'我是根元素,我能拿到'},
+                template:`
+                    <div>
+                        <div id='aim' ref='aim'></div>
+                        {{ info }}
+                    </div>`,
+                mounted(){
+                    console.log(this.$refs)
+                }
+            })
+            
+        </script>
+    </body>
+</html>

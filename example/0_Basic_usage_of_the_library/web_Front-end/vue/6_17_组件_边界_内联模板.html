@@ -1,0 +1,37 @@
+<!-- 
+当 inline-template 这个特殊的 attribute 出现在一个子组件上时，
+这个组件将会使用其里面的内容作为模板，而不是将其作为被分发的内容。这使得模板的撰写工作更加灵活。
+
+不建议使用
+inline-template 会让模板的作用域变得更加难以理解。
+所以作为最佳实践，请在组件内优先选择 template 选项或 .vue 文件里的一个 <template> 元素来定义模板。
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+            <c1 inline-template>
+                <div>
+                    <p>{{ info }}</p>
+                </div>
+            </c1>
+        </div>
+        <script type="text/javascript">
+            Vue.component('c1',{
+                data:function(){return{ 
+                    info:'我是c1',
+                }},
+            })
+
+            var vm = new Vue({
+                el: '#demo',
+                data:{info:'我是根'},
+            })
+            
+        </script>
+    </body>
+</html>

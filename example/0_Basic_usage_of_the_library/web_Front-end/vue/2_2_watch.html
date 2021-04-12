@@ -1,0 +1,44 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%9A%84-setter -->
+<!-- 计算属性的getter与setter -->
+<!-- 运行 vm.fullName = 'John Doe' 时，setter 会被调用。因此 vm.firstName 和 vm.lastName 也会相应地被更新。 -->
+
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="watch-example">
+            <input v-model="question">
+            <p>{{ answer }}</p>
+        </div>
+
+        <script>
+            var watchExampleVM = new Vue({
+                el: '#watch-example',
+                data: {
+                    question: '',
+                    answer: '我会告诉你是否包含well'
+                },
+                watch: {
+                    // 如果 `question` 发生改变，这个函数就会运行
+                    question: function (newinput, oldinput) {
+                        this.answer = 'Waiting for you to stop typing...'
+                        console.log(newinput, oldinput)
+                        this.getAnswer()
+                    }
+                },
+                methods: {
+                    getAnswer: function () {
+                        if (this.question.indexOf('well') === -1)
+                            this.answer = '输入中没有包含 well'
+                        else
+                            this.answer = '输入中包含了 well'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

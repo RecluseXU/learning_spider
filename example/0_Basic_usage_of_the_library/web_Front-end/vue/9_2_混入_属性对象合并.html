@@ -1,0 +1,44 @@
+<!-- 
+  当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+  
+  值为对象的选项，例如 methods、components 和 directives，将被合并为同一个对象。
+  两个对象键名冲突时，取组件对象的键值对。
+
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+
+  <script type="text/javascript">
+    var mixin = {
+      methods: {
+        call_func: function () {
+          return 'BAD'
+        },
+        other_func: function () {
+          return 'GREAT'
+        }
+      },
+    }
+
+    new Vue({
+      el: "#app",
+      mixins: [mixin],
+      methods: {
+        call_func: function () {
+          return 'GOOD' // 两个对象键名冲突时，取组件对象的键值对
+        }
+      },
+      template: `<div>{{ this.call_func() }} </br>{{ this.other_func() }}</div>`
+    })
+  </script>
+</body>
+
+</html>

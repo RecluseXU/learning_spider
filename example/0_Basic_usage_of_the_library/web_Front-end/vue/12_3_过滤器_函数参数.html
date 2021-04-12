@@ -1,0 +1,34 @@
+<!-- 
+  同时使用多个过滤器
+  从左往右依次处理
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="message">
+    {{ message | said('You said ', ', right?') }}
+  </div>
+
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: '',
+      },
+      filters: { // 局部注册过滤器
+        said: function (value, arg1, arg2) {
+          if (!value) value = 'nothing'
+          return arg1 + value.toString() + arg2
+        },
+      }
+    })
+  </script>
+</body>
+
+</html>

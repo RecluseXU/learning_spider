@@ -1,0 +1,49 @@
+<!-- 
+Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新
+这些被包裹过的方法包括：
+    push()、pop()
+    shift()、unshift()
+    splice()
+    sort()
+    reverse() 
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="example">
+            <li v-for="item in items" v-bind:key="item.id">
+                {{ item.id }} - {{ item.message }}
+            </li>
+            <button v-on:click="sortItems">排序</button>
+        </ul>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    items: [
+                        { id:2, message: 'Foo' },
+                        { id:1, message: 'Bar' },
+                        { id:3, message: 'Foo2' },
+                    ]
+                },
+                methods: {
+                    sortItems: function () {
+                       this.items.sort(function (item1, item2){
+                            if(item1.id > item2.id)
+                                return 1
+                            if(item1.id < item2.id)
+                                return -1
+                            return 0
+                        })
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!-- 
+对于单选按钮，复选框及选择框的选项
+v-model 绑定的值通常是静态字符串 (对于复选框也可以是布尔值)件
+
+这里的 true-value 和 false-value attribute 并不会影响输入控件的 value attribute
+因为浏览器在提交表单时并不会包含未被选中的复选框
+如果要确保表单中这两个值中的一个能够被提交，(即“yes”或“no”)，请换用单选按钮
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <!-- 当选中时，`picked` 为字符串 "a" -->
+            <input type="radio" v-model="picked" value="a">
+            picked:{{ picked }}
+            </br>
+            <!-- `toggle` 为 "yes" 或 "no" -->
+            <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+            toggle:{{ toggle }}
+            </br>
+
+            <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+            <select v-model="selected">
+                <option value="abc">ABC</option>
+            </select>
+            selected: {{ selected }}
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    picked:"",
+                    toggle:"yes",
+                    selected:'',
+                }
+            })
+        </script>
+    </body>
+</html>

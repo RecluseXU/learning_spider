@@ -1,0 +1,27 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%86%BB%E7%BB%93 -->
+<!-- Object.freeze()会阻止修改现有的 property，也意味着响应系统无法再追踪变化 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <p>{{ foo }}</p>
+            <!-- 这里的 `foo` 不会更新！ -->
+            <button v-on:click="foo = 'baz'">Change it</button>
+        </div>
+
+
+        <script type="text/javascript">
+            var obj = { foo: 'bar' }
+            Object.freeze(obj)
+
+            new Vue({
+                el: '#app',
+                data: obj
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- v-bind 指令 多字段设置，设置一个数组 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div 
+            id="example"
+            v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Hello
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    activeColor: 'red',
+                    fontSize: 30
+                }
+            })
+        </script>
+    </body>
+    
+</html>

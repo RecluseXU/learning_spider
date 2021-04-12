@@ -1,0 +1,37 @@
+<!-- 
+  除了核心功能默认内置的指令 (v-model 和 v-show)，Vue 也允许注册自定义指令。
+
+  举个聚焦输入框的例子
+  当页面加载时，该元素将获得焦点 (注意：autofocus 在移动版 Safari 上不工作)。
+  事实上，只要你在打开这个页面后还没点击过任何内容，这个输入框就应当还是处于聚焦状态。
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input v-focus>
+  </div>
+
+  <script type="text/javascript">
+    Vue.directive('focus', {
+      // 当被绑定的元素插入到 DOM 中时……
+      inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
+    })
+    new Vue({
+      el: "#app",
+      data: {
+        message: 'Good',
+      }
+    })
+  </script>
+</body>
+
+</html>

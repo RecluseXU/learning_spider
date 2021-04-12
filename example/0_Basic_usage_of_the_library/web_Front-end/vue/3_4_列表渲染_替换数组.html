@@ -1,0 +1,42 @@
+<!-- 
+filter()、concat() 和 slice()
+它们不会变更原始数组，而总是返回一个新数组。当使用非变更方法时，可以用新数组替换旧数组 
+
+这并不会导致 Vue 丢弃现有 DOM 并重新渲染整个列表，Vue 会让 DOM 元素得到最大范围的重用
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="example">
+            <li v-for="item in items" v-bind:key="item.id">
+                {{ item.id }} - {{ item.message }}
+            </li>
+            <button v-on:click="onlyFoo">排序</button>
+        </ul>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    items: [
+                        { id:2, message: 'Foo' },
+                        { id:1, message: 'Bar' },
+                        { id:3, message: 'Foo2' },
+                    ]
+                },
+                methods: {
+                    onlyFoo: function () {
+                        this.items = this.items.filter(function (item){
+                            return item.message.match(/Foo/)
+                        })
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

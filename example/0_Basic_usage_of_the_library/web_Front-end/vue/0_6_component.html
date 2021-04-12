@@ -1,0 +1,48 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E7%BB%84%E4%BB%B6 -->
+<!-- 组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常可复用的组件构建大型应用 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app-7">
+            <ol>
+                <!--
+                    现在我们为每个 todo-item 提供 todo 对象
+                    todo 对象是变量，即其内容可以是动态的。
+                    我们也需要为每个组件提供一个“key”，稍后再作详细解释。
+                -->
+                <!-- 使用 v-bind 指令将待办项传到循环输出的每个组件中 -->
+                <todo-item
+                    v-for="item in groceryList"
+                    v-bind:todo="item"
+                    v-bind:key="item.id" 
+                ></todo-item>
+            </ol>
+        </div>
+
+
+        <script type="text/javascript">
+            // 定义名为 todo-item 的新组件
+            Vue.component('todo-item', {
+                // todo-item 组件接受一个"prop"，类似于一个自定义 attribute。
+                // 这个 prop 名为 todo。
+                props: ['todo'],
+                template: '<li>{{ todo.text }}</li>'
+            })
+
+            var app7 = new Vue({
+                el: '#app-7',
+                data: {
+                    groceryList: [
+                        { id: 0, text: '蔬菜' },
+                        { id: 1, text: '奶酪' },
+                        { id: 2, text: '随便其它什么人吃的东西' }
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

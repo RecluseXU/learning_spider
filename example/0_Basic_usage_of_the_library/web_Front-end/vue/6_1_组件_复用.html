@@ -1,0 +1,33 @@
+<!-- 
+你可以将组件进行任意次数的复用
+每个组件都会各自独立维护它的 count。因为你每用一次组件，就会有一个它的新实例被创建
+
+一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝
+如果不这样做，那么所有组件实例都会引用同一个量，改变一个实例会影响其它的实例
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="components-demo">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+        <script type="text/javascript">
+            // 定义一个名为 button-counter 的新组件
+            Vue.component('button-counter', {
+                data: function () {
+                    return { count: 0 }
+                },
+                template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+            })
+
+            new Vue({ el: '#components-demo' })
+        </script>
+    </body>
+</html>

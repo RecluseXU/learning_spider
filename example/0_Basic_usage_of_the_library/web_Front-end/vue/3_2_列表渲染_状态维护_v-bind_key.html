@@ -1,0 +1,32 @@
+<!-- 
+默认的模式是高效的，但是只适用于 不依赖子组件状态 或 临时 DOM 状态 (例如：表单输入值) 的列表渲染输出
+为了给 Vue 一个提示，以便它能跟踪每个节点的身份。你需要为每项提供一个唯一 key attribute  
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="example">
+            <li v-for="item in items" v-bind:key="item.id">
+                {{ item.id }} - {{ item.message }}
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            var example2 = new Vue({
+                el: '#example',
+                data: {
+                    items: [
+                        { id:2, message: 'Foo' },
+                        { id:1, message: 'Bar' },
+                        { id:3, message: 'Foo2' },
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

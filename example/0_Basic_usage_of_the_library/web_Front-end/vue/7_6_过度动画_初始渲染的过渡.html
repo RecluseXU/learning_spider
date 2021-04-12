@@ -1,0 +1,51 @@
+<!-- 
+可以通过 appear attribute 设置节点在初始渲染的过渡
+这里默认和进入/离开过渡一样，同样也可以自定义 CSS 类名,使用javascript钩子
+在上面的例子中，无论是 appear attribute 还是 v-on:appear 钩子都会生成初始渲染过渡。
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    
+    <body>
+        <div id="demo">
+            <transition appear
+                name="custom-classes-transition"
+                appear-class="animated tada"
+                appear-to-class="animated bounceOutRight"
+                appear-active-class="animated tada"
+
+                v-on:before-appear="beforeAppear"
+                v-on:appear="appear"
+                v-on:after-appear="afterAppear"
+                v-on:appear-cancelled="appearCancelled"
+            >
+                <p>hello</p>
+            </transition>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#demo',
+                methods:{
+                    beforeAppear: function(){
+                        console.log('Before Appear')
+                    },
+                    appear: function(){
+                        console.log('Appear')
+                    },
+                    afterAppear: function(){
+                        console.log('After Appear')
+                    },
+                    appearCancelled: function(){
+                        console.log('Appear Cancelled')
+                    }
+                }
+            })
+            
+        </script>
+    </body>
+</html>

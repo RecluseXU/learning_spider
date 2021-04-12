@@ -1,0 +1,26 @@
+<!-- 
+对于单个复选框，可以绑定到布尔值中
+checkbox 使用 checked property 和 change 事件
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    'checked':false,
+                }
+            })
+        </script>
+    </body>
+</html>

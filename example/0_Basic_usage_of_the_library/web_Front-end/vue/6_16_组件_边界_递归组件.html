@@ -1,0 +1,46 @@
+<!-- 
+    $emit、$on, 和 $off 并不是 dispatchEvent、addEventListener 和 removeEventListener 的别名。
+    当你使用 Vue.component 全局注册一个组件时，这个全局的 ID 会自动设置为该组件的 name 选项。
+    
+    稍有不慎，递归组件就可能导致无限循环
+    所以请确保递归调用是条件性的 (例如使用一个最终会得到 false 的 v-if)
+
+    多个组件的时候，可能会导致循环递归
+    在那种情况下，简易在生命周期（beforeCreate）时再对组件进行注册
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+
+            Vue.component('c1',{
+                props:['deep'],
+                template:`
+                    <div>
+                        {{ '层级：' + this.deep }}
+                        <c1 v-bind:deep="deep + 1" v-if="deep < 5"></c1>
+                    </div>`,
+                data:function(){return{ 
+                    info:'我是c1',
+                }},
+            })
+
+            var vm = new Vue({
+                el: '#demo',
+                data:{info:'我是根'},
+                template:`
+                    <div>
+                        <c1 v-bind:deep="0"></c1>
+                    </div>`,
+            })
+            
+        </script>
+    </body>
+</html>

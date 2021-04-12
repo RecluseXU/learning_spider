@@ -1,0 +1,27 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%E6%8F%92%E5%80%BC-v-bind-%E6%8C%87%E4%BB%A4 -->
+<!-- v-bind 指令 用于绑定内容与目标元素的属性 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div v-bind:id="dynamicId"></div>
+            <button v-bind:disabled="isButtonDisabled">Button</button>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el:"app",
+                data: { 
+                    dynamicId:"THE-ID",
+                    isButtonDisabled:false,
+                    key:"href",
+                },
+            })
+        </script>
+    </body>
+    
+</html>

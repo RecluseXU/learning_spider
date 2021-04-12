@@ -1,0 +1,52 @@
+<!-- 
+如果不希望vue最大程度复用，那么可以为元素添加key属性
+需要注意，key属性需要一个唯一值清
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                    el: '#example',
+                    data: {
+                        loginType: 'username'
+                    }
+                })
+        </script>
+        <div id="example">
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username" key="username-input">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address" key="email-input">
+            </template>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    loginType: 'username'
+                }
+            })
+        </script>
+    </body>
+</html>

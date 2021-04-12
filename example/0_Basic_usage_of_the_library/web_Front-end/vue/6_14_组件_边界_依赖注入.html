@@ -1,0 +1,58 @@
+<!-- 
+provide 选项允许我们指定我们想要提供给后代组件的数据/方法
+然后在任何后代组件里，我们都可以使用 inject 选项来接收指定的我们想要添加在这个实例上的 property
+
+
+实际上，你可以把依赖注入看作一部分“大范围有效的 prop”，除了：
+    祖先组件不需要知道哪些后代组件使用它提供的 property
+    后代组件不需要知道被注入的 property 来自哪里
+
+
+然而，依赖注入还是有负面影响的
+    它将你应用程序中的组件与它们当前的组织方式耦合起来，使重构变得更加困难。
+    同时所提供的 property 是非响应式的。
+    这是出于设计的考虑，因为使用它们来创建一个中心化规模化的数据跟使用 $root做这件事都是不够好的。
+    如果你想要共享的这个 property 是你的应用特有的，而不是通用化的，或者如果你想在祖先组件中更新所提供的数据，那么这意味着你可能需要换用一个像 Vuex 这样真正的状态管理方案了。
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('c1',{
+                template:`
+                    <div>
+                        <div>{{ getinfo1() }}</div>
+                        <div>{{ getinfo2() }}</div>
+                    </div>`,
+                data:function(){return{ 
+                    info:'我是c1' 
+                }},
+                inject:['getinfo1', 'getinfo2'], // 来自父级的函数注入
+            })
+            var vm = new Vue({
+                el: '#demo',
+                data:{info:'我是根'},
+                template:`
+                    <div>
+                        <c1></c1>
+                    </div>`,
+                methods:{
+                    getinfo:function(){ return this.info }
+                },
+                provide:function(){return {
+                    getinfo1: this.getinfo,
+                    getinfo2: function(){ return this.info },
+                }},
+
+            })
+            
+        </script>
+    </body>
+</html>

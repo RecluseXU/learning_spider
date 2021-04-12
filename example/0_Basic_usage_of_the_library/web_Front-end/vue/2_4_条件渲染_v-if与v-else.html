@@ -1,0 +1,24 @@
+<!-- 不推荐同时使用 v-if 和 v-for
+当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <h1 v-if="is_awesome">Vue is awesome!</h1>
+            <h1 v-else>Oh no 😢</h1>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    is_awesome: true
+                }
+            })
+        </script>
+    </body>
+</html>

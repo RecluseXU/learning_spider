@@ -1,0 +1,38 @@
+<!-- 
+  当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+  
+  数据对象:在内部会进行递归合并，并在发生冲突时 以组件数据优先
+
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+
+  <script type="text/javascript">
+    var mixin = {
+      data: function () {
+        return {
+          message: 'Bad',
+        }
+      },
+    }
+
+    new Vue({
+      el:"#app",
+      mixins: [mixin],
+      data:{
+        message:'Good',  // 数据对象冲突时，以组件数据优先
+      },
+      template:`<div>{{ this.message }}</div>`
+    })
+  </script>
+</body>
+
+</html>

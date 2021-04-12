@@ -1,0 +1,52 @@
+<!-- 
+    通过 $on(eventName, eventHandler) 侦听一个事件
+    通过 $once(eventName, eventHandler) 一次性侦听一个事件
+    通过 $off(eventName, eventHandler) 停止侦听一个事件
+
+    注意 Vue 的事件系统不同于浏览器的 EventTarget API。尽管它们工作起来是相似的，
+    $emit、$on, 和 $off 并不是 dispatchEvent、addEventListener 和 removeEventListener 的别名。
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('c1',{
+                template:`
+                    <div>
+                        <button v-on:click="$emit('b1')" >监听</button>
+                        <button v-on:click="$emit('b2')" >一次性监听</button>
+                        <button v-on:click="$emit('b3')" >取消监听</button>
+                        <div>{{ info }}</div>
+                    </div>`,
+                data:function(){return{ 
+                    info:'我是c1',
+                }},
+                methods:{
+                    addWord: function(){ this.info += '对吧'; },
+                },
+                mounted(){
+                    this.$on('b1', this.addWord);
+                    this.$once('b2', this.addWord);
+                    this.$on('b3', ()=>{this.$off('b1')});
+                },
+            })
+
+            var vm = new Vue({
+                el: '#demo',
+                data:{info:'我是根'},
+                template:`
+                    <div>
+                        <c1></c1>
+                    </div>`,
+            })
+            
+        </script>
+    </body>
+</html>

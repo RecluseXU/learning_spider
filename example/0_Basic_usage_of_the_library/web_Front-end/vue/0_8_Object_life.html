@@ -1,0 +1,25 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90 -->
+<!-- Vue实例 生命周期钩子, 可以在到达状态时执行钩子函数，周期具体可以查看图例 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <p>{{ a }}</p>
+        </div>
+
+        <script type="text/javascript">
+            new Vue({
+                el:"#app",
+                data: { a: 1 },
+                created: function () {
+                    // `this` 指向 vm 实例
+                    console.log('a is: ' + this.a)
+                }
+            })
+        </script>
+    </body>
+</html>

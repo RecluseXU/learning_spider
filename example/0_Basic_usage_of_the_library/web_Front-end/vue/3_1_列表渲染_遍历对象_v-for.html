@@ -1,0 +1,31 @@
+<!-- 
+可以用 v-for 指令基于一个数组来渲染一个对象
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="v-for-object" class="demo">
+            <li v-for="(value, name, index) in object">
+                {{index}} : {{ name }} : {{ value }} 
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            var example3 = new Vue({
+                el: '#v-for-object',
+                data: {
+                    object: {
+                        title: 'How to do lists in Vue',
+                        author: 'Jane Doe',
+                        publishedAt: '2016-04-10'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

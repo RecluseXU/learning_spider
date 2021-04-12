@@ -1,0 +1,51 @@
+<!-- 
+当组件变得越来越复杂的时候，我们的博文不只需要标题和内容，还需要发布日期、评论等等。
+为每个相关的信息定义一个 prop 会变得很麻烦：
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+  v-bind:content="post.content"
+  v-bind:publishedAt="post.publishedAt"
+  v-bind:comments="post.comments"
+></blog-post>
+
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="components-demo">
+            <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+            ></blog-post>
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('blog-post', {
+                props: ['post'],
+                template: `
+                    <div class="blog-post">
+                        <h3>{{ post.title }}</h3>
+                        <div v-html="post.content"></div>
+                    </div>
+                `
+            })
+            new Vue({
+                el: '#components-demo',
+                data: {
+                    posts: [
+                        { id: 1, title: 'My journey with Vue' },
+                        { id: 2, title: 'Blogging with Vue' },
+                        { id: 3, title: 'Why Vue is so fun' }
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

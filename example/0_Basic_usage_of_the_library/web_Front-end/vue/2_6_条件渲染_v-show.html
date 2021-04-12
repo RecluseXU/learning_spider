@@ -1,0 +1,27 @@
+<!-- 
+另一个用于根据条件展示元素的选项是 v-show 指令
+用法与 v-if 类似，都是表达式返回 truthy 值的时候被渲染
+不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中
+v-show 只是简单地切换元素的 CSS property display 
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <h1 v-show="is_awesome">Vue is awesome!</h1>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    is_awesome: true
+                }
+            })
+        </script>
+    </body>
+</html>

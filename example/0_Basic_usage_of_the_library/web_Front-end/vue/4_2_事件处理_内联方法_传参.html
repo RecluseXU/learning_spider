@@ -1,0 +1,27 @@
+<!-- 
+除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example-3">
+            <button v-on:click="say('hi')">Say hi</button>
+            <button v-on:click="say('what')">Say what</button>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example-3',
+                methods: {
+                    say: function (message) {
+                        alert(message)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

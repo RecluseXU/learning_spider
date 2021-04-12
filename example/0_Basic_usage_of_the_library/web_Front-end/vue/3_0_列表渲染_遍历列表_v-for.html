@@ -1,0 +1,32 @@
+<!-- 
+可以用 v-for 指令基于一个数组来渲染一个列表
+v-for 指令需要使用 item in items 形式的特殊语法清
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="example">
+            <li v-for="(item, index) in items">
+                {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            var example2 = new Vue({
+                el: '#example',
+                data: {
+                    parentMessage: 'Parent',
+                    items: [
+                        { message: 'Foo' },
+                        { message: 'Bar' }
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!-- 
+  过滤器可以用在两个地方：双花括号插值和 v-bind 表达式 
+  过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符号指示：
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="message">
+    {{ message | capitalize }}
+  </div>
+
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: '',
+      },
+      filters: { // 局部注册过滤器
+        capitalize: function (value) {
+          if (!value) return ''
+          value = value.toString()
+          return value.charAt(0).toUpperCase() + value.slice(1)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

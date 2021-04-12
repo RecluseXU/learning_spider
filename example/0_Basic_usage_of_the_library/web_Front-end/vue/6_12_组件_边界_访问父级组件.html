@@ -1,0 +1,30 @@
+<!-- 
+和 $root 类似，$parent property 可以用来从一个子组件访问父组件的实例。
+它提供了一种机会，可以在后期随时触达父级组件，以替代将数据以 prop 的方式传入子组件的方式
+
+注意:在绝大多数情况下，触达父级组件会使得你的应用更难调试和理解，尤其是当你变更了父级组件的数据的时候。
+当我们稍后回看那个组件的时候，很难找出那个变更是从哪里发起的。
+-->
+<!DOCTYPE html>
+  <!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="demo">
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('c1',{
+                template:'<div>{{ this.$parent.info }}</div>'
+            })
+            var vm = new Vue({
+                el: '#demo',
+                data: { info:'I am father'},
+                template:'<c1></c1>'
+            })
+        </script>
+    </body>
+</html>

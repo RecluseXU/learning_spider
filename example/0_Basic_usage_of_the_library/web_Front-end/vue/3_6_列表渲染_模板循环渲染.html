@@ -1,0 +1,32 @@
+<!-- 
+可以利用带有 v-for 的 <template> 来循环渲染一段包含多个元素的内容
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="app" class="demo">
+            <template v-for="item in items">
+                <li>{{ item.msg }}</li>
+                <li>{{ item.finish }}</li>
+             </template>
+        </ul>
+
+        <script type="text/javascript">
+            var example3 = new Vue({
+                el: '#app',
+                data: {
+                    items:[
+                        {'id':1, msg:"Foo", finish:"Yes"},
+                        {'id':1, msg:"Foo2", finish:"NO"},
+                        {'id':1, msg:"Foo3", finish:"Yes"},
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

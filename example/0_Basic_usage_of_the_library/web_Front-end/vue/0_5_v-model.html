@@ -1,0 +1,24 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A -->
+<!-- v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+        </div>
+
+        <script type="text/javascript">
+        var app6 = new Vue({
+            el: '#app-6',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
+    </body>
+</html>

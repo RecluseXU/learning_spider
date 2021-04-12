@@ -1,0 +1,21 @@
+<!-- v-on 指令监听 DOM 事件，并在触发时运行一些 JavaScript 代码器 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example-1">
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
+        </div>
+
+        <script type="text/javascript">
+            var example1 = new Vue({
+                el: '#example-1',
+                data: { counter: 0 }
+            })
+        </script>
+    </body>
+</html>

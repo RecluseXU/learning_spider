@@ -1,0 +1,26 @@
+<!-- 
+
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="components-demo">
+            <button v-on:click="current_component = 'c1'">我要C1</button>
+            <button v-on:click="current_component = 'c2'">我要C2</button>
+            <componet v-bind:is="current_component"></componet>
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('c1', {template: '<p>我是组件1</p>'})
+            Vue.component('c2', {template: '<p>我是组件2</p>'})
+            var vm = new Vue({
+                el: '#components-demo',
+                data: { current_component:'c1'}
+            })
+        </script>
+    </body>
+</html>

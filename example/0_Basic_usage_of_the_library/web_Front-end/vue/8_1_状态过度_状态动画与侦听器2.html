@@ -1,0 +1,85 @@
+<!--
+当你把数值更新时，就会触发动画。
+这个是一个不错的演示，但是对于不能直接像数字一样存储的值，比如 CSS 中的 color 的值
+-->
+<!DOCTYPE html>
+<html>
+
+<style>
+  .example-7-color-preview {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="colorQuery" v-on:keyup.enter="updateColor" placeholder="Enter a color">
+    <button v-on:click="updateColor">Update</button>
+    <p>Preview:</p>
+    <span v-bind:style="{ backgroundColor: tweenedCSSColor }" class="example-7-color-preview"></span>
+    <p>{{ tweenedCSSColor }}</p>
+  </div>
+
+  <script type="text/javascript">
+    var Color = net.brehaut.Color
+
+    new Vue({
+      el: '#app',
+      data: {
+        colorQuery: '',
+        color: {
+          red: 0,
+          green: 0,
+          blue: 0,
+          alpha: 1
+        },
+        tweenedColor: {}
+      },
+      created: function () {
+        this.tweenedColor = Object.assign({}, this.color)
+      },
+      watch: {
+        color: function () {
+          function animate() {
+            if (TWEEN.update()) {
+              requestAnimationFrame(animate)
+            }
+          }
+
+          new TWEEN.Tween(this.tweenedColor)
+            .to(this.color, 750)
+            .start()
+
+          animate()
+        }
+      },
+      computed: {
+        tweenedCSSColor: function () {
+          return new Color({
+            red: this.tweenedColor.red,
+            green: this.tweenedColor.green,
+            blue: this.tweenedColor.blue,
+            alpha: this.tweenedColor.alpha
+          }).toCSS()
+        }
+      },
+      methods: {
+        updateColor: function () {
+          this.color = new Color(this.colorQuery).toRGB()
+          this.colorQuery = ''
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

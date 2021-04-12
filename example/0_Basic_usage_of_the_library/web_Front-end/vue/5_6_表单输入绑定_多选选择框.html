@@ -1,0 +1,30 @@
+<!-- 
+select 字段将 value 作为 prop 并将 change 作为事件
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <select v-model="selected" multiple style="width: 50px;">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected: {{ selected }}</span>
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                data:{
+                    selected:'',
+                }
+            })
+        </script>
+    </body>
+</html>

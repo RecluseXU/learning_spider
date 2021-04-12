@@ -1,0 +1,36 @@
+<!-- 
+注意：不推荐在同一元素上使用 v-if 和 v-for
+
+当它们处于同一节点，v-for 的优先级比 v-if 更高
+这意味着 v-if 将分别重复运行于每个 v-for 循环中
+
+当你只想为部分项渲染节点时，这种优先级的机制会十分有用 
+-->
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <ul id="app" class="demo">
+            <li v-for="item in items" v-if="item.finish">
+                {{ item.msg }}
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            var example3 = new Vue({
+                el: '#app',
+                data: {
+                    items:[
+                        {msg:"Foo", finish:true},
+                        {msg:"Foo2", finish:false},
+                        {msg:"Foo3", finish:true},
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

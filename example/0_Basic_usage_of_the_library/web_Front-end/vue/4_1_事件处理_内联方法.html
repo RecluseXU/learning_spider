@@ -1,0 +1,35 @@
+<!--
+许多事件处理逻辑会更为复杂，把 JavaScript 代码直接写在 v-on 指令中是不可行的
+v-on 可以接收一个需要调用的方法名称
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example-2">
+        <!-- `greet` 是在下面定义的方法名 -->
+        <button v-on:click="greet">Greet</button>
+        </div>
+
+        <script type="text/javascript">
+        var example = new Vue({
+            el: '#example-2',
+            data: { name: 'Vue.js' },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                greet: function (event) {
+                    // `this` 在方法里指向当前 Vue 实例
+                    alert('Hello ' + this.name + '!')
+                    // `event` 是原生 DOM 事件
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+        </script>
+    </body>
+</html>

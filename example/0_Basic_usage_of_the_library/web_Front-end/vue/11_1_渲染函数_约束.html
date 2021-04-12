@@ -1,0 +1,40 @@
+<!-- 
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('anchored-heading', {
+      render: function (createElement) {
+        // var ele = createElement('p', 'hi')
+        // 组件树中的所有 VNode 必须是唯一的。这意味着，下面的渲染函数是不合法的：
+        // return createElement('div', [ele, ele])
+
+        // 如果你真的需要重复很多次的元素/组件，你可以使用工厂函数来实现
+        return createElement('div',
+          Array.apply(null, { length: 20 }).map(function () {
+            return createElement('p', 'hi')
+          })
+        )
+
+      },
+    })
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        level: 1,
+      },
+      template: ``
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!-- 
+也许你会
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    
+    <body>
+        <div id="demo">
+            <transition
+                enter-active-class="animated tada"
+                leave-active-class="animated bounceOutRight"
+            >
+                <button v-if="isEditing" key="save" v-on:click="isEditing = !isEditing"> Save </button>
+                <button v-else key="edit" v-on:click="isEditing = !isEditing" > Edit </button>
+            </transition>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+                el: '#demo',
+                data:{
+                    info:'我是根',
+                    isEditing:true,
+                },
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!-- 
+在很多时候，你可能想在 bind 和 update 时触发相同行为，而不关心其它的钩子。
+可以直接传入一个函数来实现这种设置
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div v-demo="{ color: 'white', text: 'hello!' }"></div>
+  </div>
+
+  <script type="text/javascript">
+    Vue.directive('demo', function (el, binding) {
+      console.log(binding.value.color)  // => "white"
+      console.log(binding.value.text)  // => "hello!"
+    })
+    new Vue({
+      el: "#app",
+    })
+  </script>
+</body>
+
+</html>

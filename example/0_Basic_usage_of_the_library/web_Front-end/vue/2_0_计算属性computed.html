@@ -1,0 +1,30 @@
+<!-- 对应 https://evilrecluse.top/post/8c57192e/#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0 -->
+<!-- 计算属性 -->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <p>Original message: "{{ message }}"</p>
+            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        </div>
+
+        <script type="text/javascript">
+            var vm = new Vue({
+            el: '#example',
+            data: { message: 'Hello' },
+            computed: {
+                // 声明了一个计算属性 reversedMessage
+                // 计算属性的 getter
+                reversedMessage: function () {
+                    // `this` 指向 vm 实例
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+    </body>
+</html>

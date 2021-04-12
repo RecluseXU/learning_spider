@@ -1,0 +1,34 @@
+<!-- 
+  当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”。
+  
+  同名钩子函数将合并为一个数组，因此都将被调用。另外，混入对象的钩子将在组件自身钩子之前调用。
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+
+  <script type="text/javascript">
+    var mixin = {
+      created: function () {
+        console.log('我要混进来');  // 都将被调用
+      }
+    }
+
+    new Vue({
+      el: "#app",
+      mixins: [mixin],
+      created: function () {
+        console.log('我要被混了');  // 都将被调用
+      }
+    })
+  </script>
+</body>
+
+</html>

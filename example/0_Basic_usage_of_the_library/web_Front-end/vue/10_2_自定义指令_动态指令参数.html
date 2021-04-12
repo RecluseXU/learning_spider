@@ -1,0 +1,38 @@
+<!-- 
+  指令的参数可以是动态的。
+  例如你想要创建一个自定义指令，用来通过固定布局将元素固定在页面上。
+  我们可以像这样创建一个通过指令值来更新竖直位置像素值的自定义指令
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>Scroll down the page</p>
+    <p v-pin:[direction]="200">Stick me 200px from the top of the page</p>
+  </div>
+
+  <script type="text/javascript">
+    Vue.directive('pin', {
+      bind: function (el, binding, vnode) {
+        el.style.position = 'fixed'
+        var s = (binding.arg == 'left' ? 'left' : 'top')
+        el.style[s] = binding.value + 'px'
+      }
+    })
+    new Vue({
+      el: "#app",
+      data: function () {
+        return {
+          direction: 'left'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

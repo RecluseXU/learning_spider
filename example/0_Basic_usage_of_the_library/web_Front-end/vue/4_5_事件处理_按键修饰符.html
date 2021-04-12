@@ -1,0 +1,28 @@
+<!-- 
+v-on 在监听键盘事件时添加按键修饰符：
+你可以直接将 KeyboardEvent.key 暴露的任意有效按键名转换为 kebab-case 来作为修饰符
+-->
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="example">
+            <!-- 只有在 `key` 是 `Enter` 时调用 `vm.warnpress()` -->
+            <input v-on:keyup.enter="warnpress">
+        </div>
+
+        <script type="text/javascript">
+            var example = new Vue({
+                el: '#example',
+                methods: {
+                    warnpress: function (){
+                        alert('You press Enter')
+                    },
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -7,7 +7,7 @@
 @Contact :   https://github.com/RecluseXU
 @Desc    :   运行 asyncio 程序
     asyncio.run(coro, *, debug=False)
-        执行 coroutine coro 并返回结果。
+        执行 coroutine coro 并返回结果。阻塞
         
         此函数会运行传入的协程，负责管理 asyncio 事件循环，终结异步生成器，并关闭线程池。
         当有其他 asyncio 事件循环在同一线程中运行时，此函数不能被调用。

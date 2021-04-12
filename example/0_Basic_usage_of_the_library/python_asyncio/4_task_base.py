@@ -18,7 +18,7 @@ async def nested():
 
 async def main():
     # 利用 协程函数 nested() 创建了一个 Task
-    # 这个 Task 会被 协程 main() 立即执行, 无论你是否await
+    # 这个 Task 会被 协程 main() 立即执行, 无论你是否await,非阻塞
     task = asyncio.create_task(nested())
 
     # Task 执行后，可以被中途取消，也可以等待到它执行完毕

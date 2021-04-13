@@ -8,3 +8,4 @@ my_util/auto_dl_chrome_webdriver/selenium_webdriver/chromedriver.exe
 **/temp
 my_util/auto_dl_chrome_webdriver/chromedriver.exe
 **/AutomationProfile
+**/node_modules

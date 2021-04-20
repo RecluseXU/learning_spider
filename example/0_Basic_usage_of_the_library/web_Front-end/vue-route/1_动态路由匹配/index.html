@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/user/Foo">Go to Foo</router-link>
+      <router-link to="/user/Bar">Go to Bar</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User = { 
+    // 当前路径参数会被保存到 $route.params 中
+    template: '<div>{{ $route.params.name }}: "Hello"</div>' 
+    // 实际上，除了 $route.params, $route对象还提供其他有用信息，$route.query、$route.hash等
+  }
+
+  const router = new VueRouter({
+    routes: [
+      // 动态路径参数 以冒号开头, 注意设置的参数名
+      { path: '/user/:name', component: User },
+    ]
+  })
+
+  // 当使用路由参数时，例如从 /user/foo 导航到 /user/bar，原来的组件实例会被复用。
+  // 因为两个路由都渲染同个组件，比起销毁再创建，复用则显得更加高效。
+  // 不过，这也意味着组件的生命周期钩子不会再被调用。 
+
+  // 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch (监测变化) $route 对象
+  // const User = {
+  //   watch: {
+  //     $route(to, from) {
+  //       // 对路由变化作出响应...
+  //     }
+  //   }
+  // }
+  // 或者使用 beforeRouteUpdate 导航守卫
+  // const User = {
+  //   beforeRouteUpdate(to, from, next) {
+  //     // react to route changes...
+  //     // don't forget to call next()
+  //   }
+  // }
+
+
+  const app = new Vue({
+    el:'#app',
+    router: router,
+  })
+</script>
+
+</html>

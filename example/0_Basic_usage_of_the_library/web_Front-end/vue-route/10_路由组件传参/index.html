@@ -1,0 +1,73 @@
+<!-- 
+  使用 props 将组件和路由解耦
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view name="bar"></router-view>
+    <router-view ></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User = {
+    props: ['id'],
+    template: `
+      <div>
+        <p>props:{{ this.$props }}</p>
+      </div>`
+  }
+  const Bar = {
+    props: ['id'],
+    template: `
+      <div>
+        <p>当前用户：{{ id }}</p>
+        <router-link to="/A">用户A</router-link>
+        <router-link to="/B">用户B</router-link>
+      </div>`
+  }
+
+  const SearchUser = {
+    props:['q'],
+    template: `
+      <div>{{ q }}</div>
+    `
+  }
+
+  const router = new VueRouter({
+    routes: [
+      // 将id参数当作prop参数传递
+      // 如果 props 被设置为 true，route.params 将会被设置为组件属性
+      // { path: '/user/:id', component: User, props: true }, 
+
+      {
+        path: 'user/:id',
+        // 如果 props 是一个对象，它会被按原样设置为组件属性。
+        // 对于包含命名视图的路由，你必须分别为每个命名视图添加 `props` 选项：
+        components: { default: User, bar: Bar, },
+        props: { default: true, bar: true, }  // 通过props来设置是否传递参数
+      },
+
+      // 你可以创建一个函数返回 props。这样你便可以将参数转换成另一种类型，将静态值与基于路由的值结合等等
+      {
+        path: '/search',
+        component: SearchUser,
+        props: route => ({ q:'搜索的是' + route.query.q })
+      }
+      // URL /search?q=vue 会将 {query: 'vue'} 作为属性传递给 SearchUser 组件
+    ]
+  })
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

@@ -1,0 +1,75 @@
+<!-- 
+  router.push(location, onComplete?, onAbort?)
+  除了使用 <router-link> 创建 a 标签来定义导航链接，还可以借助 router 的实例方法，通过编写代码来实现 
+  在 Vue 实例内部，你可以通过 $router 访问路由实例。因此你可以调用 this.$router.push
+
+  这个方法会向 history 栈添加一个新的记录. 当用户点击浏览器后退按钮时，通过这个记录就能回到之前的 URL。
+  实际上, 当你点击 <router-link>, 这个方法会在内部调用 $router.push
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="home()">Home</button>
+    <button v-on:click="user233()">用户233</button>
+    <button v-on:click="user666()">用户666</button>
+    <button v-on:click="user147()">用户147</button>
+    <button v-on:click="user258()">用户258</button>
+    <button v-on:click="go(1)">前进</button>
+    <button v-on:click="go(-1)">后退</button>
+
+    <router-view></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User = {
+    template: `<div>用户 {{ $route.params.id }}</div>`
+  }
+  const router = new VueRouter({
+    routes: [{ 
+      name: 'user',  // 命名路由
+      path: '/user/:id',
+      component: User,
+    }]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+    methods: {
+      // router.push(location, onComplete?, onAbort?) 是在原本的路径上增加, 若是随意多次点击会出问题
+      user233: function () {
+        this.$router.push('/user/233')
+      },
+      user666: function () {
+        this.$router.push({ path: 'user'})
+      },
+      // 可以通过 name 来使用路由, 前提是路由那里进行了命名
+      // 如果提供了 path，params 会被忽略， query 并不属于这种情况
+      user147: function () {
+        this.$router.push({ name: 'user', params: { id: '147' } })
+      },
+      user258: function () {
+        this.$router.push({ name: 'user', params: { id: '258' }, query: { plan: 'private' } })
+      },
+      // router.go(n) 根据浏览记录前进(加值)或后退(减值),每次操作都为1
+      go: function (n) {
+        this.$router.go(n)
+      },
+      // router.replace(location, onComplete?, onAbort?) 替换掉当前的 history 记录。
+      // 跟 router.push 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样
+      home: function () {
+        this.$router.replace('/')
+      }
+    },
+  })
+</script>
+
+</html>

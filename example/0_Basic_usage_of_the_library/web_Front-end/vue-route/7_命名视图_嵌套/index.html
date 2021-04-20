@@ -1,0 +1,99 @@
+<!-- 
++-----------------------------------+                  +------------------------------+
+| UserSettings                      |                  | UserSettings                 |
+| +-----+-------------------------+ |                  | +-----+--------------------+ |
+| | Nav | UserEmailsSubscriptions | |  +------------ > | | Nav | UserProfile        | |
+| |     +-------------------------+ |                  | |     +--------------------+ |
+| |     |                         | |                  | |     | UserProfilePreview | |
+| +-----+-------------------------+ |                  | +-----+--------------------+ |
++-----------------------------------+                  +------------------------------+
+
+Nav 只是一个常规组件。
+UserSettings 是一个视图组件。
+UserEmailsSubscriptions、UserProfile、UserProfilePreview 是嵌套的视图组件。
+
+
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const NavBar = {
+    template: `
+      <div>
+        <router-link to="/email">邮箱信息</router-link>
+        <router-link to="/profile">个人信息</router-link>
+      </div>`
+  }
+  const UserSettings = {
+    template: `
+      <div>
+        <h1>User Setting</h1>
+        <NavBar/>
+        <router-view/>
+        <router-view name="helper"/>
+      </div>`,
+    components:{
+      NavBar:NavBar
+    }
+  }
+
+  const UserEmailsSubscriptions = {
+    template: `
+    <div>
+      邮箱:65535@gmail.com
+    </div>`
+  }
+  const UserProfile = {
+    template: `
+    <div>
+      <p>昵称：金轮</p>
+      <p>年龄: 32</p>
+    </div>`
+  }
+  const UserProfilePreview = {
+    template: `
+    <div>
+      <p>性别: 男</p>
+      <p>职业：单身狗</p>
+    </div>`
+  }
+
+
+  const router = new VueRouter({
+    routes: [{
+      path: '/',
+      component: UserSettings,
+      children: [{
+          path: 'email',
+          component: UserEmailsSubscriptions
+        },
+        {
+          path: 'profile',
+          components: {
+            default: UserProfile,
+            helper: UserProfilePreview,
+          }
+        },
+      ],
+    }, ]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

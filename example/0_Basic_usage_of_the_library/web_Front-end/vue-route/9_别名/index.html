@@ -1,0 +1,42 @@
+<!-- 
+  /a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/q">Go /q to /a</router-link>
+      <router-link to="/c">Go /c lik /a</router-link>
+
+      <router-link to="/a">Go to /a</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+</body>
+
+<script type="text/javascript">
+  const A = { template: '<div>A: "Hello"</div>' }
+
+  const router = new VueRouter({
+    routes: [
+      { path: '/a', component: A, alias:'/c' },  // 别名
+      { path: '/q', redirect: '/a' },  // 重定向
+    ]
+  })
+  // “别名”的功能让你可以自由地将 UI 结构映射到任意的 URL，而不是受限于配置的嵌套路由结构。
+  const app = new Vue({
+    el:'#app',
+    router: router,
+  })
+</script>
+
+</html>

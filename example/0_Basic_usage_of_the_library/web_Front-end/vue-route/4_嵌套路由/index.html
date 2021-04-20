@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User = {
+    // 注意其中也包含了一层<router-view>出口
+    template: `
+      <div class="user">
+        <h2>User {{ $route.params.id }}</h2>
+        <router-view></router-view>
+      </div>
+    `
+  }
+  const UserProfile = { template: '<div>用户简介</div>' }
+  const UserPhotos = { template: '<div>用户照片</div>' } 
+  const router = new VueRouter({
+    routes: [{
+      // 一次路由匹配
+      path: '/user/:id',
+      component: User,
+      children: [
+        // 二次路由匹配会匹配第一次匹配后的内容
+        // 此处的组件会渲染在 User组件的<router-view> 中
+        { path: 'profile', component: UserProfile },
+        { path: 'photo', component: UserPhotos },
+        // 如果以 / 开头, 则会忽视第一次匹配, 直接从根路径重新开始匹配
+        // 如果希望直接访问 /user/a 会渲染点什么, 可以在字路由中把 path 设置为''
+      ]
+    }, ]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

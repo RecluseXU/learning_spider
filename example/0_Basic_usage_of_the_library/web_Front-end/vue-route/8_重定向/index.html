@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/q">Go /q to /a</router-link>
+      <router-link to="/w">Go /w to /b</router-link>
+      <router-link to="/e">Go /e to /c</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+</body>
+
+<script type="text/javascript">
+  const A = { template: '<div>A "Hello"</div>' }
+  const B = { template: '<div>B "Hello"</div>' }
+  const C = { template: '<div>C "Hello"</div>' }
+
+  const router = new VueRouter({
+    routes: [
+      { path: '/a', component: A },
+      { path: '/b', name: 'the_b', component: B },
+      { path: '/c', component: C },
+      // 重定向
+      { path: '/q', redirect: '/a' },  // 直接指定
+      { path: '/w', redirect: { name: 'the_b' } },  //  指定路由名称
+      { path: '/e', redirect: function(){  return '/c' } },  // 通过函数指定
+    ]
+  })
+  // 注意导航守卫并没有应用在跳转路由上，而仅仅应用在其目标上
+
+  const app = new Vue({
+    el:'#app',
+    router: router,
+  })
+</script>
+
+</html>

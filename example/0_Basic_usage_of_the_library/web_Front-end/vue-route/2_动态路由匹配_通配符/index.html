@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/user/Foo">/user/Foo</router-link>
+      <router-link to="/user/Bar/zzz">/user/Bar/zzz</router-link>
+      <router-link to="/user-a">/user-a</router-link>
+      <router-link to="/user-/1">/user-/1</router-link>
+      <router-link to="/asdf23re">/asdf23re</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+</body>
+
+<script type="text/javascript">
+  const Oh1 = { template: '<div>/user/* ："我能匹配/user/下的路径"</br>通配符匹配：{{ $route.params.pathMatch }}</div>' }
+  const Oh2 = { template: '<div>/user-* ："我能匹配user-开头的路径"</br>通配符匹配：{{ $route.params.pathMatch }}</div>' }
+  const Oh3 = { template: '<div>* ："我能匹配任意路径"</br>通配符匹配：{{ $route.params.pathMatch }}</div>' }
+
+  const router = new VueRouter({
+    routes: [
+      // 匹配优先级: 谁先定义的，谁的优先级就越高高。
+      { path: '/user/*', component: Oh1 },  // 匹配 /user/ 下任意路径
+      { path: '/user-*', component: Oh2 },  // 匹配 任意 /user- 开头路径
+      { path: '*', component:Oh3 },  // 匹配 任意 路径
+    ]
+  })
+
+  const app = new Vue({
+    el:'#app',
+    router: router,
+  })
+</script>
+
+</html>

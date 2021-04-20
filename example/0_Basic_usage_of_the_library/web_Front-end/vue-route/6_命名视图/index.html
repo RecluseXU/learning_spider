@@ -1,0 +1,50 @@
+<!-- 
+  想同时 (同级) 展示多个视图，而不是嵌套展示, 这个时候命名视图就派上用场了  
+  你可以在界面中拥有多个单独命名的视图，而不是只有一个单独的出口。
+  如果 router-view 没有设置名字，那么默认为 default
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <!-- 不填写name，则name 为default -->
+      <router-view ></router-view>
+      <router-view name="a"></router-view>
+      <router-view name="b"></router-view>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User1 = { template: '<div> Hello1 </div>' }
+  const User2 = { template: '<div> Hello2 </div>' }
+  const User3 = { template: '<div> Hello3 </div>' }
+
+
+  const router = new VueRouter({
+    routes: [
+      {
+        path: '/',
+        components: {  // 组件命名： 定义
+          default: User1,
+          a: User2,
+          b: User3,
+        }
+      },
+    ]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

@@ -15,9 +15,5 @@ class Sample:
     def __exit__(self, exc_type, exc_val, exc_tb):
         print("进入 __exit__")
 
-def get_sample():
-    return Sample()
-
-
-with get_sample() as sample:
+with Sample() as sample:
     print ("实例: ", sample)

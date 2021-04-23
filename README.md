@@ -128,8 +128,15 @@
         <td>@bebel</td>
         <td>各类还原插件编写</td>
     </tr>
-
+    <tr>
+        <td>较难</td>
+    	<td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/5_%E8%BE%83%E9%9A%BE_carbosynth%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E6%8A%93%E5%8F%96">carbosynth抓取一张图</a></td>
+    	<td>简易TLS指纹</td>
+    	<td>修改默认安全组件配置</td>
+    	<td>理解TLS</td>
+    </tr>
 </table>
+
 
 
 
@@ -174,7 +181,7 @@
         <td>让一些Unicode文字使用自定义字体解析，让使用标准Unicode解析的人爬不到数据<br>单个访问过程中字体并不会变化</td>
     </tr>
     <tr>
-        <td rowspan="5">js反爬</td>
+        <td rowspan="4">js反爬</td>
         <td>入门</td>
         <td>反调试</td>
         <td>利用 定时启动的/嵌套的debugger来让浏览器一直处于无法退出的调试状态</td>
@@ -195,6 +202,7 @@
         <td>用几种基本字符取代大部分常见字符，让人难以阅读</td>
     </tr>
     <tr>
+        <td rowspan="2">数据加密</td>
         <td>一般</td>
         <td>AES对称加密</td>
         <td>将传输的数据进行加密</td>
@@ -211,6 +219,8 @@
         <td>检查自动创建两个的变量</td>
     </tr>
 </table>
+
+
 
 
 ### 技术应用  
@@ -300,4 +310,4 @@
 * Babel/traverse 函数API记录  
 * feapder 基础内容
 
-2020年3月15日
+2021年4月23日

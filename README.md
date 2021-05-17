@@ -213,7 +213,7 @@
         <td>将传输的数据进行加密</td>
     </tr>
     <tr>
-        <td rowspan="2">指纹反爬</td>
+        <td rowspan="1">指纹反爬</td>
         <td>简单</td>
         <td>最简易Selenium识别</td>
         <td>检查自动创建两个的变量</td>

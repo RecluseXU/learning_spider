@@ -1,3 +1,7 @@
+有非常多的一些设置项目可以在setting里面设置  
+
+## 默认配置的代码说明  
+~~~python
 settings.py
     # Crawl responsibly by identifying yourself (and your website) on the user-agent
     # 默认的 USER_AGENT 可以被定义在这里
@@ -97,3 +101,39 @@ settings.py
     # 忽略哪些码
     #HTTPCACHE_IGNORE_HTTP_CODES = []
     #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+~~~
+
+## 日志记录配置  
+`Scrapy`提供了log功能，可以通过 `logging` 模块使用  
+
+通过在`setting.py`中进行以下设置可以被用来配置`logging`:  
+~~~python
+LOG_FILE = "mySpider.log"
+LOG_LEVEL = "INFO"
+~~~
+此处指定了 日志文件地址 与 `logging`级别  
+
+### Log级别
+`Scrapy`提供5层`Log`级别:
+* CRITICAL - 严重错误(critical)
+* ERROR - 一般错误(regular errors)
+* WARNING - 警告信息(warning messages)
+* INFO - 一般信息(informational messages)
+* DEBUG - 调试信息(debugging messages)
+
+级别设置得越高，记录的log内容就越少  
+
+
+### 全部log配置  
+* LOG_ENABLED 
+默认: True，启用logging  
+* LOG_ENCODING  
+默认: 'utf-8'，logging使用的编码
+* LOG_FILE  
+默认: None，在当前目录里创建logging输出文件的文件名  
+* LOG_LEVEL  
+默认: 'DEBUG'，log的最低级别  
+* LOG_STDOUT  
+默认: False 如果为 True，进程所有的标准输出(及错误)将会被重定向到log中  
+>例如，执行 print "hello" ，其将会在Scrapy log中显示
+

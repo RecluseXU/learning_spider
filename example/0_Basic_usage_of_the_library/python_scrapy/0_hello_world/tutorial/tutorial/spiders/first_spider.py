@@ -13,6 +13,7 @@ Spider是用户编写用于从单个网站(或者一些网站)爬取数据的类
 
 '''
 
+
 class BingSpider(scrapy.spiders.Spider):
     name = "first"
     allowed_domains = ["bing.com"]

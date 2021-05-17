@@ -1,7 +1,0 @@
-https://scrapy-chs.readthedocs.io/zh_CN/1.0/intro/tutorial.html
-
-流程：
-    定义item
-    编写spiders
-    编写setting
-    编写pipeline

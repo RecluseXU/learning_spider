@@ -11,4 +11,4 @@
 '''
 
 # here put the import lib
-SPIDER_MAX_RETRY_TIMES = 4 # 每个请求最大重试次数
+SPIDER_MAX_RETRY_TIMES = 4  # 每个请求最大重试次数

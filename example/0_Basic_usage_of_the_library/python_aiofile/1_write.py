@@ -13,7 +13,7 @@ import aiofiles
 import asyncio
 
 
-async def test_stuff(filepath:str, data:str):
+async def test_stuff(filepath: str, data: str):
     async with aiofiles.open(filepath, mode='w', encoding='utf-8') as f:
         contents = await f.write(data)
     return contents

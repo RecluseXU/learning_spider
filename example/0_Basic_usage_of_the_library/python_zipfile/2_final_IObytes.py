@@ -7,7 +7,6 @@
 @Contact :   https://github.com/RecluseXU
 @Desc    :   你可以让它最后写入到内存中，而不是真正操作文件
 '''
-
 # here put the import lib
 import zipfile
 from io import BytesIO

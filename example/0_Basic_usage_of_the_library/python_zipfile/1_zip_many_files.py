@@ -10,9 +10,7 @@
     ZipFile 有两个方法可以将内容写到压缩文件中
     * write 传入文件路径，用于将已经存在的文件写入
     * writestr 直接写入新的内容
-
 '''
-
 # here put the import lib
 import zipfile
 

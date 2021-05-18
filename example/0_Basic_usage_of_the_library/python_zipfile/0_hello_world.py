@@ -28,6 +28,6 @@ zip_f = zipfile.ZipFile(
     # 具体参考 https://docs.python.org/zh-cn/3/library/zlib.html#zlib.compressobj
     compresslevel=5,
 )
-# 创建一个 ZipFile 对象并不会立刻创建文件，只在执行其close方法时才创建  
+# 创建一个 ZipFile 对象并不会立刻创建文件，只在执行其close方法时才创建
 # 可以使用 with 来自动调用 close方法
 zip_f.close()

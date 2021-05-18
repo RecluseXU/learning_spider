@@ -14,7 +14,8 @@ from random import randint
 
 
 async def nested():
-    return randint(1,101)
+    return randint(1, 101)
+
 
 async def main():
     # 利用 协程函数 nested() 创建了一个 Task

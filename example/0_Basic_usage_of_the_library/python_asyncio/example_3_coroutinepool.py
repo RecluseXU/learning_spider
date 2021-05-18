@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-05-18
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   启动一个线程来运行协程池，进行任务执行
+'''
+
+# here put the import lib
 import asyncio
 import aiohttp
 import time
@@ -13,8 +22,7 @@ class AsyncPool(object):
     """
 
     def __init__(self, maxsize=1, loop=None):
-        """
-        初始化
+        """ 初始化
         :param loop:
         :param maxsize: 默认为1
         """
@@ -31,17 +39,14 @@ class AsyncPool(object):
         self.semaphore = asyncio.Semaphore(maxsize, loop=self.loop)
 
     def task_add(self, item=1):
-        """
-        添加任务
+        """ 添加任务
         :param item:
         :return:
         """
         self.task.put(item)
 
     def task_done(self, fn):
-        """
-        任务完成
-        回调函数
+        """ 任务完成，回调函数
         :param fn:
         :return:
         """
@@ -51,24 +56,21 @@ class AsyncPool(object):
         self.task.task_done()
 
     def wait(self):
-        """
-        等待任务执行完毕
+        """ 等待任务执行完毕
         :return:
         """
         self.task.join()
 
     @property
     def running(self):
-        """
-        获取当前线程数
+        """ 获取当前线程数
         :return:
         """
         return self.task.qsize()
 
     @staticmethod
     def _start_thread_loop(loop):
-        """
-        运行事件循环
+        """ 运行事件循环
         :param loop: loop以参数的形式传递进来运行
         :return:
         """
@@ -78,9 +80,7 @@ class AsyncPool(object):
         loop.run_forever()
 
     async def _stop_thread_loop(self, loop_time=1):
-        """
-        停止协程
-        关闭线程
+        """ 停止协程，关闭线程
         :return:
         """
         while True:
@@ -91,9 +91,7 @@ class AsyncPool(object):
             await asyncio.sleep(loop_time)
 
     def start_loop(self, loop):
-        """
-        运行事件循环
-        开启新线程
+        """ 运行事件循环,开启新线程
         :param loop: 协程
         :return:
         """
@@ -110,8 +108,7 @@ class AsyncPool(object):
         return loop, loop_thread
 
     def stop_loop(self, loop_time=1):
-        """
-        队列为空，则关闭线程
+        """ 队列为空，则关闭线程
         :param loop_time:
         :return:
         """
@@ -119,16 +116,14 @@ class AsyncPool(object):
         asyncio.run_coroutine_threadsafe(self._stop_thread_loop(loop_time), self.loop)
 
     def release(self, loop_time=1):
-        """
-        释放线程
+        """ 释放线程
         :param loop_time:
         :return:
         """
         self.stop_loop(loop_time)
 
     async def async_semaphore_func(self, func):
-        """
-        信号包装
+        """ 信号包装
         :param func:
         :return:
         """
@@ -136,8 +131,7 @@ class AsyncPool(object):
             return await func
 
     def submit(self, func, callback=None):
-        """
-        提交任务到事件循环
+        """ 提交任务到事件循环
         :param func: 异步函数对象
         :param callback: 回调函数
         :return:
@@ -162,6 +156,7 @@ async def thread_example(i):
             # print(res.content)
             html = await res.text()
             return len(html)
+
 
 def my_callback(future):
     result = future.result()

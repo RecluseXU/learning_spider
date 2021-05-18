@@ -20,15 +20,14 @@ async def get_baidu(sleep_time):
         # await asyncio.sleep(sleep_time)
         print('Task-sleep-{} {}'.format(sleep_time, resp.status_code))
         return sleep_time, resp.status_code
- 
+
 
 def main():
     loop = asyncio.get_event_loop()
-    tasks=[get_baidu(t) for t in range(4, 0, -1)]
+    tasks = [get_baidu(t) for t in range(4, 0, -1)]
     loop.run_until_complete(asyncio.wait(tasks))
     loop.close()
 
 
 if __name__ == '__main__':
     main()
-

@@ -9,10 +9,10 @@
 
 `asyncio` 事件可被用来通知多个 `asyncio` 任务已经有事件发生。
 
-`Event` 对象会管理一个内部旗标，该旗标初始时将被设为 `false`  
-* `set()` 方法将其设为 `true`  
-* `clear()` 方法将其设为 `false`  
-* `wait()` 方法会阻塞直至该旗标被设为 `true`  
+`Event` 对象会管理一个内部旗标，该旗标初始时将被设为 `false`
+* `set()` 方法将其设为 `true`
+* `clear()` 方法将其设为 `false`
+* `wait()` 方法会阻塞直至该旗标被设为 `true`
 '''
 
 # here put the import lib
@@ -24,6 +24,7 @@ async def waiter(event):
     await event.wait()
     print('开炮！！！开炮！！！开炮！！！')
 
+
 async def main():
     event = asyncio.Event()  # 创建一个Event对象
     # create_task 生成一个 Task，这个 Task 立即执行
@@ -34,7 +35,7 @@ async def main():
     await asyncio.sleep(3)
     event.set()
 
-    # 虽然说在Event set了以后，Task会运行进行直到运行完毕  
+    # 虽然说在Event set了以后，Task会运行进行直到运行完毕
     # 但加个等待以确保100% 完成是个好习惯
     await waiter_task
 

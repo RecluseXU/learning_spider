@@ -19,22 +19,20 @@
             在此情况下 gather() 调用 不会 被取消。
             这是为了防止一个已提交的 Task/Future 被取消导致其他 Tasks/Future 也被取消。
 
-注解 
-    如果 return_exceptions 为 False，则在 gather() 被标记为已完成后取消它将不会取消任何已提交的可等待对象。 
+注解
+    如果 return_exceptions 为 False，则在 gather() 被标记为已完成后取消它将不会取消任何已提交的可等待对象
     例如
         在将一个异常传播给调用者之后，gather 可被标记为已完成，
         因此，在从 gather 捕获一个（由可等待对象所引发的）异常之后调用 gather.cancel() 将不会取消任何其他可等待对象。
     在 3.7 版更改: 如果 gather 本身被取消，则无论 return_exceptions 取值为何，消息都会被传播。
 '''
-
 # here put the import lib
 import asyncio
 
 
 async def factorial(name, number):
-    '''
-    计算阶乘
-    '''
+    """ 计算阶乘
+    """
     f = 1
     for i in range(2, number + 1):
         print(f"Task {name}: Compute factorial({i})...")

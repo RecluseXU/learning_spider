@@ -11,8 +11,10 @@
 # here put the import lib
 import asyncio
 
+
 async def nested():
     return 42
+
 
 async def main():
     # 如果只是声明 nested() 那么什么事情都不会发生

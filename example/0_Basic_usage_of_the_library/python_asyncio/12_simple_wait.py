@@ -5,7 +5,7 @@
 @Time    :   2020-11-09
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
+@Desc    :   协程等待
 '''
 
 # here put the import lib
@@ -14,6 +14,7 @@ import asyncio
 
 async def foo():
     return 42
+
 
 async def main():
     task = asyncio.create_task(foo())

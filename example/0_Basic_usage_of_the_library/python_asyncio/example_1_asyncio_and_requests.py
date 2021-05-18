@@ -20,6 +20,7 @@ async def print_time(num):
     print('结束爬 {} ，时间{}'.format(num, float(time())))
     return a
 
+
 async def get_bing():
     url = 'https://cn.bing.com/'
     headers = {
@@ -46,7 +47,5 @@ def main():
     print(task.result())
 
 
-
 if __name__ == '__main__':
     main()
-

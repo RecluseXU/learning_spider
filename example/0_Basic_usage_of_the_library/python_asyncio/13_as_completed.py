@@ -5,7 +5,7 @@
 @Time    :   2020-11-09
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
+@Desc    :   as_completed方法
 '''
 # here put the import lib
 import asyncio
@@ -14,7 +14,8 @@ from random import randint
 
 async def foo(i):
     await asyncio.sleep(i)
-    return i, randint(1,100)
+    return i, randint(1, 100)
+
 
 async def main():
     the_futures = []

@@ -5,7 +5,7 @@
 @Time    :   2020-11-09
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
+@Desc    :   asyncio.create_task
     asyncio.create_task(coro, *, name=None)
         将 coro 协程 打包为一个 Task 排入日程准备执行。返回 Task 对象。
         name 不为 None，它将使用 Task.set_name() 来设为任务的名称。
@@ -18,8 +18,10 @@
 import asyncio
 from random import randint
 
+
 async def a():
-    return randint(1,100)
+    return randint(1, 100)
+
 
 async def main():
     # In Python 3.7+

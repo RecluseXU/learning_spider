@@ -37,7 +37,7 @@ async def nested():
     a = 0
     for _ in range(4):
         await asyncio.sleep(1)
-        a += randint(1,10)
+        a += randint(1, 10)
         print('nested -> {}'.format(a))
     return a
 
@@ -78,14 +78,11 @@ async def using_cancel():
             print("task 已经被取消了")
 
         if _task.done():
-            # done()方法 返回 Task 是否已经完成  
-            # 如果 Task 对象 已完成 则返回 True。
+            # done()方法 返回 Task 是否已经完成
+            # 如果 Task 对象 已完成 则返回 True
             # 当 Task 所封包的协程返回一个值、引发一个异常或 Task 本身被取消时，则会被认为 已完成。
             print('task 已经完成')
-            
 
 
 asyncio.run(using_name())
 asyncio.run(using_cancel())
-
-

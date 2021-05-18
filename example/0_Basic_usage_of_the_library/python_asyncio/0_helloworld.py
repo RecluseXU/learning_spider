@@ -5,8 +5,8 @@
 @Time    :   2020-11-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
-    asycio 需要自己在代码中让出CPU，控制权在自己手上
+@Desc    :   asyncio
+    asyncio 需要自己在代码中让出CPU，控制权在自己手上
     gevent 用会替换标准库，你以为调用的是标准库的方法实际已经被替换成gevent自己的实现，
         遇到阻塞调用，gevent会自动让出CPU
 

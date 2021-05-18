@@ -5,19 +5,16 @@
 @Time    :   2020-11-24
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
-
-文档url : https://docs.python.org/zh-cn/3/library/asyncio-stream.html
-
-
+@Desc    :   asyncio-stream
+    文档url : https://docs.python.org/zh-cn/3/library/asyncio-stream.html
 '''
 
 # here put the import lib
 import asyncio
 
+
 async def tcp_echo_client(message):
-    reader, writer = await asyncio.open_connection(
-        '127.0.0.1', 8888)
+    reader, writer = await asyncio.open_connection('127.0.0.1', 8888)
 
     print(f'Send: {message!r}')
     writer.write(message.encode())

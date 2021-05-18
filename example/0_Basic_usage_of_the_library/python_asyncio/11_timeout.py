@@ -17,6 +17,7 @@ async def eternity():
     await asyncio.sleep(3600)
     print('yay!')
 
+
 async def main():
     # Wait for at most 1 second
     try:

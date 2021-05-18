@@ -12,18 +12,20 @@
 import asyncio
 
 
-async def using_toilet(toilet_lock, name:str):
+async def using_toilet(toilet_lock, name: str):
     print('{} 尝试获取厕所使用权'.format(name))
     async with toilet_lock:
         print('{} 正在使用厕所'.format(name))
         await asyncio.sleep(4)
     print('{} 厕所使用完毕'.format(name))
 
-async def using_toilet_without_lock(name:str):
+
+async def using_toilet_without_lock(name: str):
     print('{} 尝试获取厕所使用权'.format(name))
     print('{} 正在使用厕所'.format(name))
     await asyncio.sleep(4)
     print('{} 厕所使用完毕'.format(name))
+
 
 async def main():
     print('并行无锁')

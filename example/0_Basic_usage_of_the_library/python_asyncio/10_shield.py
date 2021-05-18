@@ -27,7 +27,8 @@ from random import randint
 
 
 async def nested():
-    return randint(1,101)
+    return randint(1, 101)
+
 
 async def main():
     task = asyncio.create_task(nested())

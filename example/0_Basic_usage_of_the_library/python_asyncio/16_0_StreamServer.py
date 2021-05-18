@@ -5,7 +5,7 @@
 @Time    :   2020-11-24
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   流是用于处理网络连接的支持 async/await 的高层级原语  
+@Desc    :   流是用于处理网络连接的支持 async/await 的高层级原语
 
 文档url : https://docs.python.org/zh-cn/3/library/asyncio-stream.html#streams
 
@@ -15,6 +15,7 @@
 
 # here put the import lib
 import asyncio
+
 
 async def handle_echo(reader, writer):
     data = await reader.read(100)
@@ -29,6 +30,7 @@ async def handle_echo(reader, writer):
 
     print("Close the connection")
     writer.close()
+
 
 async def main():
     server = await asyncio.start_server(

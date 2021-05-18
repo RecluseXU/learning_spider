@@ -5,16 +5,18 @@
 @Time    :   2020-11-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
+@Desc    :   创建协程
 '''
 
 # here put the import lib
 import asyncio
 import time
 
+
 async def say_after(delay, what):
     await asyncio.sleep(delay)
     print(what)
+
 
 async def main():
     task1 = asyncio.create_task(say_after(2, 'world'))

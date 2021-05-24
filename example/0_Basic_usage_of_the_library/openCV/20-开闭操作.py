@@ -1,21 +1,23 @@
-#!/user/bin/env python3
-#!-*- coding:utf-8 -*-
+# -*- encoding: utf-8 -*-
 '''
-Created on 2018年3月28日
-
-@author: RecluseXu
+@Time    :   2018-3-28
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   
 '''
 
+# here put the import lib
 import cv2 as cv
 import numpy as np
 
+
 def open_demo(image):
     print(image.shape)
-    gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255,cv.THRESH_BINARY | cv.THRESH_OTSU)
-    cv.imshow('binary',binary)
-    
-    kernel = cv.getStructuringElement(cv.MORPH_RECT,(5,5))
+    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)
+    cv.imshow('binary', binary)
+
+    kernel = cv.getStructuringElement(cv.MORPH_RECT, (5, 5))
     # cv.MORPH_RECT 这个东西一定程度，决定了留下来的图像的外形。
     # 有很多选项可以尝试，比如cv.MORPH_ELLIPSE就会留下圆
     # (5,5) 结构元素，这个东西决定了调整的大小。
@@ -23,26 +25,27 @@ def open_demo(image):
     binary = cv.morphologyEx(binary, cv.MORPH_OPEN, kernel)
     # cv.morphologyEx 形态学操作函数
     # cv.MORPH_OPEN 具体操作
-    
-    cv.imshow('open result',binary)
-    
+
+    cv.imshow('open result', binary)
+
+
 def close_demo(image):
     print(image.shape)
-    gray = cv.cvtColor(image,cv.COLOR_BGR2GRAY)
-    ret, binary = cv.threshold(gray, 0, 255,cv.THRESH_BINARY | cv.THRESH_OTSU)
-    cv.imshow('binary',binary)
-    
-    kernel = cv.getStructuringElement(cv.MORPH_RECT,(15,15))
+    gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    ret, binary = cv.threshold(gray, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)
+    cv.imshow('binary', binary)
+
+    kernel = cv.getStructuringElement(cv.MORPH_RECT, (15, 15))
     binary = cv.morphologyEx(binary, cv.MORPH_CLOSE, kernel)
     # cv.morphologyEx 形态学操作函数
     # cv.MORPH_CLOSE 具体操作
-    
-    cv.imshow('close result',binary)
+
+    cv.imshow('close result', binary)
 
 
-
-src = cv.imread('example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
-cv.imshow('src',src)
+src = cv.imread(
+    'example/0_Basic_usage_of_the_library/openCV/picture/goodmancard.jpg')
+cv.imshow('src', src)
 
 open_demo(src)
 close_demo(src)

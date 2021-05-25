@@ -298,8 +298,8 @@
         <td>Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/babel_traverse_api_demo">Babel/traverse API demo</a></td>
-        <td>自行编写的 Babel/traverse API 用例，是<a href="https://evilrecluse.top/post/77d57432/">API记录文章</a>的配套代码<br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>注意：内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
+        <td><a href="https://evilrecluse.top/Babel-traverse-api-doc/#/">@Babel/traverse API document</a></td>
+        <td>自行编写的 Babel/traverse API 文档与用例，已经转移到另外的仓库<a href="https://evilrecluse.top/Babel-traverse-api-doc/#/"></a><br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>注意：内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
     </tr>
 </table>
 
@@ -307,7 +307,7 @@
 ## TODO  
 
 * 自动处理字体脚本  
-* Babel/traverse 函数API记录  
 * feapder 基础内容
+* 完成3DM登录的内容
 
-2021年4月23日
+2021年5月25日

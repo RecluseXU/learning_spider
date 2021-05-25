@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/user/Foo">Go to Foo</router-link>
+    <router-view></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  // “导航”表示路由正在发生改变
+
+  // 正如其名，vue-router 提供的导航守卫主要用来通过跳转或取消的方式守卫导航
+  // 有多种机会植入路由导航过程中：全局的、单个路由独享的、或者组件级的
+
+  // 实现未登录访问用户页，跳转到登录
+  const User = { template: '<div>"Hello! {{ $route.params.name }}"</div>' }
+  const Login = {
+    template: ' <div>{{ $route.params.name }}登录中</br>3秒后自动跳转</div>',
+    mounted() {
+      Vue.loginName = this.$route.params.name; // 此处仅为方便使用（实际多数为cookies）
+      debugger;  // 此处仅为方便查看（实际情况多数为定时任务跳转）
+      this.$router.push('/user/' + this.$route.params.name)
+    },
+  }
+  const router = new VueRouter({
+    routes: [
+      { name: 'User', path: '/user/:name', component: User },
+      { name: 'Login', path: '/login/:name', component: Login },
+    ]
+  })
+
+  // 使用 router.beforeEach 注册一个全局前置守卫
+  router.beforeEach((to, from, next) => {
+    console.log('即将要进入的目标路由对象', to)
+    console.log('当前导航正要离开的路由', from)
+    console.log('next函数，用于resolve钩子，其效果依赖于调用的参数', next)
+    if (Vue.loginName === undefined & to.name === 'User')
+      next({ name: 'Login', params: to.params})
+    else
+      next()
+  })
+
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

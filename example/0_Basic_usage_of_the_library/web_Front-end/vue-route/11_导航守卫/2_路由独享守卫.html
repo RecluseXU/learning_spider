@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/user/Foo">Go to Foo</router-link>
+    <router-view></router-view>
+  </div>
+</body>
+
+<script type="text/javascript">
+  const User = { template: '<div>"Hello! {{ $route.params.name }}"</div>' }
+  const router = new VueRouter({
+    routes: [
+      { 
+        name: 'User',
+        path: '/user/:name',
+        component: User,
+        // 使用上并没有什么不同，只是设置的位置，运行的时机不同
+        beforeEnter: (to, from, next) => {
+          console.log('即将要进入的目标路由对象', to)
+          console.log('当前导航正要离开的路由', from)
+          next()
+        }
+      },
+    ]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router: router,
+  })
+</script>
+
+</html>

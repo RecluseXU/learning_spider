@@ -4,19 +4,23 @@ const t = _base.t
 const BasePlug = require("../base").default;
 const visitor = {
     FunctionExpression(path){
-        if(!t.isVariableDeclarator(path.parent)){return;}
-        if(path.parent == path.getStatementParent()){return;}
-
-        let dcclarate_binding = path.scope.getBinding(path.parent.id.name)
-        if(!dcclarate_binding.constant){return;}
-
-        let var_func_ref_paths = dcclarate_binding.referencePaths;
-        if(var_func_ref_paths.length != 1){return;}
-        if(var_func_ref_paths[0].getStatementParent() != var_func_ref_paths[0].parentPath.parentPath){return;}
+        // 为单句变量声明，且值是一个函数
+        let statementPath = path.parent;
+        if(!t.isVariableDeclarator(statementPath)){return;}
+        if(statementPath == path.getStatementParent()){return;}
+        // 未被修改
+        let variableBinding = path.scope.getBinding(statementPath.id.name);
+        if (!variableBinding.constant){return;}
+        // 仅被引用一次
+        let variableRefPaths = variableBinding.referencePaths;
+        if(!variableRefPaths.length === 1){return;}
         
-        var_func_ref_paths[0].getStatementParent().replaceInline(
+        let variableRefPath = variableRefPaths[0];
+        if(variableRefPath.getStatementParent() !== variableRefPath.parentPath.parentPath){return;}
+        
+        variableRefPaths[0].getStatementParent().replaceInline(
             t.ExpressionStatement(
-                t.callExpression(path.node, var_func_ref_paths[0].parent.arguments)
+                t.callExpression(path.node, variableRefPaths[0].parent.arguments)
             )
         );
         path.getStatementParent().remove();

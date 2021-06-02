@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <p>可以去 <a href="https://mobile-ms.uat.homecreditcfc.cn/login">easy mock</a> 整一个临时json响应设置来请求</p>
+    </body>
+    <script>
+        function justGet(){
+            axios.get(
+                'https://mobile-ms.uat.homecreditcfc.cn/mock/60adef6d4a9639001d426e26/',
+                { params: { ID: 12345 }}  // get参数
+            ).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            }).then(function () {
+            });
+        }
+        justGet()
+        
+    </script>
+</html>

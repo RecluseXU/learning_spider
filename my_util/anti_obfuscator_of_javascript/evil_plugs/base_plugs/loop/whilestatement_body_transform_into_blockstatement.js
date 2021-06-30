@@ -1,25 +1,23 @@
 // 如果控制流语句主体没有{}，那么加上
-const _base = require('../base');
-const t = _base.t
-const BasePlug = require("../base").default;
+const {BasePlug, types, parser, generator, traverse} = require("../base");
+
 const visitor = {
     WhileStatement(path){
         let statement_body = path.node.body;
-        if(t.isBlockStatement(statement_body))return;
-        path.node.body = t.BlockStatement([statement_body])
+        if(types.isBlockStatement(statement_body))return;
+        path.node.body = types.BlockStatement([statement_body])
     }
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'WhileStatement body transform into BlockStatement',
     visitor,
     '用于在 while语句体是单语句且无括号括起来时添加括号',
 )
+exports.default = plug;
 
 
 function demo(){
-    const parser = _base.parser;
-    const generator = _base.generator;
     var jscode = `
         var i = 0;
         for(; i<10; i++) i += 1;
@@ -29,12 +27,7 @@ function demo(){
         if(i < 1) i += 1;
     `;
     let ast = parser.parse(jscode);
-    let local_plug = new BasePlug(
-        'WhileStatement body transform into BlockStatement',
-        visitor,
-        '用于在 while语句体是单语句且无括号括起来时添加括号',
-    )
-    local_plug.handler(ast)
+    plug.handler(ast)
     console.log(generator(ast)['code']);  // 使用 generator 得到修改节点后的代码
 }
 demo()

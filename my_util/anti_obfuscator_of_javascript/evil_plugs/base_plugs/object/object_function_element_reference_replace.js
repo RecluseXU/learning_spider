@@ -1,21 +1,18 @@
-const _base = require('../base');
-const t = _base.t
-const BasePlug = require("../base").default;
-
+const {BasePlug, types, parser, generator, traverse} = require("../base");
 
 const visitor = {
     VariableDeclarator({node, scope}) {
         let {init} = node;
-        if (!t.isObjectExpression(init) || init.properties.length == 0) return;
+        if (!types.isObjectExpression(init) || init.properties.length == 0) return;
         
         // 记录可用元素函数
         let func_property = {};
         for({key, value} of init.properties){
-            if(!t.isFunctionExpression(value))continue;
+            if(!types.isFunctionExpression(value))continue;
             let {body} = value.body;
             if(body.length !== 1)continue;
             let statement = body[0];
-            if(t.isReturnStatement(statement)){statement = statement.argument;}
+            if(types.isReturnStatement(statement)){statement = statement.argument;}
             func_property[key.value] = statement;
         }
 
@@ -25,21 +22,21 @@ const visitor = {
                 // 退出时检查，以应对递归调用
                 exit: function(_path){
                     let {callee, arguments} = _path.node;
-                    if(!t.isMemberExpression(callee))return;
-                    if(!t.isIdentifier(callee.object, {'name': obj_name}))return;
-                    if(!t.isLiteral(callee.property))return;
+                    if(!types.isMemberExpression(callee))return;
+                    if(!types.isIdentifier(callee.object, {'name': obj_name}))return;
+                    if(!types.isLiteral(callee.property))return;
                     let statement = func_property[callee.property.value];
                     if(!statement)return;
                     
                     let replaceNode = null;
-                    if (t.isCallExpression(statement) && arguments.length > 0) {
-                        replaceNode = t.CallExpression(arguments[0], arguments.slice(1));
+                    if (types.isCallExpression(statement) && arguments.length > 0) {
+                        replaceNode = types.CallExpression(arguments[0], arguments.slice(1));
                     }
-                    else if (t.isBinaryExpression(statement)) {
-                        replaceNode = t.BinaryExpression(statement.operator, arguments[0], arguments[1]);
+                    else if (types.isBinaryExpression(statement)) {
+                        replaceNode = types.BinaryExpression(statement.operator, arguments[0], arguments[1]);
                     }		
-                    else if (t.isLogicalExpression(statement)) {
-                        replaceNode = t.LogicalExpression(statement.operator, arguments[0], arguments[1]);
+                    else if (types.isLogicalExpression(statement)) {
+                        replaceNode = types.LogicalExpression(statement.operator, arguments[0], arguments[1]);
                     }
                     _path.replaceWith(replaceNode);
                 }
@@ -48,16 +45,15 @@ const visitor = {
     }
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'Object outside definition merge',
     visitor,
     'Object元素简单函数语句，用参数取代句中内容后，取代引用',
 )
+exports.default = plug;
 
 
 function demo(){
-    const parser = _base.parser;
-    const generator = _base.generator;
     var jscode = `
         var a = {
             "YJJox": "object",
@@ -78,12 +74,7 @@ function demo(){
         e = a["HqkiD"](String.fromCharCode, 49);
     `;
     let ast = parser.parse(jscode);
-    let local_plug = new BasePlug(
-        'Object function element reference replace',
-        visitor,
-        'Object简单函数元素引用取代',
-    )
-    local_plug.handler(ast)
-    console.log(generator(ast)['code']);  // 使用 generator 得到修改节点后的代码
+    plug.handler(ast)
+    console.log(generator(ast)['code']);
 }
 demo()

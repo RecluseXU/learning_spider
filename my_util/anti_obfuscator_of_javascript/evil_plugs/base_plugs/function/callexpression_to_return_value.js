@@ -1,22 +1,33 @@
-// 自调用函数TYPE1去除，函数体抽离到父级作用域中，删除函数
-const _base = require('../base');
-const t = _base.t
-const traverse = _base.traverse;
-const BasePlug = require("../base").default;
+// 单返回语句函数调用返回值取代函数调用
+const {BasePlug, types, parser, generator, traverse} = require("../base");
 
-let aim_function_name = 'f2';
+
 const visitor = {
     CallExpression(path){
-		if(path.node.callee.name !== aim_function_name){return}
-        all_arg_is_literal = path.node.arguments.every(argument => {return t.isLiteral(argument);})
-		if(!all_arg_is_literal){return}
+        // 检查传入实参皆为 Literal
+        let argumentsNode = path.node.arguments;
+        for(var argumentNode of argumentsNode){
+            if(!types.isLiteral(argumentNode)){return}
+        }
+        // 获取函数定义
+        let funcName = path.node.callee.name;
+        let funcPath = path.scope.getBinding(funcName).path;
+        if(types.isVariableDeclarator(funcPath)){
+            funcPath = funcPath.get('init');
+        }
+        // 检查函数体仅一句 return
+        let funcBody = funcPath.node.body.body;
+		if(funcBody.length !== 1 || types.isReturnStatement(funcBody)){return}
 
-		// 函数内部
-		let func_scope = path.scope.getBinding(aim_function_name).path;
 
+        // 转换
+        let funcString = funcPath.toString();
+        funcString = funcString.replace('/^function[^(]+?/', ' ')
+        
+        let argumentsString = argumentsNode.map((argument) => {return argument.value}).join(', ')
         try{
-			eval(func_scope.path.toString() + '\nvar ___temp___=' + path.toString());
-			path.replaceInline(t.valueToNode(___temp___));
+            let value = eval('(' + funcString + ')(' + argumentsString + ')');
+			path.replaceInline(types.valueToNode(value));
 		}catch(e){
 			console.log(e);
 		}
@@ -24,19 +35,18 @@ const visitor = {
     }
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'Callexpression to return value',
     visitor,
     '函数调用返回值取代函数调用',
-)
+);
+exports.default = plug;
 
 
 function demo() {
-    const parser = _base.parser;
-    const generator = _base.generator;
 	var jscode = `
 		var q = 9;
-        function f(a, b){return a+q;}
+        function f(a, b){return a+b;}
 		var f2 = function(x, y){return x}
 		var z = f2(3, 2);
 		var x = f(4, 5);

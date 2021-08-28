@@ -1,22 +1,16 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   7_base64_charset.py
-@Time    :   2020/08/27 12:05:58
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
-@Desc    :   自定义字符集的base64编码与解码
+@Time    :   2020-08-27
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   自定义字符集的base64编码与解码用例
 '''
 
 # here put the import lib
 import string
 import random
 
-'''
-    定义自己的64个字符
-'''
-
+# 定义自己的64个字符
 # 从标准库里将大写字母，小写字母，数字（一共62个字符）
 char64 = string.ascii_uppercase + string.ascii_lowercase + string.digits
 # 额外添加两个字符(一共64个字符)
@@ -52,7 +46,10 @@ def ascii_2_base64(ascii_str: str) -> str:
     print('将传入数据转为bytes\t', origin_bytes)
 
     # 转为八位二进制
-    base64_8_bin = [f"{str(bin(b)).replace('0b', ''):0>8}" for b in origin_bytes]
+    base64_8_bin = [
+        f"{str(bin(b)).replace('0b', ''):0>8}"
+        for b in origin_bytes
+    ]
     print('将数据转为八位二进制\t', base64_8_bin)
 
     # 按每6位切分
@@ -90,27 +87,21 @@ def base64_2_ascii(base64_str: str) -> str:
     if base64_str[-1] not in char64:
         base64_str = base64_str.replace(base64_str[-1], '')
     print('按码表处理填充字符\t', base64_str)
-    
     # 码表中寻找目标十进制数字序号替换对应项
     base64_int = list(map(lambda x: char64.index(x), base64_str))
     print('码表中寻找目标序号替换\t', base64_int)
-
     # 十进制数字序号转六位二进制
     base64_6_bin = [f"{bin(x)[2:]:0>6}" for x in base64_int]
     print('十进制序号转六位二进制\t', base64_6_bin)
-
     # 六位二进制转八位二进制
     base64_8_bin = cut(''.join(base64_6_bin), 8)
     print('六位二进制转八位二进制\t', base64_8_bin)
-
     # 抛弃位数不足的位数
     base64_8_bin = list(filter(lambda x: len(x) == 8, base64_8_bin))
     print('抛弃位数不足八位的项\t', base64_8_bin)
-
     # 八位二进制转ascii字符
     ascii_str = [chr(int(x, 2)) for x in base64_8_bin]
     print('八位二进制转ascii字符\t', ascii_str)
-
     ascii_str = ''.join(ascii_str)
     print('base64转ascii 最终结果\t', ascii_str)
 

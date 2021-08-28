@@ -129,6 +129,11 @@
         <td>各类还原插件编写</td>
     </tr>
     <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E5%8A%A0%E9%80%9F%E4%B9%90%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86">加速乐混淆代码处理</a></td>
+        <td>拦截设置Cookies</td>
+        <td>OB混淆代码还原</td>
+    </tr>
+    <tr>
         <td>较难</td>
     	<td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/5_%E8%BE%83%E9%9A%BE_carbosynth%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E6%8A%93%E5%8F%96">carbosynth抓取一张图</a></td>
     	<td>简易TLS指纹</td>
@@ -294,20 +299,24 @@
         <th>信息</th>
     </tr>
     <tr>
-        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/auto_dl_chrome_webdriverm">Auto DL ChromeWebDriver</a></td>
-        <td>Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)</td>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/webdriver_downloader">Auto DL ChromeWebDriver</a></td>
+        <td>下载 Chrome WebDriver 脚本<br>从 注册表/命令 获知 Chrome 版本信息, 下载最符合版本的 WebDriver</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/slother">slother</a></td>
+        <td>在 Selenium 基础上封装了一层, 以应对用 Selenium 进行爬虫的时候会碰到的常见问题</td>
     </tr>
     <tr>
         <td><a href="https://evilrecluse.top/Babel-traverse-api-doc/#/">@Babel/traverse API document</a></td>
-        <td>自行编写的 Babel/traverse API 文档与用例，已经转移到另外的仓库<a href="https://evilrecluse.top/Babel-traverse-api-doc/#/"></a><br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>注意：内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
+        <td>自行编写的 Babel/traverse API 文档与用例, 内容已经转移到另外的仓库<a href="https://evilrecluse.top/Babel-traverse-api-doc/#/"></a><br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
     </tr>
 </table>
 
 
 ## TODO  
-
 * 自动处理字体脚本  
-* feapder 基础内容
 * 完成3DM登录的内容
+* 重构练习平台
+* 完善Babel插件
 
-2021年5月25日
+2021年8月28日

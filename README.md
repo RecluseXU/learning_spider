@@ -131,6 +131,7 @@
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E5%8A%A0%E9%80%9F%E4%B9%90%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86">加速乐混淆代码处理</a></td>
         <td>拦截设置Cookies</td>
+        <td>@bebel</td>
         <td>OB混淆代码还原</td>
     </tr>
     <tr>

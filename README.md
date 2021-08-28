@@ -116,7 +116,7 @@
         <td>研究明白收集的信息的意义</td>
     </tr>
     <tr>
-        <td rowspan="2">一般</td>
+        <td rowspan="3">一般</td>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%9F%A5%E4%B9%8E%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF" target="_blank">知乎文章信息</a></td>
         <td>动态网页</td>
         <td>requests</td>

@@ -6,7 +6,6 @@
 @Desc    :   可变参数传递
 '''
 
-# here put the import lib
 
 
 def a(**kwargs):

@@ -3,6 +3,25 @@ const {BasePlug, types, parser, generator, traverse} = require("../base");
 
 const visitor = {
     FunctionExpression(path){
+<<<<<<< HEAD
+        // 为单句变量声明，且值是一个函数
+        let statementPath = path.parent;
+        if(!t.isVariableDeclarator(statementPath)){return;}
+        if(statementPath == path.getStatementParent()){return;}
+        // 未被修改
+        let variableBinding = path.scope.getBinding(statementPath.id.name);
+        if (!variableBinding.constant){return;}
+        // 仅被引用一次
+        let variableRefPaths = variableBinding.referencePaths;
+        if(!variableRefPaths.length === 1){return;}
+        
+        let variableRefPath = variableRefPaths[0];
+        if(variableRefPath.getStatementParent() !== variableRefPath.parentPath.parentPath){return;}
+        
+        variableRefPaths[0].getStatementParent().replaceInline(
+            t.ExpressionStatement(
+                t.callExpression(path.node, variableRefPaths[0].parent.arguments)
+=======
         // 作为变量存在
         let {parent} = path;
         if(!types.isVariableDeclarator(parent)){return;}
@@ -22,6 +41,7 @@ const visitor = {
         referencePaths[0].getStatementParent().replaceInline(
             types.ExpressionStatement(
                 types.callExpression(path.node, referencePaths[0].parent.arguments)
+>>>>>>> f482d3efbf33e624913b2b313a3cfd689495c80a
             )
         );
         path.getStatementParent().remove();

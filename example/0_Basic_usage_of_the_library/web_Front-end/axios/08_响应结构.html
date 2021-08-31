@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <p>可以去 <a href="https://mobile-ms.uat.homecreditcfc.cn/login">easy mock</a> 整一个临时json响应设置来请求</p>
+    </body>
+    <script>
+        function justGet(){
+            axios.get('https://mobile-ms.uat.homecreditcfc.cn/mock/60adef6d4a9639001d426e26/')
+            .then(function (response) {  // 处理成功情况
+                console.log(response.data);  // `data` 由服务器提供的响应
+                console.log(response.status);  // `status` 来自服务器响应的 HTTP 状态码
+                console.log(response.statusText);  // `statusText` 来自服务器响应的 HTTP 状态信息
+                console.log(response.headers);  // `headers` 是服务器小写响应头
+                console.log(response.config);  // `config` 是 `axios` 请求的配置信息
+            })
+            .catch(function (error) {  // 处理错误情况
+                console.log(error);
+            })
+            .then(function () {  // 总是会执行
+            });
+        }
+        justGet()
+        
+    </script>
+</html>

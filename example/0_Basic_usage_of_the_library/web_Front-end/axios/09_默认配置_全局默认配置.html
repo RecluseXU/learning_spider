@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <p>可以去 <a href="https://mobile-ms.uat.homecreditcfc.cn/login">easy mock</a> 整一个临时json响应设置来请求</p>
+    </body>
+    <script>
+        // 默认配置将作用于每个请求
+        // 配置的优先级按照 lib/defaults.js配置 < 实例默认配置 < 请求配置
+        
+        // 全局默认配置
+        axios.defaults.baseURL = 'https://mobile-ms.uat.homecreditcfc.cn';
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        function justGet(){
+            axios.get('/mock/60adef6d4a9639001d426e26/')
+            .then(function (response) {  // 处理成功情况
+                console.log(response);
+            })
+            .catch(function (error) {  // 处理错误情况
+                console.log(error);
+            })
+            .then(function () {  // 总是会执行
+            });
+        }
+        justGet()
+        
+    </script>
+</html>

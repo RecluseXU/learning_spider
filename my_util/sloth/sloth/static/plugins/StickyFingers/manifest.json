@@ -1,0 +1,17 @@
+{
+	"version": "0.0.2",
+	"manifest_version": 2,
+	"name": "Sticky Fingers",
+	"description": "更换浏览器代理插件",
+	"permissions": [
+		"proxy",
+		"tabs",
+		"unlimitedStorage",
+		"storage",
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+	],
+	"options_page": "options.html",
+	"minimum_chrome_version":"22.0.0"
+}

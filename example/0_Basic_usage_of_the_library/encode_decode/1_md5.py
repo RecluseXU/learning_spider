@@ -1,24 +1,26 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   0.py
-@Time    :   2020年8月18日15:47:45
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
-@Desc    :   None
+@Time    :   2020-08-18
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   MD5相关
 '''
+
+# here put the import lib
+
 import hashlib
 
 
-def get_string_md5(text):
-    m = hashlib. md5()
+def get_string_md5(text: str):
+    """计算字符串的md5值
+    """
+    m = hashlib.md5()
     m. update(text.encode("utf-8"))
-    print(m. hexdigest())
+    return m. hexdigest()
 
 
 def get_file_md5(fname: str) -> str:
-    """
+    """计算文件的md5值
     :param fname: 文件名
     """
     hash_md5 = hashlib. md5()
@@ -29,4 +31,5 @@ def get_file_md5(fname: str) -> str:
 
 
 if __name__ == '__main__':
-    get_string_md5('Hello world')
+    print(get_string_md5('Hello world'))
+    print(get_file_md5(__file__))

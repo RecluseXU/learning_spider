@@ -1,11 +1,11 @@
-var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
-exports.t = require(js_env + "@babel/types");
+var js_env = "D:/Program/Environment/Nodejs/nodejs/node_global/node_modules/";
+exports.types = require(js_env + "@babel/types");
 exports.parser = require(js_env + "@babel/parser");
 exports.generator = require(js_env +"@babel/generator").default;
 const traverse = require(js_env + "@babel/traverse").default;
-exports.traverse = traverse
+exports.traverse = traverse;
 
-exports.default = class BasePlug {
+exports.BasePlug = class BasePlug {
     handler = function (ast) {
         console.log('Using plug:',this.name)
         console.log('Plug description:',this.description)

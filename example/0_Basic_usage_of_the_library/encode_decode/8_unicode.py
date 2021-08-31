@@ -1,13 +1,12 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   8_unicode.py
-@Time    :   2020-8-29 00:21:05
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
-@Desc    :   基础unicode操作
+@Time    :   2020-08-29
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   基础unicode操作用例
 '''
+
+# here put the import lib
 
 
 def char_2_unicode_char(char: str) -> str:

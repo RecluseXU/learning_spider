@@ -1,7 +1,5 @@
-// 自调用函数TYPE1去除，函数体抽离到父级作用域中，删除函数
-const _base = require('../base');
-const t = _base.t
-const BasePlug = require("../base").default;
+// 自调用函数函数去除，函数体抽离到父级作用域中，删除函数
+const {BasePlug, types, parser, generator, traverse} = require("../base");
 
 function renameDupicateVariable(path, insidePath){
     // 如果发生命名冲突，则重命名函数内部的变量
@@ -20,8 +18,8 @@ const visitor = {
     FunctionExpression(path) {
         if(path.node.params.length != 0){return;}  // 函数参数非空
         if(path.key != 'callee'){return;}
-        if(!t.isCallExpression(path.parentPath)){return;}
-        if(!t.isExpressionStatement(path.parentPath.parentPath)){return;}
+        if(!types.isCallExpression(path.parentPath)){return;}
+        if(!types.isExpressionStatement(path.parentPath.parentPath)){return;}
         
         renameDupicateVariable(path.scope.parent.path, path)
         path.getStatementParent().replaceInline(path.node.body.body)
@@ -29,27 +27,26 @@ const visitor = {
     // !function (){}() 格式的IIFE
     UnaryExpression(path) {  
         let { operator, argument } = path.node;
-        if (operator !== "!" || !t.isCallExpression(argument)) return;
+        if (operator !== "!" || !types.isCallExpression(argument)) return;
         let { arguments, callee } = argument;
-        if (arguments.length != 0 || !t.isFunctionExpression(callee)) return;
+        if (arguments.length != 0 || !types.isFunctionExpression(callee)) return;
         let { id, params, body } = callee;
-        if (id != null || params.length != 0 || !t.isBlockStatement(body)) return;
+        if (id != null || params.length != 0 || !types.isBlockStatement(body)) return;
         
         renameDupicateVariable(path, path.get('argument.callee.body'))
         path.replaceWithMultiple(body.body);
     }
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'IIFE Extract',
     visitor,
     '自调用函数函数去除，函数体抽离到父级作用域中，删除函数',
-)
+);
+exports.default = plug;
 
 
 function demo() {
-    const parser = _base.parser;
-    const generator = _base.generator;
     var jscode = `
         var a = 3;
         var b = 4;

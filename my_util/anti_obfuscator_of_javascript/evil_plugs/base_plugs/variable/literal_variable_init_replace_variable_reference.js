@@ -1,16 +1,15 @@
-const _base = require('../base');
-const t = _base.t
-const BasePlug = require("../base").default;
-
+// 变量初始值取代变量引用
+const {BasePlug, types, parser, generator, traverse} = require("../base");
 
 const visitor = {
     VariableDeclarator(path){
+        // 初始值为 Literal
         const {id, init} = path.node;
-        if (!t.isLiteral(init)) return;
-
+        if (!types.isLiteral(init)) return;
+        // 值不会被修改
         const binding = path.scope.getBinding(id.name);
         if (!binding || !binding.constant)return;
-            
+        // 取代
         for (let refer_path of binding.referencePaths) {
             refer_path.replaceWith(init);
         }
@@ -19,16 +18,15 @@ const visitor = {
 
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'literal variable init replace variable reference',
     visitor,
     '变量初始值取代变量引用',
 )
+exports.default = plug;
 
 
 function demo(){
-    const parser = _base.parser;
-    const generator = _base.generator;
     var jscode = `
         var _0x8984 = 'a';
         var _0x8556 = 1;
@@ -40,12 +38,7 @@ function demo(){
         _0x5536(_0x5886);
     `;
     let ast = parser.parse(jscode);
-    let local_plug = new BasePlug(
-        'VariableDeclarator Identifier rename',
-        visitor,
-        '重命名混淆变量名',
-    )
-    local_plug.handler(ast)
-    console.log(generator(ast)['code']);  // 使用 generator 得到修改节点后的代码
+    plug.handler(ast)
+    console.log(generator(ast)['code']);
 }
 demo()

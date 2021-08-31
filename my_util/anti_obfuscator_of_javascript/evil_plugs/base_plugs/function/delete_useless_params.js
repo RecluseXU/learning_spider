@@ -1,7 +1,6 @@
-// 自调用函数TYPE1去除，函数体抽离到父级作用域中，删除函数
-const _base = require('../base');
-const t = _base.t
-const BasePlug = require("../base").default;
+// 删除未使用的函数参数
+const {BasePlug, types, parser, generator, traverse} = require("../base");
+
 const visitor = {
     "FunctionDeclaration|FunctionExpression"(path) {
         for(let binding of Object.values(path.scope.bindings)){
@@ -12,16 +11,15 @@ const visitor = {
     }
 }
 
-exports.default = new BasePlug(
+const plug = new BasePlug(
     'Delete useless function params',
     visitor,
     '删除未使用的函数参数',
-)
+);
+exports.default = plug;
 
 
 function demo() {
-    const parser = _base.parser;
-    const generator = _base.generator;
     var jscode = `
         function f(a, b){return a}
         var f2 = function(x, y){return x}

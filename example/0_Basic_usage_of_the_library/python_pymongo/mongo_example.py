@@ -6,13 +6,16 @@
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
 @Desc    :   MongoDB工具，为操作MonggoDB提供一些帮助
+注意: pymongo是阻塞处理的
 '''
 
 # here put the import lib
+from typing import Dict, List
 from pymongo.mongo_client import MongoClient
 from pymongo.collection import Collection
+from gridfs import GridFS
 from bson.objectid import ObjectId
-from urllib.parse import quote_plus
+from urllib.parse import quote, quote_plus
 import logging
 from threading import Lock
 from functools import wraps
@@ -35,7 +38,8 @@ def singleton():
             if not hasattr(cls_1, instance_attr):
                 with lock:
                     if not hasattr(cls_1, instance_attr):
-                        setattr(cls_1, instance_attr, __origin_new__(cls_1, *args, **kwargs))
+                        setattr(cls_1, instance_attr,
+                                __origin_new__(cls_1, *args, **kwargs))
             return getattr(cls_1, instance_attr)
         cls.__new__ = __new__
 
@@ -61,7 +65,8 @@ class MongoConnections:
     """
     _connections = {}
 
-    def init_a_connection(self, connection_name: str, user_name: str, user_pwd: str, host: str,
+    def init_a_connection(self, connection_name: str, user_name: str,
+                          user_pwd: str, host: str,
                           port: str, auth='admin') -> MongoClient:
         """ 创建一个MongoDB连接
         :param connection_name MongoDB连接名称，作为字典Key标识每一个连接
@@ -73,13 +78,17 @@ class MongoConnections:
         """
         if connection_name not in self._connections:
             logging.debug(f'Init Mongo connection "{connection_name}"')
-            _uri = f'mongodb://{quote_plus(user_name)}:{quote_plus(user_pwd)}@{host}:{port}/?authSource={auth}&readPreference=primary&appname=ZhihuSpider&ssl=false'
+            user_name, user_pwd = quote_plus(user_name), quote(user_pwd)
+            _uri = f'mongodb://{user_name}:{user_pwd}@{host}:{port}'
+            _uri += f'/?authSource={auth}&readPreference=primary'
+            _uri += '&appname=ZhihuSpider&ssl=false'
             connection = MongoClient(_uri)
             self._connections[connection_name] = connection
             logging.info(f'New Mongo connection "{connection_name}" init')
             return connection
         else:
-            logging.warning(f'Mongo connection "{connection_name}" already exists')
+            msg = f'Mongo connection "{connection_name}" already exists'
+            logging.warning(msg.format(f))
             return self._connections[connection_name]
 
     def close_a_connection(self, connection_name: str) -> None:
@@ -91,7 +100,8 @@ class MongoConnections:
             self._connections.pop(connection_name)
             logging.debug(f'Mongo connection "{connection_name}" closed')
         else:
-            logging.error(f'Mongo connection "{connection_name}" does not exist')
+            msg = f'Mongo connection "{connection_name}" does not exist'
+            logging.error(msg)
 
     def close_all_connection(self) -> None:
         """ 关闭所有MongoDB连接
@@ -107,12 +117,14 @@ class MongoConnections:
         if connection_name in self._connections:
             return self._connections[connection_name]
         else:
-            logging.error(f'Mongo connection "{connection_name}" does not exist')
+            msg = f'Mongo connection "{connection_name}" does not exist'
+            logging.error(msg)
 
 
 class Operations:
     @staticmethod
-    def rename_field(collection: Collection, origin_field: str, new_field: str) -> None:
+    def rename_field(collection: Collection, origin_field: str,
+                     new_field: str) -> None:
         """ 重命名 collection 中所有 document 存在的的某個字段的名称，其值不变
         """
         collection.update_many(
@@ -145,10 +157,11 @@ class Operations:
                     logging.debug(f'delete {delete_id}')
 
     @staticmethod
-    def update_document(collection: Collection, filter: dict, update_note: dict):
+    def update_document(collection: Collection, filter: dict, note: Dict):
         ''' 根據傳入的内容更新數據
         '''
-        return collection.update_one(filter, {'$set': update_note}).acknowledged
+        msg = collection.update_one(filter, {'$set': note}).acknowledged
+        return msg
 
     @staticmethod
     def is_exist_document(collection: Collection, filter: dict):
@@ -156,3 +169,42 @@ class Operations:
         根據傳入的内容判斷對應記錄是否存在
         '''
         return True if collection.count(filter, limit=1) == 1 else False
+
+
+class MongoFile(GridFS):
+    """ 文件与MongoDB, 增删查
+    """
+    def get_file(self, file_id: str) -> bytes:
+        """ 通過 file_id, 在MongoDB中讀出文件
+        :param file_ids: 所需要的文件的file_id
+        """
+        gf = self.get(ObjectId(file_id))
+        return gf.read()
+
+    def get_files(self, file_ids: List[str]) -> Dict:
+        """ 通過 file_id, 在MongoDB中讀出文件
+        :param file_ids: 所需要的文件的file_id
+        :return: {'file_id': file_bytes}
+        """
+        files = {}
+        for file_id in file_ids:
+            gf = self.get(ObjectId(file_id))
+            files[file_id] = gf.read()
+        return files
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG)
+    mongo_cons = MongoConnections()
+    con: MongoClient = mongo_cons.init_a_connection(
+        connection_name='test',
+        user_name='EvilRecluse',
+        user_pwd='~IamEvilRecluse65535haha~',
+        host='111.229.221.156',
+        port='27018',
+        auth='admin'
+    )
+    database = con.get_database('football')
+    a = MongoFile(database).get_file('60b997dc64d5db6fe37f7ab2')
+    with open('1.jpg', 'wb')as f:
+        f.write(a)

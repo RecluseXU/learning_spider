@@ -39,7 +39,10 @@ print(result)
 projection = {'_pid': 1, 'hostname': 1}
 result = collection.find_one(_filter, projection)
 print(result)
-collection.find_one({'_id': ObjectId('EvilMass-1619315049192')})  # 根据_id查询时注意类型
+
+collection.find_one(
+    {'_id': ObjectId('EvilMass-1619315049192')}  # 根据_id查询时注意类型
+)
 
 # skip
 # 用于跳过指定数量的查询结果

@@ -1,16 +1,15 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   3_8_http2.py
 @Time    :   2021-03-02
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   HTTP/2支持 
+@Desc    :   HTTP/2支持
 '''
 
 # here put the import lib
 import httpx
 import asyncio
+
 
 async def http2_support():
     async with httpx.AsyncClient(http2=True) as client:

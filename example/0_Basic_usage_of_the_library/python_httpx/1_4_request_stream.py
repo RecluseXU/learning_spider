@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   1_8_request_stream.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -10,6 +8,7 @@
 
 # here put the import lib
 import httpx
+
 
 # 二进制
 with httpx.stream("GET", "https://www.example.com") as r:
@@ -25,7 +24,6 @@ with httpx.stream("GET", "https://www.example.com") as r:
 with httpx.stream("GET", "https://www.example.com") as r:
     for line in r.iter_lines():
         print(line)
-
 
 # 响应源码
 # 未被经过 gzip, deflate, brotli 解压缩的源码

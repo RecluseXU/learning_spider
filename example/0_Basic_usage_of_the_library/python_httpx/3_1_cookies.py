@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   2_6_response_cookies.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -12,7 +10,8 @@
 import httpx
 
 # 从响应中获取
-r = httpx.get('http://httpbin.org/cookies/set?chocolate=chip', allow_redirects=False)
+url = 'http://httpbin.org/cookies/set?chocolate=chip'
+r = httpx.get(url, allow_redirects=False)
 print(r.cookies['chocolate'])
 
 

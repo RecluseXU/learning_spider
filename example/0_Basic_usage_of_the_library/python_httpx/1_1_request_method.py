@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   1_request_method.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -10,6 +8,7 @@
 
 # here put the import lib
 import httpx
+
 
 # 常用的请求方法GET, POST, PUT, DELETE, HEAD, OPTIONS
 r = httpx.get('https://httpbin.org/get')

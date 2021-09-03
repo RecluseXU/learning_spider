@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   3_7_async_client.py
 @Time    :   2021-03-02
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -11,6 +9,7 @@
 # here put the import lib
 import httpx
 import asyncio
+
 
 async def async_client_base():
     async with httpx.AsyncClient() as client:
@@ -28,5 +27,3 @@ async def async_client_base():
         print(r.headers)
 
 asyncio.run(async_client_base())
-
-

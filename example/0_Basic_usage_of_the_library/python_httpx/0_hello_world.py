@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   0_hello_world.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -14,4 +12,3 @@ import httpx
 
 r = httpx.get('https://httpbin.org/get')
 print(r)
-

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   7_post_request_data.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -28,7 +26,8 @@ def upload_file():
 
 def upload_file_with_detail():
     # 上传的文件可以传入文件名和文件类型
-    files = {'upload-file': ('README.md', open('README.md', 'rb'), 'text/plain')}
+    fp = open('README.md', 'rb')
+    files = {'upload-file': ('README.md', fp, 'text/plain')}
     r = httpx.post("https://httpbin.org/post", files=files)
     print(r.text)
 
@@ -41,7 +40,7 @@ def send_json():
 
 def send_binary_data():
     content = b'Hello, world'
-    header = {'Content-Type':'application/octet-stream'}
+    header = {'Content-Type': 'application/octet-stream'}
     r = httpx.post("https://httpbin.org/post", content=content, headers=header)
     print(r.json())
 

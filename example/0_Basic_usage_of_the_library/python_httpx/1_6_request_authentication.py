@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   1_10_authentication.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -10,6 +8,7 @@
 
 # here put the import lib
 import httpx
+
 
 # 明文身份验证
 # 2个元组的纯文本str或bytes对象作为auth参数传递给请求函数

@@ -1,15 +1,14 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   4_response_binary_content.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   响应的二进制内容
+@Desc    :   处理二进制响应内容
 '''
 
 # here put the import lib
 import httpx
+
 
 def response_binary_content():
     # 程序会自动处理 gzip 和 deflate 压缩的响应
@@ -38,4 +37,3 @@ def response_json_content():
 response_binary_content()
 response_text_content()
 response_json_content()
-

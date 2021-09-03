@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   3_2_client.py
 @Time    :   2021-03-01
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -11,16 +9,18 @@
 # here put the import lib
 import httpx
 
+
 def client():
     """
     Client基础使用方法
     """
     with httpx.Client() as client:
-        r = client.get('https://example.com')
+        resp = client.get('https://example.com')
+        print(resp.url)
+
 
 def client_share_config():
-    """
-    Client共享配置
+    """ Client共享配置
     """
     headers = {'X-Auth': 'from-client'}
     params = {'client_id': 'client1'}
@@ -35,8 +35,7 @@ def client_share_config():
 
 
 def client_merge_config():
-    """
-    配置合并
+    """ 配置合并
     """
     headers = {'X-Auth': 'from-client'}
     params = {'client_id': 'client1'}

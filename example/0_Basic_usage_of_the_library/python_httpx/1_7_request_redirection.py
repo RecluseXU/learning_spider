@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   2_6_redirection.py
 @Time    :   2021-02-23
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -16,7 +14,6 @@ r = httpx.get('http://github.com/')
 print(r.url)
 print(r.status_code)
 print(r.history)
-
 
 # 如果不想要跳转，那么可以设置
 r = httpx.get('http://github.com/', allow_redirects=False)

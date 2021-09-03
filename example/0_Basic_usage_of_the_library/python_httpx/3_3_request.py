@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   3_3_request.py
 @Time    :   2021-03-01
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -15,7 +13,8 @@ import httpx
 def request_base():
     request = httpx.Request("GET", "https://example.com")
     with httpx.Client() as client:
-        response = client.send(request)
+        resp = client.send(request)
+        print(resp.url)
 
 
 def request_and_client():
@@ -28,6 +27,7 @@ def request_and_client():
         request.headers.pop("X-Api-Key")
         response = client.send(request)
         print(response.headers)
+
 
 request_base()
 request_and_client()

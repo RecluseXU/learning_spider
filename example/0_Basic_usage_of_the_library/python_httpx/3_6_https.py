@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   3_6_https.py
 @Time    :   2021-03-02
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
@@ -12,4 +10,6 @@
 
 # here put the import lib
 import httpx
+
+
 r = httpx.get("https://localhost:8000", verify="/tmp/client.pem")

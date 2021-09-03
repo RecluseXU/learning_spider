@@ -1,5 +1,5 @@
 // 自调用函数函数去除，函数体抽离到父级作用域中，删除函数
-const {BasePlug, types, parser, generator, traverse} = require("../base");
+const {BasePlug, types, parser, generator, traverse} = require("../../base");
 
 function renameDupicateVariable(path, insidePath){
     // 如果发生命名冲突，则重命名函数内部的变量
@@ -64,12 +64,7 @@ function demo() {
         })();
     `;
     let ast = parser.parse(jscode);
-    let local_plug = new BasePlug(
-        'IIFE body extract to ParentNode body',
-        visitor,
-        '(function(){})();类型的自调用函数函数去除，函数体抽离到父级作用域中，删除函数',
-    )
-    local_plug.handler(ast)
+    plug.handler(ast)
     console.log('------------------')
     console.log(generator(ast)['code']);  // 使用 generator 得到修改节点后的代码
 }

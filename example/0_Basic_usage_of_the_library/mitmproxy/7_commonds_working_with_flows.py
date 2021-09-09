@@ -1,11 +1,8 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   7_commonds_working_with_flows.py
-@Time    :   2020/08/06 23:49:16
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
+@Time    :   2020-08-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
 @Desc    :   将 flows 作为命令参数，实现分类性修改
 '''
 

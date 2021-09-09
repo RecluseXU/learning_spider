@@ -1,11 +1,8 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   8_commands_paths.py
-@Time    :   2020/08/07 00:14:03
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
+@Time    :   2020-08-07
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
 @Desc    :   将文件路径作为命令参数处理
 '''
 

@@ -1,12 +1,9 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   0.py
-@Time    :   2020/08/06 18:09:16
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
-@Desc    :   None
+@Time    :   2020-08-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   中间人统计请求数量
 '''
 
 # here put the import lib
@@ -18,10 +15,11 @@ num = 0
 
 
 def request(flow: mitmproxy.http.HTTPFlow):
+    """统计请求个数
+    """
     global num
-    num = num + 1
-    ctx.log.info("hello world")
-    ctx.log.info("We've seen %d flows" % num)
+    num += 1
+    ctx.log.info(f'已经发出了 {num} 个请求')
 
 
 if __name__ == "__main__":

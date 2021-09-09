@@ -1,11 +1,8 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   6_command.py
-@Time    :   2020/08/06 23:31:00
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
+@Time    :   2020-08-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
 @Desc    :   添加一个用户自定义Commands
 '''
 

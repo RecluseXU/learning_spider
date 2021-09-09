@@ -1,34 +1,35 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   4_options.py
-@Time    :   2020/08/06 22:21:28
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
+@Time    :   2020-08-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
 @Desc    :   添加一个 mitmproxy option
 '''
 
 # here put the import lib
 from mitmproxy import ctx
+from mitmproxy.http import HTTPFlow
+from mitmproxy.addonmanager import Loader
 
 
 class AddHeader:
     def __init__(self):
         self.num = 0
 
-    def load(self, loader):
+    def load(self, loader: Loader):
+        print(type(loader))
         loader.add_option(
-            name = "addheader",
-            typespec = bool,
-            default = False,
-            help = "Add a count header to responses",
+            name="addheader",
+            typespec=bool,
+            default=False,
+            help='Add a count header to requests',
         )
 
-    def response(self, flow):
+    def request(self, flow: HTTPFlow):
         if ctx.options.addheader:
             self.num = self.num + 1
-            flow.response.headers["count"] = str(self.num)
+            flow.request.headers["count"] = str(self.num)
+
 
 addons = [
     AddHeader()
@@ -36,5 +37,5 @@ addons = [
 
 
 if __name__ == "__main__":
-    # mitmproxy -s 4_options.py --set addheader true
+    # mitmdump -s 4_options.py --set addheader true
     pass

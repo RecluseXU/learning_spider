@@ -1,11 +1,8 @@
-#!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   5_configer_event.py
-@Time    :   2020/08/06 23:10:14
-@Author  :   Recluse Xu
-@Version :   1.0
-@Contact :   444640050@qq.com
+@Time    :   2020-08-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
 @Desc    :   参数设置反馈
 '''
 
@@ -13,10 +10,12 @@
 import typing
 from mitmproxy import ctx
 from mitmproxy import exceptions
+from mitmproxy.http import HTTPFlow
+from mitmproxy.addonmanager import Loader
 
 
 class AddHeader:
-    def load(self, loader):
+    def load(self, loader: Loader):
         loader.add_option(
             name="addheader",
             typespec=typing.Optional[int],
@@ -26,14 +25,19 @@ class AddHeader:
 
     def configure(self, updates):
         if "addheader" in updates:
-            if ctx.options.addheader is not None and ctx.options.addheader > 100:
+            addheader = ctx.options.addheader
+            if addheader is not None and addheader > 100:
                 raise exceptions.OptionsError("addheader must be <= 100")
 
-    def response(self, flow):
+    def request(self, flow: HTTPFlow):
         if ctx.options.addheader is not None:
-            flow.response.headers["addheader"] = str(ctx.options.addheader)
+            flow.request.headers["addheader"] = str(ctx.options.addheader)
 
 
 addons = [
     AddHeader()
 ]
+
+if __name__ == "__main__":
+    # mitmdump -s 5_handling_configuration_updates.py --set addheader 20
+    pass

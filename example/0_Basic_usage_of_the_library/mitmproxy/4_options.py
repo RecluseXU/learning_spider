@@ -4,6 +4,9 @@
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
 @Desc    :   添加一个 mitmproxy option
+
+option 参数通过 --set 进行设置, 形式类似于 --set addheader=true
+在脚本中同样也可以进行设置 ctx.options.addheader = False
 '''
 
 # here put the import lib
@@ -37,5 +40,5 @@ addons = [
 
 
 if __name__ == "__main__":
-    # mitmdump -s 4_options.py --set addheader true
+    # mitmdump -s 4_options.py --set addheader=true
     pass

@@ -17,10 +17,11 @@ from mitmproxy.connections import ServerConnection
 from mitmproxy.addonmanager import Loader
 from mitmproxy.log import LogEntry
 from mitmproxy.flow import Flow
+import mitmproxy
 
 
 class Events(object):
-    # 1.针对生命周期
+    # 1.针对HTTP
     def http_connect(self, flow: HTTPFlow):
         """(Called when) 收到了来自客户端的 HTTP CONNECT 请求。
         在 flow 上设置非 2xx 响应将返回该响应并断开连接。
@@ -54,9 +55,9 @@ class Events(object):
         """
         pass
 
-    # 所有服务器响应的数据包都会被这个方法处理
     def response(self, flow: HTTPFlow):
-        """ (Called when) 来自客户端的 HTTP 响应被成功完整读取。
+        """ (Called when) 来自客户端的 HTTP 响应被成功完整读取
+        所有服务器响应的数据包都会被这个方法处理
         """
         # 获取响应对象
         response = flow.response
@@ -70,6 +71,13 @@ class Events(object):
         """ (Called when) 发生了一个 HTTP 错误。
         比如无效的服务端响应、连接断开等。
         注意与“有效的 HTTP 错误返回”不是一回事，后者是一个正确的服务端响应，只是 HTTP code 表示错误而已。
+        """
+        pass
+
+    def http_connect_upstream(self, flow: HTTPFlow):
+        """
+        HTTP连接请求即将发送到上游代理。对于大多数实际目的，可以忽略此event
+        此event可用于为上游代理设置自定义身份验证标题
         """
         pass
 
@@ -149,7 +157,24 @@ class Events(object):
         """
         pass
 
-    # 5. 通用生命周期
+    # 针对TLS
+    def tls_clienthello(self, data: mitmproxy.proxy.layers.tls.ClientHelloData):
+        """Mitmproxy收到TLS ClientHello消息
+        这个钩子决定是否需要一个服务器连接来与客户端协商TLS (data.establish server TLS first)
+        """
+        pass
+
+    def tls_start_client(self, data: mitmproxy.proxy.layers.tls.TlsStartData):
+        """mitmproxy与客户端之间的TLS协商即将开始
+        """
+        pass
+
+    def tls_start_server(self, data: mitmproxy.proxy.layers.tls.TlsStartData):
+        """mitmproxy与服务器之间的TLS协商即将启动
+        """
+        pass
+
+    # 5. 针对插件
     def configure(self, updated: typing.Set[str]):
         """(Called when) 配置发生变化。
         updated 参数是一个类似集合的对象，包含了所有变化了的选项。

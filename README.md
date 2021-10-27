@@ -116,11 +116,17 @@
         <td>研究明白收集的信息的意义</td>
     </tr>
     <tr>
-        <td rowspan="3">一般</td>
+        <td rowspan="4">一般</td>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%9F%A5%E4%B9%8E%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF" target="_blank">知乎文章信息</a></td>
         <td>动态网页</td>
         <td>requests</td>
         <td>头部`x-zse-86`参数加密<br>基于时间的反调试</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_china_cn%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F%E5%AD%97%E4%BD%93%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86">china_cn字体加密处理</a></td>
+        <td>动态网页</td>
+        <td>fontTool</td>
+        <td>动态字体加密处理</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/example/4_%E4%B8%80%E8%88%AC_%E7%99%BE%E5%BA%A6%E6%B7%B7%E6%B7%86%E4%BB%A3%E7%A0%81%E5%A4%84%E7%90%86">百度混淆代码处理</a></td>
@@ -300,17 +306,20 @@
         <th>信息</th>
     </tr>
     <tr>
-<<<<<<< HEAD
-        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/auto_dl_chrome_webdriver">Auto DL ChromeWebDriver</a></td>
-        <td>Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)</td>
-=======
+        <td>
+            <a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/auto_dl_chrome_webdriver">Auto DL ChromeWebDriver</a>
+        </td>
+            <td>
+                Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)
+            </td>
+    </tr>
+    <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/webdriver_downloader">Auto DL ChromeWebDriver</a></td>
         <td>下载 Chrome WebDriver 脚本<br>从 注册表/命令 获知 Chrome 版本信息, 下载最符合版本的 WebDriver</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/slother">slother</a></td>
         <td>在 Selenium 基础上封装了一层, 以应对用 Selenium 进行爬虫的时候会碰到的常见问题</td>
->>>>>>> f482d3efbf33e624913b2b313a3cfd689495c80a
     </tr>
     <tr>
         <td><a href="https://evilrecluse.top/Babel-traverse-api-doc/#/">@Babel/traverse API document</a></td>

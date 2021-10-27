@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ttFont sfntVersion="OTTO" ttLibVersion="4.27">
+
+  <GlyphOrder>
+    <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
+    <GlyphID id="0" name=".notdef"/>
+    <GlyphID id="1" name="uni10070"/>
+    <GlyphID id="2" name="uni10071"/>
+    <GlyphID id="3" name="uni10072"/>
+    <GlyphID id="4" name="uni10073"/>
+    <GlyphID id="5" name="uni10074"/>
+    <GlyphID id="6" name="uni10075"/>
+    <GlyphID id="7" name="uni10076"/>
+    <GlyphID id="8" name="uni10077"/>
+    <GlyphID id="9" name="uni10078"/>
+    <GlyphID id="10" name="uni10079"/>
+  </GlyphOrder>
+
+  <head>
+    <!-- Most of this table will be recalculated by the compiler -->
+    <tableVersion value="1.0"/>
+    <fontRevision value="1.0"/>
+    <checkSumAdjustment value="0x5ef0642c"/>
+    <magicNumber value="0x5f0f3cf5"/>
+    <flags value="00000000 00000011"/>
+    <unitsPerEm value="256"/>
+    <created value="Wed Oct 27 15:49:35 2021"/>
+    <modified value="Wed Oct 27 15:49:35 2021"/>
+    <xMin value="4"/>
+    <yMin value="-1"/>
+    <xMax value="126"/>
+    <yMax value="181"/>
+    <macStyle value="00000000 00000000"/>
+    <lowestRecPPEM value="3"/>
+    <fontDirectionHint value="2"/>
+    <indexToLocFormat value="0"/>
+    <glyphDataFormat value="0"/>
+  </head>
+
+  <hhea>
+    <tableVersion value="0x00010000"/>
+    <ascent value="221"/>
+    <descent value="-59"/>
+    <lineGap value="0"/>
+    <advanceWidthMax value="140"/>
+    <minLeftSideBearing value="0"/>
+    <minRightSideBearing value="0"/>
+    <xMaxExtent value="0"/>
+    <caretSlopeRise value="1"/>
+    <caretSlopeRun value="0"/>
+    <caretOffset value="0"/>
+    <reserved0 value="0"/>
+    <reserved1 value="0"/>
+    <reserved2 value="0"/>
+    <reserved3 value="0"/>
+    <metricDataFormat value="0"/>
+    <numberOfHMetrics value="11"/>
+  </hhea>
+
+  <maxp>
+    <tableVersion value="0x5000"/>
+    <numGlyphs value="11"/>
+  </maxp>
+
+  <OS_2>
+    <!-- The fields 'usFirstCharIndex' and 'usLastCharIndex'
+         will be recalculated by the compiler -->
+    <version value="3"/>
+    <xAvgCharWidth value="127"/>
+    <usWeightClass value="500"/>
+    <usWidthClass value="5"/>
+    <fsType value="00000000 00000000"/>
+    <ySubscriptXSize value="650"/>
+    <ySubscriptYSize value="699"/>
+    <ySubscriptXOffset value="0"/>
+    <ySubscriptYOffset value="140"/>
+    <ySuperscriptXSize value="650"/>
+    <ySuperscriptYSize value="699"/>
+    <ySuperscriptXOffset value="0"/>
+    <ySuperscriptYOffset value="479"/>
+    <yStrikeoutSize value="49"/>
+    <yStrikeoutPosition value="258"/>
+    <sFamilyClass value="0"/>
+    <panose>
+      <bFamilyType value="0"/>
+      <bSerifStyle value="0"/>
+      <bWeight value="0"/>
+      <bProportion value="0"/>
+      <bContrast value="0"/>
+      <bStrokeVariation value="0"/>
+      <bArmStyle value="0"/>
+      <bLetterForm value="0"/>
+      <bMidline value="0"/>
+      <bXHeight value="0"/>
+    </panose>
+    <ulUnicodeRange1 value="00000000 00000000 00000000 00000001"/>
+    <ulUnicodeRange2 value="00000000 00000000 00000000 00000000"/>
+    <ulUnicodeRange3 value="00000000 00000000 00000000 00000000"/>
+    <ulUnicodeRange4 value="00000000 00000000 00000000 00100000"/>
+    <achVendID value="XXXX"/>
+    <fsSelection value="00000000 01000000"/>
+    <usFirstCharIndex value="112"/>
+    <usLastCharIndex value="121"/>
+    <sTypoAscender value="221"/>
+    <sTypoDescender value="-59"/>
+    <sTypoLineGap value="0"/>
+    <usWinAscent value="181"/>
+    <usWinDescent value="1"/>
+    <ulCodePageRange1 value="00000000 00000000 00000000 00000001"/>
+    <ulCodePageRange2 value="00000000 00000000 00000000 00000000"/>
+    <sxHeight value="111"/>
+    <sCapHeight value="181"/>
+    <usDefaultChar value="0"/>
+    <usBreakChar value="0"/>
+    <usMaxContext value="0"/>
+  </OS_2>
+
+  <name>
+    <namerecord nameID="0" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="1" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      OpenTypeSans
+    </namerecord>
+    <namerecord nameID="2" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Medium
+    </namerecord>
+    <namerecord nameID="3" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       :OpenTypeSans Medium
+    </namerecord>
+    <namerecord nameID="4" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      OpenTypeSans Medium
+    </namerecord>
+    <namerecord nameID="5" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Version 0.1
+    </namerecord>
+    <namerecord nameID="6" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      OpenTypeSansMedium
+    </namerecord>
+    <namerecord nameID="7" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="8" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="9" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="10" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="11" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="12" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="13" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="14" platformID="1" platEncID="0" langID="0x0" unicode="True">
+       
+    </namerecord>
+    <namerecord nameID="16" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      OpenTypeSans
+    </namerecord>
+    <namerecord nameID="17" platformID="1" platEncID="0" langID="0x0" unicode="True">
+      Medium
+    </namerecord>
+    <namerecord nameID="0" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="1" platformID="3" platEncID="1" langID="0x409">
+      OpenTypeSans
+    </namerecord>
+    <namerecord nameID="2" platformID="3" platEncID="1" langID="0x409">
+      Medium
+    </namerecord>
+    <namerecord nameID="3" platformID="3" platEncID="1" langID="0x409">
+       :OpenTypeSans Medium
+    </namerecord>
+    <namerecord nameID="4" platformID="3" platEncID="1" langID="0x409">
+      OpenTypeSans Medium
+    </namerecord>
+    <namerecord nameID="5" platformID="3" platEncID="1" langID="0x409">
+      Version 0.1
+    </namerecord>
+    <namerecord nameID="6" platformID="3" platEncID="1" langID="0x409">
+      OpenTypeSansMedium
+    </namerecord>
+    <namerecord nameID="7" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="8" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="9" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="10" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="11" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="12" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="13" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="14" platformID="3" platEncID="1" langID="0x409">
+       
+    </namerecord>
+    <namerecord nameID="16" platformID="3" platEncID="1" langID="0x409">
+      OpenTypeSans
+    </namerecord>
+    <namerecord nameID="17" platformID="3" platEncID="1" langID="0x409">
+      Medium
+    </namerecord>
+  </name>
+
+  <cmap>
+    <tableVersion version="0"/>
+    <cmap_format_4 platformID="3" platEncID="1" language="0">
+    </cmap_format_4>
+    <cmap_format_12 platformID="3" platEncID="10" format="12" reserved="0" length="148" language="0" nGroups="11">
+      <map code="0x10070" name="uni10070"/><!-- ???? -->
+      <map code="0x10071" name="uni10071"/><!-- ???? -->
+      <map code="0x10072" name="uni10072"/><!-- ???? -->
+      <map code="0x10073" name="uni10073"/><!-- ???? -->
+      <map code="0x10074" name="uni10074"/><!-- ???? -->
+      <map code="0x10075" name="uni10075"/><!-- ???? -->
+      <map code="0x10076" name="uni10076"/><!-- ???? -->
+      <map code="0x10077" name="uni10077"/><!-- ???? -->
+      <map code="0x10078" name="uni10078"/><!-- ???? -->
+      <map code="0x10079" name="uni10079"/><!-- ???? -->
+    </cmap_format_12>
+  </cmap>
+
+  <post>
+    <formatType value="3.0"/>
+    <italicAngle value="0.0"/>
+    <underlinePosition value="0"/>
+    <underlineThickness value="0"/>
+    <isFixedPitch value="0"/>
+    <minMemType42 value="0"/>
+    <maxMemType42 value="0"/>
+    <minMemType1 value="0"/>
+    <maxMemType1 value="0"/>
+  </post>
+
+  <CFF>
+    <major value="1"/>
+    <minor value="0"/>
+    <CFFFont name="OpenTypeSansMedium">
+      <version value="Version 0.1"/>
+      <FullName value="OpenTypeSans Medium"/>
+      <FamilyName value="OpenTypeSans"/>
+      <Weight value="Medium"/>
+      <isFixedPitch value="0"/>
+      <ItalicAngle value="0"/>
+      <UnderlinePosition value="-100"/>
+      <UnderlineThickness value="50"/>
+      <PaintType value="0"/>
+      <CharstringType value="2"/>
+      <FontMatrix value="0.00390625 0.0 0.0 0.00390625 0.0 0.0"/>
+      <FontBBox value="0 -1 221 140"/>
+      <StrokeWidth value="0"/>
+      <!-- charset is dumped separately as the 'GlyphOrder' element -->
+      <Encoding name="StandardEncoding"/>
+      <Private>
+        <BlueScale value="0.039625"/>
+        <BlueShift value="7"/>
+        <BlueFuzz value="1"/>
+        <ForceBold value="0"/>
+        <LanguageGroup value="0"/>
+        <ExpansionFactor value="0.06"/>
+        <initialRandomSeed value="0"/>
+        <defaultWidthX value="0"/>
+        <nominalWidthX value="0"/>
+      </Private>
+      <CharStrings>
+        <CharString name=".notdef">
+          1024 endchar
+        </CharString>
+        <CharString name="uni10070">
+          126 98 3 rmoveto
+          -68 0 rlineto
+          0 7 rlineto
+          16 0 rlineto
+          5 0 3 3 0 7 rrcurveto
+          0 0 rlineto
+          0 134 rlineto
+          0 6 -2 2 -5 -3 rrcurveto
+          0 0 rlineto
+          -16 -8 rlineto
+          -3 8 rlineto
+          39 22 rlineto
+          7 -4 rlineto
+          0 -157 rlineto
+          0 -7 3 -3 5 0 rrcurveto
+          0 0 rlineto
+          16 0 rlineto
+          0 -7 rlineto
+          endchar
+        </CharString>
+        <CharString name="uni10071">
+          126 98 156 rmoveto
+          -59 0 rlineto
+          -8 -36 rlineto
+          50 1 25 -21 1 -42 rrcurveto
+          0 0 rlineto
+          -3 -37 -22 -20 -42 -3 rrcurveto
+          0 0 rlineto
+          -20 0 -10 5 -1 9 rrcurveto
+          0 0 rlineto
+          0 8 3 4 7 0 rrcurveto
+          0 0 rlineto
+          5 1 6 -3 8 -7 rrcurveto
+          0 0 rlineto
+          8 -5 6 -3 3 0 rrcurveto
+          0 0 rlineto
+          17 1 9 14 1 26 rrcurveto
+          0 0 rlineto
+          2 32 -20 15 -42 -1 rrcurveto
+          0 0 rlineto
+          -3 0 -1 2 0 3 rrcurveto
+          0 0 rlineto
+          15 77 rlineto
+          74 0 rlineto
+          -4 -16 rlineto
+          0 -3 -2 -2 -3 0 rrcurveto
+          0 0 rlineto
+          endchar
+        </CharString>
+        <CharString name="uni10072">
+          126 39 84 rmoveto
+          0 0 rlineto
+          -2 8 rlineto
+          28 10 14 15 -1 19 rrcurveto
+          0 0 rlineto
+          0 16 -7 8 -13 0 rrcurveto
+          0 0 rlineto
+          -15 1 -14 -10 -13 -20 rrcurveto
+          0 0 rlineto
+          -6 3 rlineto
+          11 31 17 16 23 1 rrcurveto
+          0 0 rlineto
+          26 -1 13 -12 1 -24 rrcurveto
+          0 0 rlineto
+          0 -15 -9 -13 -17 -12 rrcurveto
+          0 0 rlineto
+          25 -3 12 -15 0 -26 rrcurveto
+          0 0 rlineto
+          -2 -39 -24 -20 -47 -2 rrcurveto
+          0 0 rlineto
+          -18 1 -9 5 -1 9 rrcurveto
+          0 0 rlineto
+          1 7 3 4 6 1 rrcurveto
+          0 0 rlineto
+          3 0 5 -3 7 -5 rrcurveto
+          0 0 rlineto
+          -1 1 1 0 2 -1 rrcurveto
+          0 0 rlineto
+          7 -5 6 -2 5 0 rrcurveto
+          0 0 rlineto
+          19 3 10 14 2 25 rrcurveto
+          0 0 rlineto
+          3 31 -17 11 -37 -8 rrcurveto
+          endchar
+        </CharString>
+        <CharString name="uni10073">
+          126 106 56 rmoveto
+          6 0 rlineto
+          0 -53 rlineto
+          -104 0 rlineto
+          0 7 rlineto
+          47 55 rlineto
+          17 20 8 21 0 23 rrcurveto
+          0 0 rlineto
+          0 21 -8 10 -17 0 rrcurveto
+          0 0 rlineto
+          -15 1 -13 -12 -12 -24 rrcurveto
+          0 0 rlineto
+          -7 2 rlineto
+          9 36 18 18 26 0 rrcurveto
+          0 0 rlineto
+          28 -2 15 -16 1 -30 rrcurveto
+          0 0 rlineto
+          1 -18 -11 -21 -23 -25 rrcurveto
+          0 0 rlineto
+          -39 -44 rlineto
+          52 0 rlineto
+          11 -1 7 10 3 22 rrcurveto
+          0 0 rlineto
+          endchar
+        </CharString>
+        <CharString name="uni10074">
+          126 63 173 rmoveto
+          0 0 rlineto
+          -21 1 -11 -28 0 -56 rrcurveto
+          0 0 rlineto
+          -1 -58 11 -28 22 2 rrcurveto
+          0 0 rlineto
+          22 -1 11 28 -1 57 rrcurveto
+          0 0 rlineto
+          0 56 -11 28 -21 -1 rrcurveto
+          0 8 rmoveto
+          0 0 rlineto
+          33 -4 19 -30 5 -57 rrcurveto
+          0 0 rlineto
+          -3 -57 -19 -30 -35 -3 rrcurveto
+          0 0 rlineto
+          -35 2 -19 30 -2 59 rrcurveto
+          0 0 rlineto
+          4 57 19 30 33 3 rrcurveto
+          endchar
+        </CharString>
+        <CharString name="uni10075">
+          126 11 177 rmoveto
+          101 0 rlineto
+          0 -6 rlineto
+          -53 -172 rlineto
+          -21 0 rlineto
+          52 157 rlineto
+          -56 0 rlineto
+          -6 1 -3 -3 -1 -6 rrcurveto
+          0 0 rlineto
+          -7 -22 rlineto
+          -6 0 rlineto
+          0 51 rlineto
+          endchar
+        </CharString>
+        <CharString name="uni10076">
+          126 15 -1 rmoveto
+          0 0 rlineto
+          -2 7 rlineto
+          43 15 25 25 7 35 rrcurveto
+          0 0 rlineto
+          -11 -11 -12 -6 -13 0 rrcurveto
+          0 0 rlineto
+          -27 3 -15 18 -2 33 rrcurveto
+          0 0 rlineto
+          1 41 17 21 33 1 rrcurveto
+          0 0 rlineto
+          35 -1 18 -25 1 -49 rrcurveto
+          0 0 rlineto
+          0 -59 -33 -36 -66 -12 rrcurveto
+          75 95 rmoveto
+          0 0 rlineto
+          2 53 -10 26 -22 -1 rrcurveto
+          0 0 rlineto
+          -19 0 -9 -16 0 -32 rrcurveto
+          0 0 rlineto
+          -1 -33 10 -16 21 1 rrcurveto
+          0 0 rlineto
+          11 1 9 6 8 11 rrcurveto
+          endchar
+        </CharString>
+        <CharString name="uni10077">
+          140 126 94 rmoveto
+          0 -17 rlineto
+          -113 0 rlineto
+          0 17 rlineto
+          113 0 rlineto
+          endchar
+        </CharString>
+        <CharString name="uni10078">
+          126 111 181 rmoveto
+          0 0 rlineto
+          0 -8 rlineto
+          -43 -12 -25 -25 -7 -39 rrcurveto
+          0 0 rlineto
+          10 9 11 5 12 0 rrcurveto
+          0 0 rlineto
+          29 -2 16 -18 2 -34 rrcurveto
+          0 0 rlineto
+          -3 -35 -18 -19 -33 -3 rrcurveto
+          0 0 rlineto
+          -35 1 -18 23 -1 45 rrcurveto
+          0 0 rlineto
+          5 63 34 37 63 12 rrcurveto
+          -50 -85 rmoveto
+          0 0 rlineto
+          -9 0 -9 -3 -9 -6 rrcurveto
+          0 0 rlineto
+          -1 -12 0 -9 1 -7 rrcurveto
+          0 0 rlineto
+          1 -36 10 -18 19 1 rrcurveto
+          0 0 rlineto
+          19 1 10 15 0 30 rrcurveto
+          0 0 rlineto
+          1 30 -11 15 -22 -1 rrcurveto
+          endchar
+        </CharString>
+        <CharString name="uni10079">
+          126 94 60 rmoveto
+          25 0 rlineto
+          0 -20 rlineto
+          -25 0 rlineto
+          0 -41 rlineto
+          -20 0 rlineto
+          0 41 rlineto
+          -70 0 rlineto
+          0 19 rlineto
+          78 122 rlineto
+          12 0 rlineto
+          0 -121 rlineto
+          -79 0 rmoveto
+          59 0 rlineto
+          0 92 rlineto
+          -59 -92 rlineto
+          endchar
+        </CharString>
+      </CharStrings>
+    </CFFFont>
+
+    <GlobalSubrs>
+      <!-- The 'index' attribute is only for humans; it is ignored when parsed. -->
+    </GlobalSubrs>
+  </CFF>
+
+  <hmtx>
+    <mtx name=".notdef" width="1024" lsb="0"/>
+    <mtx name="uni10070" width="126" lsb="0"/>
+    <mtx name="uni10071" width="126" lsb="0"/>
+    <mtx name="uni10072" width="126" lsb="0"/>
+    <mtx name="uni10073" width="126" lsb="0"/>
+    <mtx name="uni10074" width="126" lsb="0"/>
+    <mtx name="uni10075" width="126" lsb="0"/>
+    <mtx name="uni10076" width="126" lsb="0"/>
+    <mtx name="uni10077" width="140" lsb="0"/>
+    <mtx name="uni10078" width="126" lsb="0"/>
+    <mtx name="uni10079" width="126" lsb="0"/>
+  </hmtx>
+
+</ttFont>

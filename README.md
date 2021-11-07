@@ -9,7 +9,7 @@
 
 
 
-## 已完成的内容 - 目前进度估计 3%
+## 已完成的内容 - 目前进度估计 5%
 
 ## 案例  
 <table>
@@ -309,9 +309,9 @@
         <td>
             <a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/webdriver_downloader">Auto DL ChromeWebDriver</a>
         </td>
-            <td>
-                Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)
-            </td>
+        <td>
+            Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)
+        </td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/slother">slother</a></td>
@@ -329,9 +329,8 @@
 
 
 ## TODO  
-* 自动处理字体脚本  
 * 完成3DM登录的内容
 * 重构练习平台
 * 完善Babel插件
 
-2021年8月28日
+2021年11月7日

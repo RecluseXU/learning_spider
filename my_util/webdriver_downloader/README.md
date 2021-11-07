@@ -5,4 +5,7 @@
 3. 解压压缩包，得到webdriver，删除压缩包
 4. 尝试用刚下载的 webdriver 测试 Selenium 启动是否正常
 
-下载地址: http://chromedriver.storage.googleapis.com/index.html
+## 信息  
+根据电脑注册表下载 Chrome webdriver 的脚本  
+直接运行即可
+

@@ -307,15 +307,11 @@
     </tr>
     <tr>
         <td>
-            <a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/auto_dl_chrome_webdriver">Auto DL ChromeWebDriver</a>
+            <a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/webdriver_downloader">Auto DL ChromeWebDriver</a>
         </td>
             <td>
                 Windows中，自动下载 Selenium ChromeWebDriver 脚本<br>从注册表获知 Chrome 版本信息，从<a href="http://chromedriver.storage.googleapis.com/index.html">google</a>下载最符合版本的 Web Driver，使得 Selenium 能正常运行<br>(实际上更推荐在服务器上部署docker，拉取Selenium的Image，然后部署，远程调用的这种方式)
             </td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/webdriver_downloader">Auto DL ChromeWebDriver</a></td>
-        <td>下载 Chrome WebDriver 脚本<br>从 注册表/命令 获知 Chrome 版本信息, 下载最符合版本的 WebDriver</td>
     </tr>
     <tr>
         <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/slother">slother</a></td>
@@ -324,6 +320,10 @@
     <tr>
         <td><a href="https://evilrecluse.top/Babel-traverse-api-doc/#/">@Babel/traverse API document</a></td>
         <td>自行编写的 Babel/traverse API 文档与用例, 内容已经转移到另外的仓库<a href="https://evilrecluse.top/Babel-traverse-api-doc/#/"></a><br>由于Babel官方并没有给出 Babel/traverse 的文档，所以只能自行记录<br>内容根据源码内容自行理解/编写，可能存在错误，欢迎纠正</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/RecluseXU/learning_spider/tree/master/my_util/font_encryption_detective">Font Encryption Detective</a></td>
+        <td>基于OCR制作的解字体加密脚本</td>
     </tr>
 </table>
 

@@ -8,13 +8,16 @@
 
 
 class Sample:
+    def __init__(self):
+        print('__init__')
+
     def __enter__(self):
-        print('进入 __enter__')
+        print('__enter__')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print("进入 __exit__")
+        print("__exit__")
 
 
 with Sample() as sample:
-    print("实例: ", sample)
+    print("example", sample)

@@ -7,7 +7,6 @@
 '''
 
 
-
 def a(**kwargs):
     print(kwargs)
     print(type(kwargs))

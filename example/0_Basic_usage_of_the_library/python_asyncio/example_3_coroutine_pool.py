@@ -31,70 +31,53 @@ class AsyncPool(object):
         # nest_asyncio.apply()
 
         # 队列，先进先出，根据队列是否为空判断，退出协程
-        self.task = queue.Queue()
-
+        self.task_queue = queue.Queue()
         # 协程池
         self.loop, _ = self.start_loop(loop)
         # 限制并发量为500
         self.semaphore = asyncio.Semaphore(maxsize, loop=self.loop)
 
     def task_add(self, item=1):
-        """ 添加任务
-        :param item:
-        :return:
-        """
-        self.task.put(item)
+        """添加任务"""
+        self.task_queue.put(item)
 
     def task_done(self, fn):
-        """ 任务完成，回调函数
-        :param fn:
-        :return:
-        """
+        """任务完成，回调函数"""
         if fn:
             pass
-        self.task.get()
-        self.task.task_done()
+        self.task_queue.get()
+        self.task_queue.task_done()
 
     def wait(self):
-        """ 等待任务执行完毕
-        :return:
-        """
-        self.task.join()
+        """等待任务执行完毕"""
+        self.task_queue.join()
 
     @property
     def running(self):
         """ 获取当前线程数
         :return:
         """
-        return self.task.qsize()
+        return self.task_queue.qsize()
 
     @staticmethod
     def _start_thread_loop(loop):
-        """ 运行事件循环
-        :param loop: loop以参数的形式传递进来运行
-        :return:
-        """
+        """ 运行事件循环 """
         # 将当前上下文的事件循环设置为循环。
         asyncio.set_event_loop(loop)
         # 开始事件循环
         loop.run_forever()
 
     async def _stop_thread_loop(self, loop_time=1):
-        """ 停止协程，关闭线程
-        :return:
-        """
+        """ 停止协程，关闭线程 """
         while True:
-            if self.task.empty():
+            if self.task_queue.empty():
                 # 停止协程
                 self.loop.stop()
                 break
             await asyncio.sleep(loop_time)
 
     def start_loop(self, loop):
-        """ 运行事件循环,开启新线程
-        :param loop: 协程
-        :return:
-        """
+        """ 运行事件循环,开启新线程 """
         # 获取一个事件循环
         if not loop:
             loop = asyncio.new_event_loop()
@@ -137,12 +120,13 @@ class AsyncPool(object):
         :return:
         """
         self.task_add()
-
         # 将协程注册一个到运行在线程中的循环，thread_loop 会获得一个环任务
         # 注意：run_coroutine_threadsafe 这个方法只能用在运行在线程中的循环事件使用
         # future = asyncio.run_coroutine_threadsafe(func, self.loop)
-        future = asyncio.run_coroutine_threadsafe(self.async_semaphore_func(func), self.loop)
-
+        future = asyncio.run_coroutine_threadsafe(
+            self.async_semaphore_func(func),
+            self.loop,
+        )
         # 添加回调函数,添加顺序调用
         future.add_done_callback(callback)
         future.add_done_callback(self.task_done)
@@ -166,21 +150,17 @@ def my_callback(future):
 def main():
     # 任务组， 最大协程数
     pool = AsyncPool(maxsize=100)
-
     # 插入任务任务
     for i in range(100):
         pool.submit(thread_example(i), my_callback)
-
     print("等待子线程结束1...")
     # 停止事件循环
     pool.release()
-
     # 获取线程数
     # print(pool.running)
     print("等待子线程结束2...")
     # 等待
     pool.wait()
-
     print("等待子线程结束3...")
 
 

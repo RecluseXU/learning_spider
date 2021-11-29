@@ -16,6 +16,7 @@ text = '卡Q因: 接招吧DIO!!!半径30米的绿宝石溅射!!!'
 keyword_processor = KeywordProcessor()  # 默认大小写不敏感
 keyword_processor.add_keyword('绿宝石')
 keyword_processor.add_keyword('dio')
+keyword_processor.add_keyword('JOJO')
 result = keyword_processor.extract_keywords(text)
 print('字符串抽取', result)
 

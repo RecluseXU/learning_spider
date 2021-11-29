@@ -8,9 +8,12 @@
 
 # here put the import lib
 import ddddocr
+import os
+
 
 ocr = ddddocr.DdddOcr()
-img_path = 'example/0_Basic_usage_of_the_library/ocr_tools/img/1.jpg'
+img_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'img')
+img_path = os.path.join(img_dir, 'image.jpg')
 with open(img_path, 'rb') as f:
     img_bytes = f.read()
 

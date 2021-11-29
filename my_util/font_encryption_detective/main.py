@@ -64,6 +64,7 @@ if __name__ == "__main__":
     ]
     # 逐一解密
     for font_file_path in fonts_file_path:
+        print(f'-----------------------\n{font_file_path}\n---------------------')
         with open(font_file_path, 'rb') as frb:
             font_bytes = frb.read()
         decrypt_map = get_font_decrypt_map(font_bytes)

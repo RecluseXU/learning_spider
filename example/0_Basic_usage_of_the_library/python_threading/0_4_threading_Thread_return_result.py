@@ -17,17 +17,19 @@ class MyThread(threading.Thread):
         threading.Thread.__init__(self)
         self.func = func
         self.func_args = func_args
+
     def run(self):
         self._result = self.func(self.func_args)
+
     def result(self):
         return self._result
+
 
 def helloworld(args):
     for i in range(5):
         print('{} x {}'.format(args['word'], i))
         time.sleep(1)
     return 'OHHHHHHHHHHHHHH'
-
 
 
 if __name__ == '__main__':

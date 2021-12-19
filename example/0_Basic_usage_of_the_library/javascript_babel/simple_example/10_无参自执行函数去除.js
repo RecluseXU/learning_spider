@@ -1,10 +1,6 @@
-// 将那些声明字面量参数 作为变量写入到函数体内，以压缩代码
-// 形式:
-//   (function(a){})('a')
-//    变为
-//   (function(){var a='a'})()
+// 无参自执行函数去除
 
-var js_env = "E:/Software/Programming/Environment/Nodejs/node_global/node_modules/";
+var js_env = "D:/Program/Environment/Nodejs/nodejs/node_global/node_modules/";
 const t = require(js_env + "@babel/types");
 const parser = require(js_env + "@babel/parser");
 const traverse = require(js_env + "@babel/traverse").default;

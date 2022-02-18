@@ -22,7 +22,7 @@ app = Celery('tasks', backend=broker_uri, broker=broker_uri)
 
 @app.task
 def add(x: int, y: int) -> int:
-    """创建了一个名称为 add 的任务，返回的俩个数字的和"""
+    """创建了一个名称为 add 的任务,返回的俩个数字的和"""
     return x + y
 
 

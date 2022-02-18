@@ -4,6 +4,7 @@
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
 @Desc    :   创建 Task 让 Work处理, 并拿到返回的结果
+    注意, celery不能在windows上跑, 从非常久远的版本开始就不支持了
 '''
 
 # here put the import lib
@@ -20,10 +21,10 @@ async_result: AsyncResult = add.delay(3, 4)
 
 # 判断 Task 是否已经处理完毕, 能拿到结果了
 task_finish = async_result.ready()
-print(f'任务已完成：{task_finish}')
+print(f'任务已完成: {task_finish}')
 # 获取结果
 task_result = async_result.get(timeout=2)
-print(f'结果为：{task_result}')
+print(f'结果为: {task_result}')
 # 设置 timeout 参数用于设定限时, 如果时间到了还没拿到结果会抛 Exception
 # 设置 propagate=False 参数可以不抛出的错误,这样就不用捕获错误了
 # 如果 结果抛出了错误, 可以通过 result.traceback 来查看错误的信息

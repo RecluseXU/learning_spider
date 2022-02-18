@@ -64,6 +64,7 @@ app.get('/network_health', async (req, res) => {
 
 app.listen(8080);
 ~~~
+
 这段代码使用 Express 框架搭建了一个 API 接口，当你调用 http://127.0.0.1:8080/network_health 的时候, 后台会首先ping一下 Google，然后再使用curl访问 http://example.com  
 如果都成功了，那么显然你的网络是正常的，于是给你返回ok  
 
@@ -138,11 +139,9 @@ print('1 + 1 =', simple_add())
 将这个代码复制到 IDE 里, 它会显示出它原来的样貌，因为 IDE 会处理这个 **覆盖控制符**, 将之"还原"成"正确"的顺序    
 
 
-
 ## 参考  
 * [《Trojan Source: Invisible Vulnerabilities》](https://trojansource.codes/trojan-source.pdf)  
 * [Trojan 用例](https://github.com/nickboucher/trojan-source)  
 * [Trojan Source：新型供应链攻击？隐藏在源代码中的“幽灵”](https://zhuanlan.zhihu.com/p/429284303)  
 * [《漏洞之王：Unicode编译器漏洞威胁全球软件代码》](https://www.secrss.com/articles/35655)  
 * [《一日一技：亲眼所见，也非真实，如何明目张胆架设后门程序》](https://mp.weixin.qq.com/s/qvHv_MfYbk6P5AqVjogapA)  
-

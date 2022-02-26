@@ -3,6 +3,9 @@
 logging 是 python 的标准库  
 logging 实现了灵活的事件日志系统的函数与类  
 
+官方文档：https://docs.python.org/zh-cn/3/library/logging.html#module-logging  
+
+
 ## logging 四组件  
 
 ###  记录器 `Logger`  

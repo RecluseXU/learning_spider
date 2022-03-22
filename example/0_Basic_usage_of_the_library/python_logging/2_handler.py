@@ -13,7 +13,7 @@ https://docs.python.org/zh-cn/3/library/logging.handlers.html
   FileHandler 文件记录
   BaseRotatingHandler 标准的分割文件日志
   RotatingFileHandler 按文件大小记录日志
-  TimeRotatingFileHandler 按时间记录日志
+  TimedRotatingFileHandler 按时间记录日志
 '''
 
 # here put the import lib

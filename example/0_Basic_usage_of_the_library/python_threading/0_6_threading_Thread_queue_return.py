@@ -4,7 +4,7 @@
 @Time    :   2020-12-29
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   
+@Desc    :   多线程队列+结果返回
 '''
 
 # here put the import lib
@@ -18,17 +18,19 @@ class MyThread(threading.Thread):
         threading.Thread.__init__(self)
         self.func = func
         self.func_args = func_args
+
     def run(self):
         self._result = self.func(self.func_args)
+
     def result(self):
         return self._result
+
 
 def helloworld(args):
     while not q.empty():
         print('{} x {}'.format(args['word'], q.get()))
         time.sleep(1)
     return 'OHHHHHHHHHHHHHH'
-
 
 
 if __name__ == '__main__':
@@ -49,4 +51,3 @@ if __name__ == '__main__':
     # 输出结果
     for thread in threads:
         print(thread.result())
-    

@@ -11,6 +11,7 @@
 import threading
 import time
 import queue
+from typing import List
 
 
 def worker():
@@ -28,11 +29,10 @@ if __name__ == '__main__':
 
     # 创建三个线程，处理
     threadNum = 3
-    threads = []
+    threads: List[threading.Thread] = []
     for i in range(threadNum):
         thread = threading.Thread(target=worker)
         thread.start()
         threads.append(thread)
     for thread in threads:
         thread.join()
-    

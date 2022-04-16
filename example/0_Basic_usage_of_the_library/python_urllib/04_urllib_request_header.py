@@ -1,3 +1,10 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-01-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   header
+'''
 import urllib.request
 
 

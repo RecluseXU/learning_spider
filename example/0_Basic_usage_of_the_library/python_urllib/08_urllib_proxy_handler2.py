@@ -1,5 +1,13 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-01-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   proxy
+'''
 import urllib.request
 from fake_useragent import UserAgent
+
 
 def load_data():
     url = "https://www.baidu.com"
@@ -16,8 +24,8 @@ def load_data():
     proxy_money = "111.111.111.111:11111"
     # 创建密码管理器
     password_manager = urllib.request.HTTPPasswordMgrWithDefaultRealm()
-    # uri资源定位符 uri>url 
-    password_manager.add_password(None,proxy_money, user_name, password)
+    # uri资源定位符 uri>url
+    password_manager.add_password(None, proxy_money, user_name, password)
     # 创建可以验证代理ip的处理器
     handle_auth_proxy = urllib.request.ProxyBasicAuthHandler(password_manager)
     # 创建opener
@@ -28,11 +36,12 @@ def load_data():
     except Exception as exc:
         print(exc)
 
-    print(response,end="\n\n")
+    print(response, end="\n\n")
     str_data = response.read().decode("utf-8")
     print(str_data)
 
     return str_data
+
 
 data = load_data()
 if(data is not None):

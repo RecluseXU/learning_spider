@@ -1,10 +1,17 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-01-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   proxy
+'''
 import urllib.request
 
 
 def load_data():
     url = "https://www.baidu.com"
 
-    #   添加代理 
+    #   添加代理
     #       '协议' ：'ip:端口号'
     #       建议弄多几个，每一个单独的代理设置一定的访问间隔
     my_proxy = [

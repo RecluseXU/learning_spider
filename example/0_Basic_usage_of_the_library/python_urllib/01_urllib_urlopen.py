@@ -5,7 +5,7 @@
 @Time    :   2021-01-06
 @Author  :   EvilRecluse
 @Contact :   https://github.com/RecluseXU
-@Desc    :   urllib是python进行网络请求的库，有不少更方便的库对这个库进行了二次封装
+@Desc    :   urllib是python进行网络请求的库,有不少更方便的库对这个库进行了二次封装
 '''
 
 # here put the import lib

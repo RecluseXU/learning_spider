@@ -1,9 +1,14 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-01-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   cookies
+    代码登录,带着登录后得到的cookie去验证是否登录成功
+'''
 import urllib.request
 from fake_useragent import UserAgent
 from http import cookiejar
-'''
-    代码登录，带着登录后得到的cookie去验证是否登录成功
-'''
 
 
 def load_data():

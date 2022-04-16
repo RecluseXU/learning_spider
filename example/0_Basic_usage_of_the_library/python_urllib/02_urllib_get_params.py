@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@Time    :   2021-01-06
+@Author  :   EvilRecluse
+@Contact :   https://github.com/RecluseXU
+@Desc    :   get param
+'''
+# here put the import lib
+
 import urllib.request
 import urllib.parse
 import string

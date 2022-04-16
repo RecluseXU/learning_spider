@@ -21,7 +21,7 @@ with open(file_path, 'rb') as f:
 woff = TTFont(BytesIO(a))
 
 
-print('返回字体中可用的“最佳” unicode cmap词典，如果没有unicode cmap子表可用，则返回None')
+print('返回字体中可用的“最佳” unicode cmap词典,如果没有unicode cmap子表可用,则返回None')
 c = woff.getBestCmap()
 print(c)
 

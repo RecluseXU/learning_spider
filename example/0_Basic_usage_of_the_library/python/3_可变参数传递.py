@@ -7,14 +7,18 @@
 '''
 
 
-def a(**kwargs):
-    print(kwargs)
-    print(type(kwargs))
-    b(**kwargs)
-
-
-def b(name, word):
+def speak(name, word):
     print(name, word)
 
 
-a(name='Tom', word='OHHHHHHH')
+# 字典传参
+args = {
+    'name': 'Tom',
+    'word': 'OHHHHHHH',
+}
+speak(**args)
+
+
+# 列表传参
+args = ['Jerry', 'HAHAHA']
+speak(*args)

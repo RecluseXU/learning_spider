@@ -37,6 +37,9 @@ def cli():
 #   choices 为固定的字符串组, 填入的参数必须是 choices 中存在的字符串
 # click.IntRange(min=None, max=None, clamp=False)
 #   接受指定区间内的整数
+# click.DateTime(formats)
+#   接收 datetime.datetime 日期参数
+#   formats List[str] 接收的日期格式, 默认为 ['%Y-%m-%d', '%Y-%m-%dT%H:%M:%S', '%Y-%m-%d %H:%M:%S']
 
 
 @cli.command()
@@ -48,6 +51,16 @@ def hello(count):
     """
     for _ in range(count):
         click.echo('Hello!')
+
+
+@cli.command()
+@click.option('--date', type=click.DateTime(['%Y-%m-%d', '%Y%m%d']))
+def date_type(date):
+    """指定 选项的参数类型
+    python 3_option_type.py date-type --date=20230518
+    python 3_option_type.py date-type --date=2023-05-18
+    """
+    click.echo(type(date))
 
 
 # 自定义类型

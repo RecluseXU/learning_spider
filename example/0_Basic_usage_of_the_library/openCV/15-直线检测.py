@@ -7,6 +7,7 @@
 '''
 
 # here put the import lib
+import os
 import cv2 as cv
 import numpy as np
 
@@ -52,10 +53,10 @@ def line_detect_possible_demo(image):  # 相对于上面的那个，这个更好
     cv.imshow('line_detect_possible_demo', image)
 
 
-src = cv.imread(
-    'example/0_Basic_usage_of_the_library/openCV/picture/girl2.jpg')
+base_path = os.path.dirname(__file__)
+input_img_path = os.path.join(base_path, 'picture/girl2.jpg')
+src = cv.imread(input_img_path)
 cv.imshow('src', src)
-
 
 line_detection(src.copy())
 line_detect_possible_demo(src.copy())
